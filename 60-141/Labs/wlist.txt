@@ -1,0 +1,10 @@
+cat 3
+fox 3
+hat 3
+in 2
+jumped 6
+lazy 4
+over 4
+the 3
+the 3
+the 3

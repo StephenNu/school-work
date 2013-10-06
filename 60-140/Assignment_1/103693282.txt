@@ -1,0 +1,194 @@
+Begin
+
+main module
+{
+Input data variables are: Real numbers;  truck1_water_amount, truck1_cereal_amount, truck1_Tshirt_amount, truck1_soap_amount, truck2_water_amount, truck2_cereal_amount, truck2_Tshirt_amount, truck2_soap_amount, truck3_water_amount, truck3_cereal_amount, truck3_Tshirt_amount, truck3_soap_amount;
+							truck1_water_count, truck1_cereal_cost, truck1_Tshirt_cost, truck1_soap_cost, truck2_water_cost, truck2_cereal_cost, truck2_Tshirt_cost, truck2_soap_cost, truck3_water_cost, truck3_cereal_cost, truck3_Tshirt_cost, truck3_soap_cost;
+	
+
+Output data variable are: Real numbers; truck1_cost, truck2_cost, truck3_cost, total_cost, truck1_weight, truck2_weight, truck3_weight, total_weight
+
+Initialize cells for totals, and transient variables; truck1_cost = 0.0, truck2_cost = 0.0, truck3_cost = 0.0, total_cost = 0.0, truck1_weight = 0.0, truck2_weight = 0.0, truck3_weight = 0.0, total_weight = 0.0,
+							 truck1_water_amount = 0.0, truck1_cereal_amount = 0.0, truck1_Tshirt_amount = 0.0, truck1_soap_amount = 0.0, truck2_water_amount = 0.0, truck2_cereal_amount = 0.0, truck2_Tshirt_amount = 0.0, truck2_soap_amount = 0.0, truck3_water_amount = 0.0, truck3_cereal_amount = 0.0, truck3_Tshirt_amount = 0.0, truck3_soap_amount,
+							truck1_water_count = 0.0, truck1_cereal_cost = 0.0, truck1_Tshirt_cost = 0.0, truck1_soap_cost = 0.0, truck2_water_cost = 0.0, truck2_cereal_cost = 0.0, truck2_Tshirt_cost = 0.0, truck2_soap_cost = 0.0, truck3_water_cost = 0.0, truck3_cereal_cost = 0.0, truck3_Tshirt_cost = 0.0, truck3_soap_cost.
+	
+and constants real numbers; water_weight = 150.0, cereal_weight = 5.0, Tshirt_weight = 4.0, soap_weight = 3.0, HST = 1.13.
+
+
+------------------------------------------------------------------------------------------------
+
+Step one: Prompt for number of bottled water cases aboard truck 1.
+
+Step two: Read and store input into truck1_water_count.
+
+Step three: Prompt for the cost per case of water without HST.
+
+Step four: Read and store the input into truck1_water_cost
+
+Step five: truck1_cost = (truck1_water_count * truck1_water_cost) * HST.
+
+Step six: truck1_weight = (truck1_water_count*water_weight)
+
+Step seven: prompt for the number of cereal boxes aboard truck 1.
+
+Step eight: read and store input into truck1_water_count.
+
+Step nine: prompt for cost per box of cereal without HST.
+
+Step ten: read and store the input into truck1_water_cost.
+
+Step eleven: truck1_cost = truck1_cost + ((truck1_water_count * truck1_water_cost) + HST).
+
+Step twelve: truck1_weight = truck1_weight + (truck1_water_count*cereal_weight).
+
+Step thirteen: prompt for number of T-shirts aboard truck 1.
+
+Step fourteen: read and store input into truck1_water_count.
+
+Step fifteen: prompt for the cost per shirt without HST.
+
+Step sixteen: read and store the input into truck1_water_cost.
+
+Step seventeen: truck1_cost = truck1_cost + ((truck1_water_count * truck1_water_cost) + HST).
+
+Step eighteen: truck1_weight = truck1_weight + (truck1_water_count * Tshirt_weight).
+
+Step nineteen: prompt for number of dozen units of soap on truck 1.
+
+Step twenty: read and store input into truck1_water_count.
+
+Step twenty-one: prompt for the cost per dozon soaps without HST.
+
+Step twenty-two: read and store input into truck1_water_cost.
+
+Step twenty-three: truck1_cost = truck1_cost + ((truck1_water_count * truck1_water_cost) + HST).
+
+Step twenty-four: truck1_weight = truck1_weight + (truck1_water_count * soap_weight).
+
+----------------------------------------------------------------------------------
+
+Step twenty-five: Prompt for number of bottled water cases aboard truck 2.
+
+Step twenty-six: Read and store input into truck2_water_count.
+
+Step twenty-seven: Prompt for the cost per case of water without HST.
+
+Step twenty-eight: Read and store the input into truck2_water_cost
+
+Step twenty-nine: truck2_cost = (truck2_water_count * truck2_water_cost) * HST
+
+Step thirty: truck2_weight = (truck2_water_count*water_weight)
+
+Step thirty-one: prompt for the number of cereal boxes aboard truck 2.
+
+Step thirty-two: read and store input into truck2_water_count.
+
+Step thirty-three: prompt for cost per box of cereal without HST.
+
+Step thirty-four: read and store the input into truck2_water_cost.
+
+Step thirty-five: truck2_cost = truck2_cost + ((truck2_water_count * truck2_water_cost) * HST).
+
+Step thirty-six: truck2_weight = truck2_weight + (truck2_water_count*cereal_weight).
+
+Step thirty-seven: prompt for number of T-shirts aboard truck 2.
+
+Step thirty-eight: read and store input into truck2_water_count.
+
+Step thirty-nine: prompt for the cost per shirt without HST.
+
+Step fourty: read and store the input into truck2_water_cost.
+
+Step fourty-one: truck2_cost = truck2_cost + ((truck2_water_count * truck2_water_cost) * HST).
+
+Step fourty-two: truck2_weight = truck2_weight + (truck2_water_count * Tshirt_weight).
+
+Step fourty-three: prompt for number of dozen units of soap on truck 2.
+
+Step fourty-four: read and store input into truck2_water_count.
+
+Step fourty-five: prompt for the cost per dozon soaps without HST.
+
+Step fourty-six: read and store input into truck2_water_cost.
+
+Step fourty-seven: truck2_cost = truck2_cost + ((truck2_water_count * truck2_water_cost) * HST).
+
+Step fourty-eight: truck2_weight = truck2_weight + (truck2_water_count * soap_weight).
+
+-------------------------------------------------------------------------------
+
+Step fourty-nine: Prompt for number of bottled water cases aboard truck 3.
+
+Step fifty: Read and store input into truck3_water_count.
+
+Step fifty-one: Prompt for the cost per case of water without HST.
+
+Step fifty-two: Read and store the input into truck3_water_cost
+
+Step fifty-three: truck3_cost = (truck3_water_count * truck3_water_cost) * HST
+
+Step fifty-four: truck3_weight = (truck3_water_count*water_weight)
+
+Step fifty-five: prompt for the number of cereal boxes aboard truck 3.
+
+Step fifty-six: read and store input into truck3_water_count.
+
+Step fifty-seven: prompt for cost per box of cereal without HST.
+
+Step fifty-eight: read and store the input into truck3_water_cost.
+
+Step fifty-nine: truck3_cost = truck3_cost + ((truck3_water_count * truck3_water_cost) * HST).
+
+Step sixty: truck3_weight = truck3_weight + (truck3_water_count*cereal_weight).
+
+Step sixty-one: prompt for number of T-shirts aboard truck 3.
+
+Step sixty-two: read and store input into truck3_water_count.
+
+Step sixty-three: prompt for the cost per shirt without HST.
+
+Step sixty-four: read and store the input into truck3_water_cost.
+
+Step sixty-five: truck3_cost = truck3_cost + ((truck3_water_count * truck3_water_cost) * HST).
+
+Step sixty-six: truck3_weight = truck3_weight + (truck3_water_count * Tshirt_weight).
+
+Step sixty-seven: prompt for number of dozen units of soap on truck 3.
+
+Step sixty-eight: read and store input into truck3_water_count.
+
+Step sixty-nine: prompt for the cost per dozon soaps without HST.
+
+Step seventy: read and store input into truck3_water_cost.
+
+Step seventy-one: truck3_cost = truck3_cost + ((truck3_water_count * truck3_water_cost) * HST).
+
+Step seventy-two: truck3_weight = truck3_weight + (truck3_water_count * soap_weight).
+
+--------------------------------------------------------------------------------
+
+Step seventy-three: total_cost = truck1_cost + truck2_cost + truck3_cost.
+
+Step seventy-four: total_weight = truck1_weight + truck2_weight + truck3_weight.
+
+---------------------------------------------------------------------------------
+
+Step seventy-five: print out total of goods in truck 1 with HST by using truck1_cost.
+
+Step seventy-six: print out total of goods in truck 2 with HST by using truck2_cost.
+
+Step seventy-seven: print out total of goods in truck 3 with HST by using truck3_cost.
+
+Step seventy-eight: print out total cost of goods in all three trucks with HST by using total_cost.
+
+Step seventy-nine: print out total weight of truck 1 by using truck1_weight.
+
+Step eighty: print out total weight of truck 2 by using truck2_weight.
+
+Step eighty-one: print out total weight of truck 3 by using truck3_weight.
+
+Step eighty-two: print out total weight of all the trucks by using total_weight.
+
+---------------------------------------------------------------------------------
+}
+End

@@ -1,0 +1,224 @@
+Script started on Thu Oct 20 10:10:14 2011
+nuskos@sol:~/140/Assignment_2$ cat 103693282_asn2.txt
+i.  Problem Definition: With the input of the length and width for both the grass covered yard, and the house. Then calculate how many square feet, 
+and square Meters for both house and yard and grass covered area of the yard, and with a rate of 2 square feet per second calculate the time required.
+ 
+---------------------------------------------------------------------------------------------------------------------------------------------------- 
+ 
+ii.                 Identify all input, output data and their type as well as relationships between input and output data in equations:
+
+Input data are:
+Real Numbers;
+length_yardft, width_yardft, length_houseft, width_houseft
+ 
+Output data are:
+Integers;
+hours, minutes, seconds,
+yard_squareft, yard_square_meter, house_squareft, house_square_meter, grass_yard_squareft, grass_yard_square_meter, yard_perimeterft, yard_perimeter_meter, house_perimeterft, house_perimeter_meter
+
+Transitent data are,
+Real Numbers;
+length_yard_meter, width_yard_meter, length_house_meter, width_house_meter.
+grass, full_time_seconds.
+
+Constant data,
+Real numbers;
+mow_speed = 2, meter_convert = .3048.
+
+Equations that link output data variables on the left hand side with input data variables on the right hand side in the correct logical order they will work are:
+
+yard_squareft = length_yardft * width_yardft.
+house_squareft = length_houstft * width_houstft.
+length_yard_meter = length_yardft * meter_convert.
+width_yard_meter = width_yardft * meter_convert.
+yard_sqaure_meter = width_yard_meter * length_yard_meter.
+length_house_meter = length_houseft * meter_convert.
+width_house_meter = width_houseft * meter_convert.
+house_sqaure_meter = width_house_meter * length_house_meter.
+grass_yard_squareft = yard_squareft - house_squareft.
+grass_yard_square_meter = yard_square_meter - house_square_meter.
+yard_perimeterft = 2 * (length_yardft + width_yardft).
+yard_perimeter_meter = 2 * (length_yard_meter + width_yard_meter).
+house_perimeterft = 2 * (length_houseft + width_houseft).
+house_perimeter_meter = 2 * (length_house_meter + width_house_meter).
+full_time_seconds = grass_yard_squareft / 2.
+hours = full_time_seconds / (60 * 60);
+full_time_seconds -= hours * (60 * 60);
+minutes = full_time_seconds / 60;
+
+-------------------------------------------------------------------------------------------------------------------------------------------------------
+ 
+iii.                  No need to break the problem solution into smaller modules now.
+
+------------------------------------------------------------------------------------------------------------------------------------------------------
+
+iv.                 Write the algorithmic solution using the template for an algorithm similar to the formal algorithmic structure in Figure 3.1 of text book. Use the following template now.
+
+-----------------------------------------------------------------------------------------------------------------------------------------------------
+ 
+Begin
+main module
+{
+   Input data are:
+		Real Numbers;
+		length_yardft, width_yardft, length_houseft, width_houseft.
+		 
+	Output data are:
+		Integers;
+		hours, minutes, seconds,
+		Real Numbers;
+		yard_squareft, yard_square_meter, house_squareft, house_square_meter, grass_yard_squareft, grass_yard_square_meter, yard_perimeterft, yard_perimeter_meter, house_perimeterft, house_perimeter_meter.
+
+	Transitent data are,
+		Real Numbers;
+		length_yard_meter, width_yard_meter, length_house_meter, width_house_meter.
+		grass, full_time_seconds.
+
+	Constant data,
+		Real numbers;
+		mow_speed = 2, meter_convert = .3048.
+ 
+	Prompt for length of the yard in feet.
+	Scan in the length of the yard into length_yardft.
+	Prompt for width of the yard in feet.
+	Scan in the width of the yard into width_yardft.
+	Prompt for length of the house in feet.
+	Scan in the length of the house into length_houseft.
+	Prompt for width of the house in feet.
+	Scan in the width of the house into width_houseft.
+
+	yard_squareft = length_yardft * width_yardft.
+	house_squareft = length_houstft * width_houstft.
+	length_yard_meter = length_yardft * meter_convert.
+	width_yard_meter = width_yardft * meter_convert.
+	yard_sqaure_meter = width_yard_meter * length_yard_meter.
+	length_house_meter = length_houseft * meter_convert.
+	width_house_meter = width_houseft * meter_convert.
+	house_sqaure_meter = width_house_meter * length_house_meter.
+	grass_yard_squareft = yard_squareft - house_squareft.
+	grass_yard_square_meter = yard_square_meter - house_square_meter.
+	yard_perimeterft = 2 * (length_yardft + width_yardft).
+	yard_perimeter_meter = 2 * (length_yard_meter + width_yard_meter).
+	house_perimeterft = 2 * (length_houseft + width_houseft).
+	house_perimeter_meter = 2 * (length_house_meter + width_house_meter).
+	full_time_seconds = grass_yard_squareft / 2.
+	hours = full_time_seconds / (60 * 60);
+	full_time_seconds -= hours * (60 * 60);
+	minutes = full_time_seconds / 60;
+	seconds = full_time_seconds - (minutes * 60).
+	
+	Print ("The time required to cut the grass in the yard is:" hours "hours" minutes "minutes" seconds "seconds.")
+	Print "The area of the yard in square feet is: " yard_squareft "sq. ft."
+	Print "The area of the yard in square meters us: " yard_square_meter "sq. meter."
+	Print "The area of the house in square feet is: " house_squareft "sq. ft."
+	Print "The area of the house in square meters us: " house_square_meter "sq. meter."
+	Print "The area of the grass area in square feet is: " grass_yard_squareft "sq. ft."
+	Print "The area of the grass area in square meters us: " grass_yard_square_meter "sq. meter."
+	Print "The perimeter of the yard in feet is: " yard_perimeterft " ft."
+	Print "The perimeter of the yard in meter is: " yard_perimeter_meter " meter."
+	Print "The perimeter of the house in feet is: " house_perimeterft " ft."
+	Print "The perimeter of the house in meter is: " house_perimeter_meter " meter."
+	Print "Thank you for using our property evaluation software !!."
+	Print "Have a great day."
+}
+Endnuskos@sol:~/140/Assignment_2$ cat 103693282_asn2.c
+#include <stdio.h>
+
+int main(void)
+{
+	// Input data are:
+	float length_yardft = 0.0, width_yardft = 0.0, length_houseft = 0.0, width_houseft = 0.0;
+		 
+	// Output data are:
+	int hours = 0, minutes = 0, seconds = 0;
+	float yard_squareft = 0.0, yard_square_meter = 0.0, house_squareft = 0.0, house_square_meter = 0.0, grass_yard_squareft = 0.0, grass_yard_square_meter = 0.0, yard_perimeterft = 0.0, yard_perimeter_meter = 0.0, house_perimeterft = 0.0, house_perimeter_meter = 0.0;
+
+	// Transitent data are = 0.0,
+	float length_yard_meter = 0.0, width_yard_meter = 0.0, length_house_meter = 0.0, width_house_meter = 0.0;
+	int full_time_seconds = 0;
+
+	// Constant data,
+	float mow_speed = 2.0, meter_convert = 0.3048;
+ 
+	// Prompt for required input.
+	printf("What is the length of the rectangular yard in feet?\n");
+	scanf("%f", &length_yardft);
+	printf("What is the width of the rectangular yard in feet?\n");
+	scanf("%f", &width_yardft);
+	printf("Please scan in the length of the rectangular house in feet:\n");
+	scanf("%f", &length_houseft);
+	printf("Please scan in the width of the rectangular house in feet:\n");
+	scanf("%f", &width_houseft);
+
+	// Run equations on the input data.
+	yard_squareft = length_yardft * width_yardft;
+	house_squareft = length_houseft * width_houseft;
+	length_yard_meter = length_yardft * meter_convert;
+	width_yard_meter = width_yardft * meter_convert;
+	yard_square_meter = width_yard_meter * length_yard_meter;
+	length_house_meter = length_houseft * meter_convert;
+	width_house_meter = width_houseft * meter_convert;
+	house_square_meter = width_house_meter * length_house_meter;
+	grass_yard_squareft = yard_squareft - house_squareft;
+	grass_yard_square_meter = yard_square_meter - house_square_meter;
+	yard_perimeterft = 2 * (length_yardft + width_yardft);
+	yard_perimeter_meter = 2 * (length_yard_meter + width_yard_meter);
+	house_perimeterft = 2 * (length_houseft + width_houseft);
+	house_perimeter_meter = 2 * (length_house_meter + width_house_meter);
+	full_time_seconds = grass_yard_squareft / mow_speed;
+	hours = full_time_seconds / (60 * 60);
+	minutes = (full_time_seconds % (60 * 60)) / 60;
+	seconds = (full_time_seconds % (60 * 60)) % 60;
+	
+	// Print out results.
+	printf("\nThe time required to cut the grass in the yard is: %d hours %d minutes %d seconds\n", hours, minutes, seconds);
+	printf("The area of the yard in square feet is: %0.2f sq. ft.\n", yard_squareft);
+	printf("The area of the yard in square meters us: %0.2f sq. meter.\n", yard_square_meter);
+	printf("The area of the house in square feet is: %0.2f sq. ft.\n", house_squareft);
+	printf("The area of the house in square meters us: %0.2f sq. meter.\n", house_square_meter);
+	printf("The area of the grass area in square feet is: %0.2f sq. ft.\n", grass_yard_squareft);
+	printf("The area of the grass area in square meters us: %0.2f sq. meter.\n", grass_yard_square_meter);
+	
+	printf("\nThe perimeter of the yard in feet is: %0.2f ft.\n", yard_perimeterft);
+	printf("The perimeter of the yard in meter is: %0.2f meter.\n", yard_perimeter_meter);
+	printf("The perimeter of the house in feet is: %0.2f ft.\n", house_perimeterft);
+	printf("The perimeter of the house in meter is: %0.2f meter.\n", house_perimeter_meter);
+	
+	printf("\nThank you for using our property evaluation software !!.\n");
+	printf("Have a great day.\n");
+	
+	// Finish program.
+	return 0;
+}
+
+
+nuskos@sol:~/140/Assignment_2$ cc 103693282_asn2.c
+nuskos@sol:~/140/Assignment_2$ a.out
+What is the length of the rectangular yard in feet?
+200.00
+What is the width of the rectangular yard in feet?
+100.00
+Please scan in the length of the rectangular house in feet:
+180.00
+Please scan in the width of the rectangular house in feet:
+80.00
+
+The time required to cut the grass in the yard is: 0 hours 46 minutes 40 seconds
+The area of the yard in square feet is: 20000.00 sq. ft.
+The area of the yard in square meters us: 1858.06 sq. meter.
+The area of the house in square feet is: 14400.00 sq. ft.
+The area of the house in square meters us: 1337.80 sq. meter.
+The area of the grass area in square feet is: 5600.00 sq. ft.
+The area of the grass area in square meters us: 520.26 sq. meter.
+
+The perimeter of the yard in feet is: 600.00 ft.
+The perimeter of the yard in meter is: 182.88 meter.
+The perimeter of the house in feet is: 520.00 ft.
+The perimeter of the house in meter is: 158.50 meter.
+
+Thank you for using our property evaluation software !!.
+Have a great day.
+nuskos@sol:~/140/Assignment_2$ exit
+exit
+
+script done on Thu Oct 20 10:11:14 2011

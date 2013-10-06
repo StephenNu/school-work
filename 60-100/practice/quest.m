@@ -1,0 +1,9 @@
+g n m [] = []
+g n m [x] = [n]
+g n 0 xs = [n]
+g n m (x:xs) = g n (m -1 ) (n++xs) ++ g ("abc":n) (m  ) xs
+h n [] = [9], if n < 0
+h n [x] = [n]
+h n (x:xs) = h (n-1) xs ++ h (n-2) [x]
+p6 1 = [1]
+p6 n = (p6 n-1):n:[]

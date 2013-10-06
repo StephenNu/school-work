@@ -1,0 +1,1 @@
+alias hi = echo hi

@@ -1,0 +1,9 @@
+Script started on Mon Apr  1 19:34:08 2013
+POOP~$ g++ bonus256.cpp 
+POOP~$ ./a.out 
+left: 4 6 5
+right: 9 16 10 12 13
+POOP~$ exit
+exit
+
+Script done on Mon Apr  1 19:34:29 2013

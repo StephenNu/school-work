@@ -1,0 +1,13 @@
+Algorithm insertion(a, b, S)
+input a to be the first element, b to be last element
+Output S = sorted list
+
+for i <- 1 to i = b do
+	for k <- i to k > a do
+		if (k <= k-1) then
+			let temp = k
+			let k = k-1
+			let k-1 = temp			
+		else
+			break
+return S

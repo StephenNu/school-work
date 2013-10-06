@@ -1,0 +1,53 @@
+heapSort(H)
+input H is a heap
+output the internal array in H will be sorted in increasing order.
+while size > 0
+	H.removeMin()
+hi.reverse()
+
+upHeap(H)
+input H is a heap, with a new element out of possible order
+output the heap will be in correct heap order
+let parent = size/2 - 1
+let newElement = size-1
+while (parent >= 0)
+	if (H.get(parent) >= H.get(newElement))
+		swap(H.get(parent) >= H.get(newElement))
+		newElement = parent
+		parent = parent/2 - 1
+	else
+		finished
+
+
+downHeap(H)
+input H is a heap with possible incorrect heap order
+output H will be in correct heaporder
+	let root = 0
+	while (root * 2 + 1 < size)
+		let child = root * 2 + 1
+		if (child + 1 < size and H.get(child+1) < H.get(child)
+			child = child + 1
+		if (H.get(child) < H.get(root))
+			swap(H.get(child) < H.get(root))
+			root = child
+		else
+			finished
+
+
+insert(H, e)
+input H is a heap, e is the new element to be inserted.
+output e will be inserted in correct heap order.
+	H.set(size) = e
+	size = size + 1
+	H.upHeap()
+
+
+removeMin(H)
+input H is a heap
+output H will have its lowest element removed.
+	swap(H.get(0), H.get(size-1)
+	size = size -1
+	H.downHeap()
+	return H.get(size+1)
+
+

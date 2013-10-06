@@ -1,0 +1,22 @@
+Script started on Thu 24 Jan 2013 11:40:17 AM EST
+nuskos@bravo:~/254/assignment1$ g++ -I./ stacktest.cpp 
+nuskos@bravo:~/254/assignment1$ ./a.out
+please input a string to match
+(9*[3*{[(3+3)/5]*7}])
+valid
+nuskos@bravo:~/254/assignment1$ ./a.out
+please input a string to match
+{3*(2+[3-[4/[6/9]]]})
+not valid
+nuskos@bravo:~/254/assignment1$ ./a.out
+please input a string to match
+((3*(9-(4*(-65))))
+not valid
+nuskos@bravo:~/254/assignment1$ ./a.out
+please input a string to match
+{2-{3*{6/[[[(((9-0)))]]]}}/7}
+valid
+nuskos@bravo:~/254/assignment1$ exit
+exit
+
+Script done on Thu 24 Jan 2013 11:45:40 AM EST

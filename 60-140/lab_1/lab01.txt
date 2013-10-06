@@ -1,0 +1,33 @@
+Script started on Tue 20 Sep 2011 01:41:38 PM EDT
+nuskos@bravo:~/140$ cat Binaryconvert.c
+#include <stdio.h>
+#include <math.h>
+
+int main(void) 
+{
+	int num_d, num_b, decimalnum, quotient, remainder,power2;
+	printf("type the decimal number you want to convert to binary:\t");
+	scanf("%d", &num_d);
+	power2 = 0;
+	num_b = 0;
+	decimalnum = num_d;
+	step5: quotient = num_d/2;
+		remainder = num_d % 2;
+		num_b = num_b + (remainder * pow(10, power2));
+		if (quotient != 0) {
+			num_d = quotient;
+			power2 = power2 + 1;
+			goto step5;
+		}
+	printf("binary equivalent of %d is %d.\n", decimalnum, num_b);
+	return 0;
+}
+
+nuskos@bravo:~/140$ cat Bina[K[K[K[K[K[K[K[Kcc -lm Binaryconvert.c
+nuskos@bravo:~/140$ ./al[K.out
+type the decimal number you want to convert to binary:	15
+binary equivalent of 15 is 1111.
+nuskos@bravo:~/140$ exot[K[Kit
+exit
+
+Script done on Tue 20 Sep 2011 01:42:40 PM EDT

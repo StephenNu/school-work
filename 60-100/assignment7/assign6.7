@@ -1,0 +1,44 @@
+length_of_text = #text
+words_in_text = words text
+number_of_words_in_text = #words_in_text
+number_of_periods_in_text = #[x | x <- text; x = '.']
+number_of_letters_in_text = #[x | x <- text; ischar x]
+list_of_words_in_alphabetical_order = qsort words_in_text
+shortest_word_in_text = foldr (short) text words_in_text
+longest_word_in_text = foldr (long) [] words_in_text
+number_of_times_a_given_word_occurs_in_text key = #[x | x <- words_in_text; x = key]
+list_of_words_with_frequencies = mkset(map(makeTuple) list_of_words_in_alphabetical_order)
+short x y = x, if #x < #y
+          = y, otherwise
+long x y = x, if #x > #y
+         = y, otherwise
+qsort [] = []
+qsort (x:xs) = qsort [e | e <- xs; e < x] ++ [x] ++ qsort [e | e <- xs; e >= x]
+makeTuple x = (x, number_of_times_a_given_word_occurs_in_text x)
+
+||programs to help with Individual assignment #7 
+text = t1 ++ t2 ++ t3  
+t1 = "The fastest growing sector of the job market in Canada is " 
+t2 = "in Information   Technology. Other growth areas are in " 
+t3 = "Home Health Care provision, and in Medical Support." 
+uchars = "ABCDEFGHIJKLMNOPQRSTUVWXYZ" 
+lchars = "abcdefghijklmnopqrstuvwxyz" 
+chars = uchars ++ lchars 
+ischar c = member chars c 
+getword [] = [] 
+getword (c:cs)  
+   = c: getword cs, if ischar c 
+   = [], otherwise 
+removeword [] = [] 
+removeword (c:cs)  
+   = removeword cs, ischar c 
+   = c:cs, otherwise 
+remove_nonchars [] = [] 
+remove_nonchars (c:cs)  
+   = remove_nonchars cs, if ~(ischar c) 
+   = c:cs, otherwise 
+words [] = [] 
+words t   
+ = getword t:  
+    words  
+     ((remove_nonchars . removeword) t) 

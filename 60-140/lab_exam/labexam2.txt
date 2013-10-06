@@ -1,0 +1,78 @@
+Script started on Tue 22 Nov 2011 01:30:15 PM EST
+nuskos@bravo:~/140/lab_exam$ cat prog2.c
+#include <stdio.h>
+
+void findBigger(int[], int[]);
+void fillTwoArrays(int[], int[], int);
+
+int main(void)
+{
+	int size = 5, array1[size], array2[size];
+	fillTwoArrays(array1, array2, size);
+	findBigger(array1, array2);
+	return 0;
+}
+
+void fillTwoArrays(int array1[], int array2[], int size)
+{	
+	int i;
+	for (i = 0; i < size; i++)
+	{
+	printf("Please input the next array1 entry\n");
+	scanf("%d", &array1[i]);
+	printf("Please input the next array2 entry\n");
+	scanf("%d", &array2[i]);
+	}
+}
+
+void findBigger(int array1[], int array2[])
+{
+	int result[5], i;
+	printf("array1\tarray2  |\tBigger\n");
+	printf("________________|_______________________\n");
+	for (i = 0; i < 5; i++)
+	{
+		if (array1[i] < array2[i])
+		{
+			result[i] = array2[i];
+		}
+		else
+		{
+			result[i] = array1[i];
+		}
+		printf("%d\t%d \t|\t%d\n", array1[i], array2[i], result[i]);
+	}
+}
+nuskos@bravo:~/140/lab_exam$ cc prog2.c
+nuskos@bravo:~/140/lab_exam$ ./a.oui[Kt
+Please input the next array1 entry
+15
+Please input the next array2 entry
+10
+Please input the next array1 entry
+13
+Please input the next array2 entry
+9
+Please input the next array1 entry
+80
+Please input the next array2 entry
+100
+Please input the next array1 entry
+6 5
+Please input the next array2 entry
+6
+Please input the next array1 entry
+16
+Please input the next array2 entry
+15
+array1	array2  |	Bigger
+________________|_______________________
+15	10 	|	15
+13	9 	|	13
+80	100 	|	100
+5	6 	|	6
+16	15 	|	16
+nuskos@bravo:~/140/lab_exam$ exit
+exit
+
+Script done on Tue 22 Nov 2011 01:31:03 PM EST

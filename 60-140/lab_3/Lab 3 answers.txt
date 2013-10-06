@@ -1,0 +1,32 @@
+Question 1
+	by hand
+	
+	In main	    		a	b	c	x	y	z
+After 1st call to FindSum	2 	5	31	3	4	7
+After 2nd call to FindSum	2 	5	31 	3	4	31
+ 
+	In FindSum			a	b	*c
+	After 1st call to FindSum	12 	15	31
+	After 2nd call to FindSum	11	12	31
+
+	
+	Program:
+	in Findsum: 12 15 31
+	first call in main 2 5 31 3 4 7
+	in Findsum: 11 12 31
+	second call in main 2 5 31 3 4 31
+
+Question 2
+	a) The scope is the visibility of the variable. a gobal variable can be seen by any function but a local is invisibel to another function.
+	b) where the variable is declared gives it it scope.
+	c) it is easier to trace if everything in a function is not modified by other functions.
+	
+
+4.1 question 1
+a)	local variables are defined inside the method and global is defined and 	able to be seen by all methods.
+b)	function prototype shows the templete for the function parameters and name, and function definition is where the code resides.
+c)	a function definition is the coding of the function and a function call is when it is called in main, and will be run.
+d)	call-by-reference is when a pointer to the variable is passed, and call-by-value is a copy of the data.
+e)	cohesion allows functions to perform independentlly, and coupling allows passing of current data through parameters, etc
+f)	flowchart is an algorithm that shows how the program "flows" through the program, and a structure chart shows all the different method designs, and how the class is set up.
+g)	formal parameters are the names used inside the definition, and actual parameters are the parameters passed when the function is called.

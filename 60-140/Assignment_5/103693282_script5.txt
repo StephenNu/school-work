@@ -1,0 +1,590 @@
+Script started on Wed Nov 16 18:04:26 2011
+nuskos@sol:~/140/Assignment_5$ cat 103693282_asn5.txt
+{Hand Trace} import required libraries.
+| // Import the required libraries.
+| #include <stdio.h>
+| #include <math.h>
+|
+{Hand Trace} Define prototypes.
+| // Declare function prototypes.
+| int BinaryC(int);
+| void PrintNum(int, int);
+| int Complement1(int);
+|
+{Hand Trace} Start the program.
+| // Start the program to convert decimal numbers to binary numbers using 1s complement for negative numbers, only ending and printing a summery when the user inputs 'N'.
+| int main(void)
+| {
+{Hand Trace} Declare local variables.
+|	// Declare local main variables.
+|	char more_to_process = 'Y', junk = ' ';
+|	int readInput = 0, result = 0, sumPos = 0, sumNeg = 0, sum = 0, numPos = 0, numNeg = 0, num = 0;
+|
+{Hand Trace} while the varable more_to_process is equal to 'Y' the loop should process.	
+|	// Start the main while loop to check if the user wishes to continue.
+|	while (more_to_process == 'Y')
+|	{
+{Hand Trace} Print "Enter a number to be converted to binary."
+|		// Prompt for the user to input a number to be converted.
+|		printf("Enter a number to be converted to binary.\n");
+{Hand Trace} Scan a number into readInput. 
+		|-> first time: readInput = 2.
+		|-> second time: readInput = -2.
+|		// Scan the number into the variable readInput.
+|		scanf("%d", &readInput);
+{Hand Trace} If the inputted number readInpute is greater then zero.
+|		// If the input is a number greater then zero increment the positive sum, and positive num variables, and call the positive binary convert function.
+|		if (readInput >= 0)
+|		{
+{Hand Trace} Set the variable result equal to the result of BinaryC(2);
+		|-> result = 00000010.
+|			result = BinaryC(readInput);
+{Hand Trace} Increase numPos by one
+		|-> numPos = 1.
+|			numPos++;
+{Hand Trace} sumPos += the number inputted.
+	|-> sumPos += 2.
+|			sumPos += readInput;
+|		}
+{Hand Trace} If the input was less then then zero.
+|		// If the input is a number less then zero increment the negative sum, and negative num variables, and call the negative binary convert function.
+|		else
+|		{
+{Hand Trace} Set the variable result equal to the result of Complement1(-2).
+		|-> result = 11111101
+|			result = Complement1(readInput);
+{Hand Trace} Increase numNeg by one.
+		|-> numNeg = 1.
+|			numNeg++;
+{Hand Trace} Increase sumNeg by the number inputted.
+		|-> sumNeg = -2.
+|			sumNeg += readInput;
+|		}
+{Hand Trace} Increase num by one.
+|		// Increase num by one and sum by the number inputted.
+|		num++;			
+{Hand Trace} Increase sum by the number inputted
+		|-> sum += -2 = 0
+|		sum += readInput;
+{Hand Trace} Call PrintNum function to print the current number with the binary
+		|-> First time: PrintNum(2, 00000010)
+		|-> Second Time: PrintNum(-2, 11111101)
+|		// Call the PrintNum with the result of the previous decision.
+|		PrintNum(readInput, result);
+{Hand Trace} Print "Any more numbers to be converted?"
+{Hand Trace} Print "Please type Y to continue and N if you want to stop"
+|		// Prompt for user input regarding the continuation of the program.
+|		printf("Any more numbers to be converted?\n"); 
+|		printf("Please type Y to continue and N if you want to stop \n");
+{Hand Trace} Scan a char into junk to discard the end of line character or other characters.
+|		// Clear the junk from the char reader.
+|		scanf("%c", &junk);
+{Hand Trace} Scan the user inputted char into more_to_process.
+	|-> First Time: 'Y'
+	|-> Second time: 1) 'a' 2) 'N'
+|		// Scan in the input from the user.
+|		scanf("%c",&more_to_process); 
+{Hand Trace} while more_to_process != 'Y' and more_to_process != 'N' repeat the loop to ask for more input.
+|		// Well the user hasn't provided a correct input continue to ask.
+|		while ((more_to_process != 'Y') && (more_to_process != 'N')) 
+|		{ 
+{Hand Trace} Scan a char into junk to discard the end of line character or other characters.
+|			/* Discard the end of line character or other characters */
+{Hand Trace} Print "Please type Y to continue and N if you want to stop"
+|			printf("Please type Y to continue and N if you want to stop \n");
+|			scanf("%c", &junk);  
+{Hand Trace} Scan the user inputted char into more_to_process.
+|			scanf("%c",&more_to_process);	 
+|		}
+|	}
+{Hand Trace} Print numPos = 1 BinaryC(1) = 00000001
+|	/* Once the user is done inputing numbers. Print a summery of the amount of numbers, negative, positive, and total inputed,
+|	as well as the sum of negative, positive, and total along with the binary number for each. */
+{Hand Trace} Print numPos = 1, BinaryC(1) = 00000001
+|	printf("\nNumber of positive numbers processed = %d   and  %.8d in binary\n", numPos, BinaryC(numPos));
+{Hand Trace} Print numNeg = 1, BinaryC(1) = 00000001
+|	printf("Number of negative numbers processed = %d  and  %.8d in binary\n", numNeg, BinaryC(numNeg)); 
+{Hand Trace} Print num = 2, BinaryC(2) = 00000010.
+|	printf("Number of all numbers processed = %d and   %.8d  in binary\n", num, BinaryC(num));
+{Hand Trace} Print sumPos = 2, BinaryC(2) = 00000010.
+|	printf("Sum of positive numbers processed = %d and  %.8d   in binary\n", sumPos, BinaryC(sumPos)); 
+{Hand Trace} If sumNeg is greater then or equal to zero. (this is false)
+|	// If the sumNeg was never updated use the positive binary convert function.
+|	if (sumNeg >= 0)
+|	{
+|		printf("Sum of negative numbers processed = %d and %.8d in binary\n",sumNeg, BinaryC(sumNeg));
+|	}	
+{Hand Trace} else if sumNeg is less then zero (this is true)
+|	// If sumNeg was updated it should be a negative number so call the negative binary convert.
+|	else
+|	{
+{Hand Trace} Print sumNeg = -2, Complement1(-2) = 11111101.
+|		printf("Sum of negative numbers processed = %d and %.8d in binary\n",sumNeg, Complement1(sumNeg));
+|	}
+{Hand Trace} If sum is greater then or equal to zero. (this is true)
+|	// If the grand total sum is positive call the positive binary convert.
+|	if (sum >= 0)
+|	{
+{Hand Trace} print sum = 0, BinaryC(0) = 00000000
+|		printf("Sum of all numbers processed = %d and %.8d  in binary\n", sum, BinaryC(sum));
+|	}
+{Hand Trace} Else if sum is less then zero. (this is false)
+|	// If the grand total sum is negative call the negative binary convert.
+|	else
+|	{
+|		printf("Sum of all numbers processed = %d and %.8d  in binary\n", sum, Complement1(sum));
+|	}
+{Hand Trace} Print "Thank YOu for Using our Binary Conversion software !!!"
+|	// Print a thank you.
+|	printf("\nThank You for Using our Binary Conversion Software !!!\n");
+|	// End the program.
+{Hand Trace} End the main module.
+|	return 0;
+}
+
+
+{Hand Trace} Start the BinaryC function. The function is called twice, but both time the num_d variable is equal to 2 so only one full function trace is shown.
+| // The function BinaryC takes a positive decimal number and converts it to binary
+| int BinaryC(int num_d) 
+| {
+{Hand Trace} Declare local variables.
+|	// Declare function variables.
+|	int num_b, quotient, remainder,power2;
+|	// Set starting values.
+{Hand Trace} Set power2 = 0, and num_b = 0.
+|	power2 = 0;
+|	num_b = 0;
+{Hand Trace} do the following.
+|	// find the quotient and remainder adding the correct number to binary number variable and cicle through the number until the quotient does not equal 0.
+|	do 
+|	{
+{Hand Trace} Set quotient = the provided number divided by 2.
+		|-> 1) quotient = 2/2 = 1
+		|-> 2) quotient = 1/2 = 0
+|		quotient = num_d/2;
+{Hand Trace} Set remainder = the provided number modulus 2.
+		|-> 1) remainder = 2%2 = 0
+		|-> 2) remainder = 1%2 = 1
+|		remainder = num_d % 2;
+{Hand Trace} set num_b = num_b plus the remainder times 10 to the the variable power2 power.
+		|-> 1) num_b = 0 + (0 * 1) = 0
+		|-> 2) num_b = 0 + (1 * 10) = 10
+|		num_b = num_b + (remainder * pow(10, power2));
+{Hand Trace} Set num_d equal to the quotient
+		|-> 1) num_d = 1.
+		|-> 2) num_d = 0.
+|		num_d = quotient;
+{Hand Trace} Increase power by one.
+		|-> 1) power2 = 0 + 1 = 1
+		|-> 1) power2 = 1 + 1 = 2
+|		power2 = power2 + 1;
+{Hand Trace} while quotient is not equal to 0 repeat the lopp from do.
+		|-> 1) true
+		|-> 2) false
+|	} while (quotient != 0);
+|	// Return the finished binary number.
+{Hand Trace} Return num_b = 10, and end the function
+|	return num_b;
+}
+
+{Hand Trace} Start the printNum function the inputs were 2, and -2 the second time.
+| // The function PrintNum is used to print both the decimal number to be converted and the resulting binary number.
+| void PrintNum(int decimal, int binary)
+| {
+{Hand Trace} Print "Number Binary".
+|	printf("\nNumber	Binary\n");
+{Hand Trace} Print decimal and binary
+		|-> 1) 2, 00000010
+		|-> 2) -2, 11111101
+|	printf("%d	%.8d\n\n", decimal, binary);
+{Hand Trace} End the PrintNum function.
+}
+
+{Hand Trace} Start the Complement1 function, the input was -2.
+| // The function Complement1 takes a negative number switches it to positive to convert to binary, and then switches all zeros to 1s and all 1s to 0s in the bianry number.
+| int Complement1(int decimal)
+| {
+{Hand Trace} Declare local variables.
+|	// Declare and set starting values.
+|	int binary = 0, negBinary = 0, i;
+{Hand Trace} Set binary equal to the result of BinaryC(the inputted number times negative one)
+		|-> binary = BinaryC(-2*-1).
+|	// Switch the inputted negative number to positive and call the BinaryC function.
+|	binary = BinaryC((decimal*-1));
+{Hand Trace} Set i = 1, and while the variable negBinary is less then the variable binary, or i is less then 11111111 continue and increase i by i times 10.
+		|-> 1) i = 1; 0 < 10 || 1 < 11111111; i = 1 * 10)
+		|-> 2) i = 10; 1 < 10 || 10 < 11111111; i = 10 * 10)
+		|-> 3) i = 100; 1 < 10 || 100 < 11111111; i = 100 * 10)
+		|-> 4) i = 1000; 101 < 10 || 1000 < 11111111; i = 1000 * 10)
+		|-> 5) i = 10000; 1101 < 10 || 10000 < 11111111; i = 10000 * 10)
+		|-> 6) i = 100000; 11101 < 10 || 100000 < 11111111; i = 100000 * 10)
+		|-> 7) i = 1000000; 111101 < 10 || 1000000 < 11111111; i = 1000000 * 10)
+		|-> 8) i = 10000000; 1111101 < 10 || 10000000 < 11111111; i = 10000000 * 10)
+|	// While the fullsize variable is not the full size of the binary number or is not the full 8 bits a binary number should be continue to add a 1 to each increasing digit space.
+|	for (i = 1; negBinary < binary || i < 11111111; i *= 10)
+|	{
+{Hand Trace} If binary modulus 2 is equal to zero.
+		|-> 1) true
+		|-> 2) false
+		|-> 3) true
+		|-> 4) true
+		|-> 5) true
+		|-> 6) true
+		|-> 7) true
+		|-> 8) true
+|		if (binary % 2 == 0)
+|		{
+{Hand Trace} negBinary is equal to negBinary + i times 1.
+		|-> 1) negBinary = 0 + 1*1 = 1
+		|-> 3) negBinary = 1 + 100*1 = 101
+		|-> 4) negBinary = 101 + 1000*1 = 1101
+		|-> 5) negBinary = 1101 + 10000*1 = 11101
+		|-> 6) negBinary = 11101 + 100000*1 = 111101
+		|-> 7) negBinary = 111101 + 1000000*1 = 1111101
+		|-> 8) negBinary = 1111101 + 10000000*1 = 11111101
+|			negBinary += i*1;
+|		}
+{Hand Trace} Decrease binary by 10%
+|		binary *= .10;
+|	}
+|	// Return the number inputted in 1s complement.
+{Hand Trace} return 11111101, and end the function.
+|	return negBinary;
+}nuskos@sol:~/140/Assignment_5$ cat 103693282_asn5.c
+// Import the required libraries.
+#include <stdio.h>
+#include <math.h>
+
+// Declare function prototypes.
+int BinaryC(int);
+void PrintNum(int, int);
+int Complement1(int);
+
+// Start the program to convert decimal numbers to binary numbers using 1s complement for negative numbers, only ending and printing a summery when the user inputs 'N'.
+int main(void)
+{
+	// Declare local main variables.
+	char more_to_process = 'Y', junk = ' ';
+	int readInput = 0, result = 0, sumPos = 0, sumNeg = 0, sum = 0, numPos = 0, numNeg = 0, num = 0;
+	
+	// Start the main while loop to check if the user wishes to continue.
+	while (more_to_process == 'Y')
+	{
+		// Prompt for the user to input a number to be converted.
+		printf("Enter a number to be converted to binary.\n");
+		// Scan the number into the variable readInput.
+		scanf("%d", &readInput);
+		// If the input is a number greater then zero increment the positive sum, and positive num variables, and call the positive binary convert function.
+		if (readInput >= 0)
+		{
+			result = BinaryC(readInput);
+			numPos++;
+			sumPos += readInput;
+		}
+		// If the input is a number less then zero increment the negative sum, and negative num variables, and call the negative binary convert function.
+		else
+		{
+			result = Complement1(readInput);
+			numNeg++;
+			sumNeg += readInput;
+		}
+		// Increase num by one and sum by the number inputted.
+		num++;			
+		sum += readInput;
+		// Call the PrintNum with the result of the previous decision.
+		PrintNum(readInput, result);
+		// Prompt for user input regarding the continuation of the program.
+		printf("Any more numbers to be converted?\n"); 
+		printf("Please type Y to continue and N if you want to stop \n");
+		// Clear the junk from the char reader.
+		scanf("%c", &junk);
+		// Scan in the input from the user.
+		scanf("%c",&more_to_process); 
+		// Well the user hasn't provided a correct input continue to ask.
+		while ((more_to_process != 'Y') && (more_to_process != 'N')) 
+		{ 
+			/* Discard the end of line character or other characters */
+			printf("Please type Y to continue and N if you want to stop \n");
+			scanf("%c", &junk);  
+			scanf("%c",&more_to_process);	 
+		}
+	}
+	/* Once the user is done inputing numbers. Print a summery of the amount of numbers, negative, positive, and total inputed,
+	as well as the sum of negative, positive, and total along with the binary number for each. */
+	printf("\nNumber of positive numbers processed = %d   and  %.8d in binary\n", numPos, BinaryC(numPos));
+	printf("Number of negative numbers processed = %d  and  %.8d in binary\n", numNeg, BinaryC(numNeg)); 
+	printf("Number of all numbers processed = %d and   %.8d  in binary\n", num, BinaryC(num));
+	printf("Sum of positive numbers processed = %d and  %.8d   in binary\n", sumPos, BinaryC(sumPos)); 
+	// If the sumNeg was never updated use the positive binary convert function.
+	if (sumNeg >= 0)
+	{
+		printf("Sum of negative numbers processed = %d and %.8d in binary\n",sumNeg, BinaryC(sumNeg));
+	}	
+	// If sumNeg was updated it should be a negative number so call the negative binary convert.
+	else
+	{
+		printf("Sum of negative numbers processed = %d and %.8d in binary\n",sumNeg, Complement1(sumNeg));
+	}
+	// If the grand total sum is positive call the positive binary convert.
+	if (sum >= 0)
+	{
+		printf("Sum of all numbers processed = %d and %.8d  in binary\n", sum, BinaryC(sum));
+	}
+	// If the grand total sum is negative call the negative binary convert.
+	else
+	{
+		printf("Sum of all numbers processed = %d and %.8d  in binary\n", sum, Complement1(sum));
+	}
+	// Print a thank you.
+	printf("\nThank You for Using our Binary Conversion Software !!!\n");
+	// End the program.
+	return 0;
+}
+
+// The function BinaryC takes a positive decimal number and converts it to binary
+int BinaryC(int num_d) 
+{
+	// Declare function variables.
+	int num_b, quotient, remainder,power2;
+	// Set starting values.
+	power2 = 0;
+	num_b = 0;
+	// find the quotient and remainder adding the correct number to binary number variable and cicle through the number until the quotient does not equal 0.
+	do 
+	{
+		quotient = num_d/2;
+		remainder = num_d % 2;
+		num_b = num_b + (remainder * pow(10, power2));
+		num_d = quotient;
+		power2 = power2 + 1;
+	} while (quotient != 0);
+	// Return the finished binary number.
+	return num_b;
+}
+
+// The function PrintNum is used to print both the decimal number to be converted and the resulting binary number.
+void PrintNum(int decimal, int binary)
+{
+	printf("\nNumber	Binary\n");
+	printf("%d	%.8d\n\n", decimal, binary);
+}
+
+// The function Complement1 takes a negative number switches it to positive to convert to binary, and then switches all zeros to 1s and all 1s to 0s in the bianry number.
+int Complement1(int decimal)
+{
+	// Declare and set starting values.
+	int binary = 0, negBinary = 0, i;
+	// Switch the inputted negative number to positive and call the BinaryC function.
+	binary = BinaryC((decimal*-1));
+	// While the fullsize variable is not the full size of the binary number or is not the full 8 bits a binary number should be continue to add a 1 to each increasing digit space.
+	for (i = 1; negBinary < binary || i < 11111111; i *= 10)
+	{
+		if (binary % 2 == 0)
+		{
+			negBinary += i*1;
+		}
+		binary *= .10;
+	}
+	// Return the number inputted in 1s complement.
+	return negBinary;
+}
+
+
+nuskos@sol:~/140/Assignment_5$ cc 103693282_asn5.c
+nuskos@sol:~/140/Assignment_5$ a.out
+Enter a number to be converted to binary.
+32
+
+Number	Binary
+32	00100000
+
+Any more numbers to be converted?
+Please type Y to continue and N if you want to stop 
+Y
+Enter a number to be converted to binary.
+-32
+
+Number	Binary
+-32	11011111
+
+Any more numbers to be converted?
+Please type Y to continue and N if you want to stop 
+Y
+Enter a number to be converted to binary.
+-27
+
+Number	Binary
+-27	11100100
+
+Any more numbers to be converted?
+Please type Y to continue and N if you want to stop 
+Y
+Enter a number to be converted to binary.
+5
+
+Number	Binary
+5	00000101
+
+Any more numbers to be converted?
+Please type Y to continue and N if you want to stop 
+Y
+Enter a number to be converted to binary.
+12
+
+Number	Binary
+12	00001100
+
+Any more numbers to be converted?
+Please type Y to continue and N if you want to stop 
+N
+
+Number of positive numbers processed = 3   and  00000011 in binary
+Number of negative numbers processed = 2  and  00000010 in binary
+Number of all numbers processed = 5 and   00000101  in binary
+Sum of positive numbers processed = 49 and  00110001   in binary
+Sum of negative numbers processed = -59 and 11000100 in binary
+Sum of all numbers processed = -10 and 11110101  in binary
+
+Thank You for Using our Binary Conversion Software !!!
+nuskos@sol:~/140/Assignment_5$ cat 103693282_asn5Bonus.c
+// Import the required libraries.
+#include <stdio.h>
+
+// Define the function prototype.
+void Sales_Price(double, double, double*, double*, double*, double*, double*);
+
+// A program to figure out the sale prices for two items decreasing the price each day by 10%, but never going under the wholesale price.
+int main(void)
+{
+	// Set up the required variables.
+	double retailPrice1 = 0.0, wholeSale1 = 0.0, monday1 = 0.0, tuesday1 = 0.0, wednesday1 = 0.0, thursday1 = 0.0, friday1 = 0.0;
+	double retailPrice2 = 0.0, wholeSale2 = 0.0, monday2 = 0.0, tuesday2 = 0.0, wednesday2 = 0.0, thursday2 = 0.0, friday2 = 0.0;
+
+	// Prompt for the first item's retail and wholesale price, and read them into the correct variables.
+	printf("Please input the retail price and then the wholesale price of the item seperated by a space\n");
+	scanf("%lf %lf", &retailPrice1, &wholeSale1);
+	// Prompt for the second item's retail and wholesale price, and read them into the correct variables.
+	printf("Please input the retail price and then the wholesale price of the item seperated by a space\n");
+	scanf("%lf %lf", &retailPrice2, &wholeSale2);
+	
+	// Call the function Sales_Price for each item to calculate each days sale price.
+	Sales_Price(wholeSale1, retailPrice1, &monday1, &tuesday1, &wednesday1, &thursday1, &friday1);
+	Sales_Price(wholeSale2, retailPrice2, &monday2, &tuesday2, &wednesday2, &thursday2, &friday2);
+
+	// Print the results.
+	printf("Original Retail Price Wholesale Price Monday's Tuesday's Wed's Thurs' Fri's\n");
+	printf("-----------------------------------------------------------------------------------------\n");
+	printf("%0.2lf	%0.2lf	%0.2lf	%0.2lf	%0.2lf	%0.2lf	%0.2lf\n", retailPrice1, wholeSale1, monday1, tuesday1, wednesday1, thursday1, friday1);
+	printf("%0.2lf	%0.2lf	%0.2lf	%0.2lf	%0.2lf	%0.2lf	%0.2lf\n", retailPrice2, wholeSale2, monday2, tuesday2, wednesday2, thursday2, friday2);
+
+	// End the program.
+	return 0;
+}
+
+// The function Sales_Price is used to take a wholesale price and the original retail price, and go through each day and see if the retail can be decreased by 10% without going under the whole price.
+void Sales_Price(double wholeSale, double originPrice, double* Monday, double* Tuesday, double* Wednesday, double* Thursday, double* Friday)
+{
+	// Set up the counter variable to start at 0.
+	int day = 0;
+	
+	/* While the day is less then 5 increase day by one each loop, and decrease the originPrice by 10%,
+	then check which day its on, and if the new originPrice is greater then the wholesale price 
+	set the result variable for that day to the new originPrice otherwise set it to the wholesale price, 
+	and go to the next loop cicle. */
+	while (day <= 5)
+	{
+		day++;
+		originPrice *= 0.9;
+		switch (day)
+		{
+			case 1:
+			{
+				if (originPrice > wholeSale)
+				{
+					*Monday = originPrice;
+					break;
+				}
+				else
+				{
+					// Otherwise set up the day variable to the default value of it's wholesale price.
+					*Monday = wholeSale;
+					break;
+				}
+			}
+			case 2:
+			{
+				if (originPrice > wholeSale)
+				{
+					*Tuesday = originPrice;					
+					break;
+				}
+				else
+				{
+					// Otherwise set up the day variable to the default value of it's wholesale price.
+					*Tuesday = wholeSale;
+					break;
+				}
+			}
+			case 3:
+			{
+				if (originPrice > wholeSale)
+				{
+					*Wednesday = originPrice;					
+					break;
+				}
+				else
+				{
+					// Otherwise set up the day variable to the default value of it's wholesale price.
+					*Wednesday = wholeSale;
+					break;
+				}
+			}
+			case 4:
+			{
+				if (originPrice > wholeSale)
+				{
+					*Thursday = originPrice;
+					break;
+				}
+				else
+				{
+					// Otherwise set up the day variable to the default value of it's wholesale price.
+					*Thursday = wholeSale;
+					break;
+				}
+			}
+			case 5:
+			{
+				if (originPrice > wholeSale)
+				{
+					*Friday = originPrice;
+					break;
+				}
+				else
+				{
+					// Otherwise set up the day variable to the default value of it's wholesale price.
+					*Friday = wholeSale;
+					break;
+				}
+			}
+		}
+	}
+	// End the Sales_Price function.
+}
+
+
+
+nuskos@sol:~/140/Assignment_5$ cc 103693282_asn5Bonus.c
+nuskos@sol:~/140/Assignment_5$ a.out
+Please input the retail price and then the wholesale price of the item seperated by a space
+20.00 12.00
+Please input the retail price and then the wholesale price of the item seperated by a space
+25.00 18.00
+Original Retail Price Wholesale Price Monday's Tuesday's Wed's Thurs' Fri's
+-----------------------------------------------------------------------------------------
+20.00	12.00	18.00	16.20	14.58	13.12	12.00
+25.00	18.00	22.50	20.25	18.23	18.00	18.00
+nuskos@sol:~/140/Assignment_5$ exit
+exit
+
+script done on Wed Nov 16 18:06:59 2011

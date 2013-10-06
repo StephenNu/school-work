@@ -1,0 +1,35 @@
+alg
+
+remove(k)
+input k is the key to be removed.
+output k will be removed from the list.
+let node be a TreeNode
+node = TreeSearch(root, k)
+if the element is not found
+	throw error
+else
+	if node is root
+		check if left is null
+			switch root to right child
+			delete node
+		else if right is null
+			switch root to left child
+			delete node
+		else
+			let next = the next post order node
+			swap the value with node
+			delete next
+	else
+		check if left is null
+			node.right().setparent(node.parent)
+			node.parent.setchild(node.right())
+			delete node
+		if right is null
+			node.left.setparent(node.parent)
+			node.parent.setchild(node.left())
+			delete node
+		else
+			let next = the next post order node
+			swap the value with node
+			delete next
+

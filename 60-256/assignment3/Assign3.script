@@ -1,0 +1,71 @@
+Script started on Sun Mar  3 00:36:09 2013
+nuskos@bravo:~/256/assignment3$ cat input.dat 
+20 10
+1 1 1 1 1 1 1 1 1 1
+10 10 10 10 10 10 10 10 10 10
+49 91 39 90 45 26 4 44 87 47 59
+71 94 74 74 25 59 62 76 42 83 65
+25 15 75 51 27 55 1 51 63 49 41
+1 91 38 78 46 81 16 92 40 86 85
+13 59 61 24 21 37 65 55 1 41 21
+75 91 47 81 43 49 43 44 41 95 34
+78 24 79 11 39 23 2 25 7 66 83
+68 89 55 4 5 9 56 97 29 82 87
+27 62 82 75 56 25 16 50 10 45 73
+40 55 11 62 8 87 21 74 22 88 62
+76 43 19 37 98 15 17 79 54 96 40
+35 22 47 11 37 48 72 34 20 11 40
+82 25 48 21 45 21 42 84 34 69 26
+52 57 23 19 26 1 24 21 92 10 42
+38 20 31 85 43 64 56 5 3 89 29
+50 61 25 70 2 8 56 71 33 7 79
+55 77 4 7 100 24 50 9 66 39 80
+48 75 22 11 82 27 13 71 7 15 31
+nuskos@bravo:~/256/assignment3$ cc Assign3.c
+nuskos@bravo:~/256/assignment3$ ./a.out 
+Child 1 Sum = 10
+Child 2 Sum = 100
+Child 3 Sum = 581
+Child 4 Sum = 725
+Child 5 Sum = 453
+Child 6 Sum = 654
+Child 7 Sum = 398
+Child 8 Sum = 643
+Child 9 Sum = 437
+Child 10 Sum = 581
+Child 11 Sum = 521
+Child 12 Sum = 530
+Child 13 Sum = 574
+Child 14 Sum = 377
+Child 15 Sum = 497
+Child 16 Sum = 367
+Child 17 Sum = 463
+Child 18 Sum = 462
+Child 19 Sum = 511
+Child 20 Sum = 402
+Parent Average = 464.30
+nuskos@bravo:~/256/assignment3$ cat output.dat 
+10
+100
+581
+725
+453
+654
+398
+643
+437
+581
+521
+530
+574
+377
+497
+367
+463
+462
+511
+402
+nuskos@bravo:~/256/assignment3$ exit
+exit
+
+Script done on Sun Mar  3 00:36:46 2013

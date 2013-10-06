@@ -1,0 +1,180 @@
+i.  Problem Definition: Taking 4 different crates of washers in need of shipping and receiving the input for the quantity and the inner diameters, outer diameters and then the input of the weight and density calculate the total weight
+of the shipped washers using Call-by-Value parameters in your functions. 
+ 
+---------------------------------------------------------------------------------------------------------------------------------------------------- 
+ 
+ii.                 Identify all input, output data and their type as well as relationships between input and output data in equations:
+
+Input data are:
+Real Numbers;
+washer1_quantity, washer1_thickness, washer1_density, washer1_inner_diameter, washer1_outer_diameter, washer2_quantity, washer2_thickness, washer2_density, washer2_inner_diameter, washer2_outer_diameter, 
+washer2_quantity, washer3_thickness, washer3_density, washer3_inner_diameter, washer3_outer_diameter, washer4_quantity, washer4_thickness, washer4_density, washer4_inner_diameter, washer4_outer_diameter.
+ 
+Output data are:
+Real numbers;
+washer1_quantity, washer1_thickness, washer1_density, washer1_weight, washer2_quantity, washer2_thickness, washer2_density, washer2_weight, 
+washer2_quantity, washer3_thickness, washer3_density, washer3_weight, washer4_quantity, washer4_thickness, washer4_density, washer4_weight,
+total_weight.
+
+Constant data,
+Real numbers;
+PI = 3.142
+
+Equations that link output data variables on the left hand side with input data variables on the right hand side in the correct logical order they will work are:
+
+
+washer1_weight = (((washer_outer_area - washer_inner_area) * washer1_thickness) * washer1_density) * washer1_quantity. 
+NOTE:	Use function washerWeight(real number quantity, real number thickness, real number density,  real number outer_diameter, real number inner_diameter),
+		and function CircleArea(diameter) for outer and inner circle.
+washer2_weight = ((washer2_area * washer2_thickness) * washer2_density) * washer2_quantity. (Use function call, and function result for area)
+NOTE:	Use function washerWeight(real number quantity, real number thickness, real number density,  real number outer_diameter, real number inner_diameter),
+		and function CircleArea(diameter) for outer and inner circle.
+washer3_weight = ((washer3_area * washer3_thickness) * washer3_density) * washer3_quantity. (Use function call, and function result for area)
+NOTE:	Use function washerWeight(real number quantity, real number thickness, real number density,  real number outer_diameter, real number inner_diameter),
+		and function CircleArea(diameter) for outer and inner circle.
+washer4_weight = ((washer4_area * washer4_thickness) * washer4_density) * washer4_quantity. (Use function call, and function result for area)
+NOTE:	Use function washerWeight(real number quantity, real number thickness, real number density,  real number outer_diameter, real number inner_diameter),
+		and function CircleArea(diameter) for outer and inner circle.
+total_weight = washer1_weight + washer2_weight + washer3_weight + washer4_weight.
+
+-------------------------------------------------------------------------------------------------------------------------------------------------------
+ 
+iii.                  
+
+1) int Main(void)
+	a) Program starts and gathers input.
+	b) Program calls WasherWeight 4 times for each input of washers storing respective weights.
+	c) Program calls PrintWeights with all the information to display results.
+	
+2) double CircleArea(real number diameter).
+	a) Function returns the area as (PI * ((diameter / 2) * (diameter / 2))).
+	
+3) double WasherWight(real number quantity, real number thickness, real number density,  real number outer_diameter, real number inner_diameter)
+	a) Function calculates and returns the weight as (((CircleArea(outer_diameter)-CircleArea(inner_diameter)) * thickness) * density) * quantity.
+
+4) void PrintWeight(real number washer1_quantity, real number washer1_thickness, real number washer1_density, real number washer1_weight, real number washer2_quantity, real number washer2_thickness, real number washer2_density, real number washer2_weight,
+				real number washer3_quantity, real number washer3_thickness, real number washer3_density, real number washer3_weight, real number washer4_quantity, real number washer4_thickness, real number washer4_density, real number washer4_weight, 
+				real number total_weight).
+	a) Print ("WasherType Qty Thickness Density Weight").
+	b) Print ("A " washer1_quantity " " washer1_thickness " " washer1_density " " washer1_weight ".").
+	c) Print ("B " washer2_quantity " " washer2_thickness " " washer2_density " " washer2_weight ".").
+	d) Print ("C " washer3_quantity " " washer3_thickness " " washer3_density " " washer3_weight ".").
+	e) Print ("D " washer4_quantity " " washer4_thickness " " washer4_density " " washer4_weight ".").
+	f) Print ("Total Weight ********************************** " total_weight).
+ 
+
+------------------------------------------------------------------------------------------------------------------------------------------------------
+
+iv.                 Write the algorithmic solution using the template for an algorithm similar to the formal algorithmic structure in Figure 3.1 of text book. Use the following template now.
+
+-----------------------------------------------------------------------------------------------------------------------------------------------------
+ 
+Begin
+
+	Function prototypes:
+	CircleArea(real number diameter).
+	WasherWight(real number quantity, real number thickness, real number density,  real number outer_diameter, real number inner_diameter).
+	PrintWeight(real number washer1_quantity, real number washer1_thickness, real number washer1_density, real number washer1_weight, real number washer2_quantity, real number washer2_thickness, real number washer2_density, real number washer2_weight,
+				real number washer3_quantity, real number washer3_thickness, real number washer3_density, real number washer3_weight, real number washer4_quantity, real number washer4_thickness, real number washer4_density, real number washer4_weight, 
+				real number total_weight).
+				
+	Constant data are:
+	Real number;
+	PI = 3.142
+	
+main module
+{
+   Input data are:
+	Real Numbers;
+	washer1_inner_diameter, washer1_outer_diameter, washer2_inner_diameter, washer2_outer_diameter.
+	washer3_inner_diameter, washer3_outer_diameter, washer4_inner_diameter, washer4_outer_diameter.
+	 
+	Shared input and output data are:
+	Real numbers;
+	washer1_quantity, washer1_thickness, washer1_density, washer2_quantity, washer2_thickness, washer2_density. 
+	washer2_quantity, washer3_thickness, washer3_density, washer4_quantity, washer4_thickness, washer4_density.
+	
+	Output data are:
+	Real numbers;
+	washer1_weight, washer2_weight, washer3_weight, washer4_weight, total_weight. 
+
+ 
+	Prompt for quantity of washer type A.
+	Scan input into washer1_quantity.
+	Prompt for thickness of washer type A.
+	Scan input into washer1_thickness.
+	Prompt for density of washer type A.
+	Scan input into washer1_density.
+	Prompt for the inner diameter of washer type A.
+	Scan input into washer1_inner_diameter.
+	Prompt for the outer diameter of washer type A.
+	Scan input into washer1_outer_diameter.
+	
+	Prompt for quantity of washer type B.
+	Scan input into washer2_quantity.
+	Prompt for thickness of washer type B.
+	Scan input into washer2_thickness.
+	Prompt for density of washer type B.
+	Scan input into washer2_density.
+	Prompt for the inner diameter of washer type B.
+	Scan input into washer2_inner_diameter.
+	Prompt for the outer diameter of washer type B.
+	Scan input into washer2_outer_diameter.
+	
+	Prompt for quantity of washer type C.
+	Scan input into washer3_quantity.
+	Prompt for thickness of washer type C.
+	Scan input into washer3_thickness.
+	Prompt for density of washer type C.
+	Scan input into washer3_density.
+	Prompt for the inner diameter of washer type C.
+	Scan input into washer3_inner_diameter.
+	Prompt for the outer diameter of washer type C.
+	Scan input into washer3_outer_diameter.
+	
+	Prompt for quantity of washer type D.
+	Scan input into washer4_quantity.
+	Prompt for thickness of washer type D.
+	Scan input into washer4_thickness.
+	Prompt for density of washer type D.
+	Scan input into washer4_density.
+	Prompt for the inner diameter of washer type D.
+	Scan input into washer4_inner_diameter.
+	Prompt for the outer diameter of washer type D.
+	Scan input into washer4_outer_diameter.
+	
+	washer1_weight = WasherWeight(washer1_quantity, washer1_thickness, washer1_density, washer1_outer_diameter, washer1_inner_diameter).
+	washer2_weight = WasherWeight(washer2_quantity, washer2_thickness, washer2_density, washer2_outer_diameter, washer2_inner_diameter).
+	washer3_weight = WasherWeight(washer3_quantity, washer3_thickness, washer3_density, washer3_outer_diameter, washer3_inner_diameter).
+	washer4_weight = WasherWeight(washer4_quantity, washer4_thickness, washer4_density, washer4_outer_diameter, washer4_inner_diameter).
+	
+	total_weight = washer1_weight + washer2_weight + washer3_weight + washer4_weight.
+	
+	PrintWeight(washer1_quantity, washer1_thickness, washer1_density, washer1_weight, washer2_quantity, washer2_thickness, washer2_density, washer2_weight, 
+				washer3_quantity, washer3_thickness, washer3_density, washer3_weight, washer4_quantity, washer4_thickness, washer4_density, washer4_weight,
+				total_weight).
+}
+
+CircleArea(real number diameter).
+{
+	return (PI * ((outer_diameter / 2) * (inner_diameter / 2))).
+}	
+
+WasherWight(real number quantity, real number thickness, real number density,  real number outer_diameter, real number inner_diameter)
+{	
+	return (((CircleArea(outer_diameter) - CircleArea(inner_diameter)) * thickness) * density) * quantity.
+}
+
+PrintWeight(real number washer1_quantity, real number washer1_thickness, real number washer1_density, real number washer1_weight, real number washer2_quantity, real number washer2_thickness, real number washer2_density, real number washer2_weight,
+			real number washer3_quantity, real number washer3_thickness, real number washer3_density, real number washer3_weight, real number washer4_quantity, real number washer4_thickness, real number washer4_density, real number washer4_weight, 
+			real number total_weight).
+{
+	Print ("WasherType Qty Thickness Density Weight").
+	Print ("A " washer1_quantity " " washer1_thickness " " washer1_density " " washer1_weight ".").
+	Print ("B " washer2_quantity " " washer2_thickness " " washer2_density " " washer2_weight ".").
+	Print ("C " washer3_quantity " " washer3_thickness " " washer3_density " " washer3_weight ".").
+	Print ("D " washer4_quantity " " washer4_thickness " " washer4_density " " washer4_weight ".").
+	Print ("Total Weight ********************************** " total_weight).
+}
+
+End

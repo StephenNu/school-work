@@ -1,0 +1,53 @@
+Script started on Thu Mar 14 10:14:13 2013
+nuskos@bravo:~/256/assignment4$ cc Assign4.c
+nuskos@bravo:~/256/assignment4$ ./a.out 
+This program executes commands/programs for you
+
+Enter a command with its arguments [CTR-C to exit]@ ls
+Process [3586] running in foreground...
+Assign4.c  Assign4.script  a.out  original.c
+
+Enter a command with its arguments [CTR-C to exit]@ ls -l
+Process [3629] running in foreground...
+total 14
+-rw-r--r-- 1 nuskos temp 2059 Mar 14 10:13 Assign4.c
+-rw-r--r-- 1 nuskos temp    0 Mar 14 10:14 Assign4.script
+-rwxr-xr-x 1 nuskos temp 7514 Mar 14 10:14 a.out
+-rw-r--r-- 1 nuskos temp 1659 Mar  5 13:04 original.c
+
+Enter a command with its arguments [CTR-C to exit]@ ls; ls -l
+Process [3634] running in foreground...
+Assign4.c  Assign4.script  a.out  original.c
+Process [3635] running in foreground...
+total 14
+-rw-r--r-- 1 nuskos temp 2059 Mar 14 10:13 Assign4.c
+-rw-r--r-- 1 nuskos temp  512 Mar 14 10:14 Assign4.script
+-rwxr-xr-x 1 nuskos temp 7514 Mar 14 10:14 a.out
+-rw-r--r-- 1 nuskos temp 1659 Mar  5 13:04 original.c
+
+Enter a command with its arguments [CTR-C to exit]@ ls; pwdl ; ls -l
+Process [3663] running in foreground...
+Assign4.c  Assign4.script  a.out  original.c
+Process [3664] running in foreground...
+/home/nuskos/256/assignment4
+Process [3665] running in foreground...
+total 14
+-rw-r--r-- 1 nuskos temp 2059 Mar 14 10:13 Assign4.c
+-rw-r--r-- 1 nuskos temp 1024 Mar 14 10:14 Assign4.script
+-rwxr-xr-x 1 nuskos temp 7514 Mar 14 10:14 a.out
+-rw-r--r-- 1 nuskos temp 1659 Mar  5 13:04 original.c
+
+Enter a command with its arguments [CTR-C to exit]@ ls; Mozilla &; date
+Process [3696] running in foreground...
+Assign4.c  Assign4.script  a.out  original.c
+Process [3697] running in background...
+Process [3698] running in foreground...
+Unable to execute command
+: No such file or directory
+Thu Mar 14 10:14:58 EDT 2013
+
+Enter a command with its arguments [CTR-C to exit]@ ^C
+nuskos@bravo:~/256/assignment4$ exit
+exit
+
+Script done on Thu Mar 14 10:15:07 2013

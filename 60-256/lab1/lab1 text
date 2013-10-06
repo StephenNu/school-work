@@ -1,0 +1,27 @@
+ls -l -h answer 1
+
+
+
+part 2
+
+set , explains possible commands and set command
+set | more explains it in the page format
+set | grep SHELL only displays stuff reference SHELL
+echo $SHELL /bin/bash the location of the bash file
+uname displays Linuk the unix name
+uname -r displays the version on the kernel release
+whoami shows the user name.
+which pico displays location /usr/bin/pico
+cat /etc/passwd will display everything inside the file at the location
+wc -l /etc/passwd  prints number of lines in the file at that location
+ls -l /tmp displays all the files in long form at the location
+cd ~ returns you to default directory
+pwd prints current working directory.
+mkdir 256 makes a file called 256
+cd 256 changes into the directory called 256
+mkdir lab1 makes a file called lab1
+cd lab1 changes you into that directory
+history > lab1.txt saves your session into a text file
+nedit lab1.txt & will open the text file.
+
+

@@ -1,0 +1,43 @@
+memset
+Purpose/Importance: fills the given first n bytes of the memery address with a certain byte, important 
+Parameters: void* s pointer to memery, int c the byte to be filled with, size_t n the number of bytes to fill.
+Return value: a void* to the memery area of s
+memmove
+Purpose/Importance: copies n bytes from src to dest and allows overlapping memory areas, important
+Parameters: void* dest = where to move to, void* src = the memery location to copy from, size_t n number of bytes
+Return value: a void* to the memery area of dest
+memcpy
+Purpose/Importance: same as memmove but can't have overlap, important
+Parameters: same as memmove
+Return value: same as memmove
+const char memchr
+Purpose/Importance: memchr scans the first n bytes of memory to see if it can find a char to match c.
+Parameters: const void* s = the pointer to memory to start scanning from, int c the char to be looked for, size_t n number of bytes to scan from s.
+Return value: returns a const void* to the matching byte or NULL if char isn't there
+memchr
+Purpose/Importance: same as const memchr
+Parameters: same except for void* s meaning it can be modified.
+Return value: same except not const so can be modified.
+memcmp
+Purpose/Importance: compares the first n bytes of s1 and s2 to check for less equal or greater.
+Parameters: const void* s1 first memory area, const void* s2 second memory area, size_t n number of bytes
+Return value: x<0 if s1 < s2 or x=0 if s1 = s2, x >0 if s1 > s2
+htonl
+Purpose/Importance: converts unsigned int to network byte order
+Parameters: uint32_t hostlong = an unsigned integer to be switched to network order.
+Return value: returns the network byte order unsigned integer.
+htons
+Purpose/Importance: converts unsigned short int to network byte order
+Parameters: uint16_t hostshort = an unsigned short ingeger to be switched to network order.
+Return value: returns network byte order unsigned short integer.
+ntohl
+Purpose/Importance: converts unsigned int to host byte order
+Parameters: uint32_t netlong = unsigned integer to be switched to host byte order
+Return value: a uint32_t = to the host byte order.
+ntohs
+Purpose/Importance: converts unsigned short int to host byte order
+Parameters: uint16_t netshort = unsigned short integer to be switched to host byte order.
+Return value: a uint16_t = to the host byte order of netshort.
+
+host byte order is least significat byte first
+network byte order is most significant byte first

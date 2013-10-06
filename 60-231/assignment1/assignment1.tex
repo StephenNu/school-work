@@ -1,0 +1,168 @@
+\documentclass{article}
+\usepackage[english]{babel}
+\usepackage{amsmath}
+\usepackage{changepage}
+\usepackage{amsthm}
+\usepackage[margin=1in]{geometry}
+\usepackage{fancyhdr}
+
+\pagestyle{fancy}
+\rhead{Stephen Nusko 103693282 \\ 60-231 assignment 1}
+
+\title{[03-60-231] Assignment 1}
+\author{Stephen Nusko \\ 103693282}
+
+\begin{document}
+	\thispagestyle{empty}
+	\maketitle	
+	\section{Question 1}
+		\subsection{Part b}
+			Construct a truth table for $(((p \Rightarrow q) \Rightarrow (r \Rightarrow p)) \Rightarrow (r \Rightarrow p))$ \\ \\
+			\begin{tabular}{| c * {8}{|c}}
+			   \hline
+			   p & q & r & $(p \Rightarrow q)$ & $(r \Rightarrow p)$ & $((p \Rightarrow q) \Rightarrow (r \Rightarrow p))$ & $(r \Rightarrow p)$ & $((p \Rightarrow q) \Rightarrow (r \Rightarrow p) \Rightarrow (r \Rightarrow p))$ \\ \hline
+			   F & F & F & T & T & T & T & T \\ \hline
+			   F & F & T & T & F & F & F & T \\ \hline
+			   F & T & F & T & T & T & T & T \\ \hline
+			   F & T & T & T & F & F & F & T \\ \hline
+			   T & F & F & F & T & T & T & T \\ \hline
+			   T & F & T & F & T & T & T & T \\ \hline
+			   T & T & F & T & T & T & T & T \\ \hline
+			   T & T & T & T & T & T & T & T \\ \hline 
+			\end{tabular}
+	\section{Question 3}
+		\subsection{Part f}
+			Prove that $(\alpha \Rightarrow \beta) \lor (\beta \Rightarrow \alpha)$ \\
+			Solution: (direct proof) \\
+			\begin{enumerate}
+				\item $(\alpha \lor \lnot\alpha)$ 									\hfill Axiom
+				\item $(\alpha \lor \lnot\alpha) \lor \beta$    					\hfill 1, I1 
+				\item $(\lnot\alpha \lor \alpha) \lor \beta$  						\hfill 2, E10 
+				\item $\lnot\alpha \lor (\alpha \lor \beta)$  						\hfill 3, E12 
+				\item $\lnot\alpha \lor (\beta \lor \alpha)$                    	\hfill 4, E10 
+				\item $((\lnot\alpha \lor \beta) \lor \alpha)$                     	\hfill 5, E12
+				\item $((\lnot\alpha \lor \beta) \lor \alpha) \lor \lnot\beta$     \hfill 6, I1
+				\item $(\lnot\alpha \lor \beta) \lor (\alpha \lor \lnot\beta )$   	\hfill 7, E12
+				\item $(\lnot\alpha \lor \beta) \lor (\lnot\beta \lor \alpha)$		\hfill 8, E10
+				\item $(\alpha \Rightarrow \beta) \lor (\lnot\beta \lor \alpha)$	\hfill 9, E18
+				\item $(\alpha \Rightarrow \beta) \lor (\beta \Rightarrow \alpha)$	\hfill 10, E18
+			\end{enumerate}
+			Hence, $\vdash $$((\alpha \Rightarrow \beta) \lor (\beta \Rightarrow \alpha))$ \hfill \qed
+		\subsection{Part n}
+			Prove that $((\alpha \lor \beta) \land (\alpha \Rightarrow \gamma)) \Rightarrow (\gamma \lor \beta)$ \\
+			Solution: (direct proof) \\
+			\begin{enumerate}
+				\item $((\alpha \lor \beta) \land (\alpha \Rightarrow \gamma))$     \hfill Hypothesis 
+				\item $(\alpha \lor \beta)$ 										\hfill 1, I2 
+				\item $(\lnot\lnot\alpha \lor \beta)$								\hfill 1, E15
+				\item $(\lnot\alpha \Rightarrow \beta)$                             \hfill 3, E18 
+				\item $(\lnot\beta \Rightarrow \lnot\lnot\alpha)$                   \hfill 4, E19 
+				\item $(\lnot\beta \Rightarrow \alpha)$                             \hfill 5, E15 
+				\item $((\alpha \Rightarrow \gamma) \land (\alpha \lor \beta))$     \hfill 1, E9 
+				\item $(\alpha \Rightarrow \gamma)$                                 \hfill 7, I2 
+				\item $(\lnot\beta \Rightarrow \gamma)$                             \hfill 6, 8, I5 
+				\item $(\lnot\lnot\beta \lor \gamma)$                              	\hfill 9, E18 
+				\item $(\beta \lor \gamma)$                                       	\hfill 10, E15 
+				\item $(\gamma \lor \beta)$                                       	\hfill 11, E10 
+			\end{enumerate}
+			Hence, $\vdash$$((\alpha \lor \beta) \land (\alpha \Rightarrow \gamma)) \Rightarrow (\gamma \lor \beta)$ \hfill \qed 	
+	\section{Question 4}
+		\subsection{Part IV}
+			Prove that $(\alpha \Leftrightarrow \beta) \land (\beta \Leftrightarrow \gamma) \Rightarrow (\alpha \Leftrightarrow \gamma)$ \\
+			Solution: (direct proof) \\
+			\begin{enumerate}
+				\item $(\alpha \Leftrightarrow \beta) \land (\beta \Leftrightarrow \gamma)$           											 	\hfill Hypothesis 
+				\item $(\alpha \Leftrightarrow \beta)$								\hfill 1, I2 
+				\item $(\alpha \Rightarrow \beta) \land (\beta \Rightarrow\alpha)$  \hfill 2, E20 
+				\item $(\alpha \Rightarrow \beta)$									\hfill 3, I2 
+				\item $(\beta \Rightarrow \alpha) \land (\alpha \Rightarrow \beta)$ \hfill 3, E9 
+				\item $(\beta \Rightarrow \alpha)$									\hfill 5, I2 
+				\item $(\beta \Leftrightarrow \gamma) \land (\alpha \Leftrightarrow \beta)$																\hfill 1, E9 
+				\item $(\beta \Leftrightarrow \gamma)$								\hfill 7, I2 
+				\item $(\beta \Rightarrow\gamma) \land (\gamma \Rightarrow \beta)$	\hfill 8, E20 
+				\item $(\beta \Rightarrow\gamma)$									\hfill 9, I2 
+				\item $(\gamma \Rightarrow \beta) \land (\beta \Rightarrow\gamma)$	\hfill 9, E9 
+				\item $(\gamma \Rightarrow \beta)$									\hfill 11, I2 
+				\item $(\alpha \Rightarrow \gamma)$									\hfill 4, 10, I5 
+				\item $(\gamma \Rightarrow \alpha)$									\hfill 12, 6, I5 
+				\item $(\alpha \Rightarrow \gamma) \land (\gamma \Rightarrow \alpha)$\hfill 13, 14, I6 
+				\item $(\alpha \Leftrightarrow \gamma)$								\hfill 15, E20 
+			\end{enumerate}
+			Hence, $\vdash$$(\alpha \Leftrightarrow \beta) \land (\beta \Leftrightarrow \gamma) \Rightarrow (\alpha \Leftrightarrow \gamma)$ \hfill \qed 
+	\section{Question 6}
+		\subsection{Part c}
+			Prove that $(((p \land q) \Rightarrow r) \land ((p \lor q) \Rightarrow u) \land (r \Rightarrow \lnot u)) \Rightarrow (p \Rightarrow \lnot q)$ \\
+			Solution: (direct proof) \\
+			\begin{enumerate}
+				\item $p \land q \Rightarrow r$ \hfill P1 
+				\item $p \lor q \Rightarrow u$  \hfill P2 
+				\item $r \Rightarrow \lnot u$    \hfill P3 
+				\item $p \land q \Rightarrow \lnot u$ \hfill 1, 3, I5 
+				\item $\lnot u \Rightarrow \lnot(p \lor q)$ \hfill 2, E19 
+				\item $p \land q \Rightarrow \lnot(p \lor q)$ \hfill 4, 5, I5 
+				\item $\lnot(p \land q) \lor \lnot(p \lor q)$ \hfill 6, E18 
+				\item $(\lnot p \lor \lnot q) \lor \lnot(p \lor q)$ \hfill 7, E16 
+				\item $(\lnot p \lor \lnot q) \lor (\lnot p \land \lnot q)$ \hfill 8, E17 
+				\item $((\lnot p \lor \lnot q) \lor \lnot p) \land ((\lnot p \lor \lnot q) \lor \lnot q)$ \hfill 9, E14 
+				\item $((\lnot p \lor \lnot q) \lor \lnot p)$ \hfill 10, I2 
+				\item $((\lnot q \lor \lnot p) \lor \lnot p)$ \hfill 11, E10 
+				\item $(\lnot q \lor (\lnot p \lor \lnot p))$ \hfill 12, E12 
+				\item $(\lnot q \lor \lnot p)$ \hfill 13, E4 
+				\item $(\lnot p \lor \lnot q)$ \hfill 14, E10 
+				\item $p \Rightarrow \lnot q$ \hfill 15, E18 
+			\end{enumerate}
+			Hence, $\vdash$$((p \land q \Rightarrow r) \land (p \lor q \Rightarrow u) \land (r \Rightarrow \lnot u)) \Rightarrow (p \Rightarrow \lnot q)$ \hfill \qed
+		\subsection{Part i}
+			Prove that $((p \lor q) \land (p \Rightarrow r) \land (q \Rightarrow s) \land (\lnot r)) \Rightarrow (r \lor s)$ \\
+			Solution: (direct proof) \\
+			\begin{enumerate}
+				\item $p \lor q$ \hfill P1 
+				\item $p \Rightarrow r$ \hfill P2 
+				\item $q \Rightarrow s$ \hfill P3 
+				\item $\lnot r$ \hfill P4 
+				\item $\lnot\lnot p \lor q$ \hfill 1, E15
+				\item $\lnot p \Rightarrow q$ \hfill 5, E18
+				\item $\lnot r \Rightarrow \lnot p$ \hfill 2, E19 
+				\item $\lnot r \Rightarrow q$ \hfill 7, 6, I5 
+				\item $\lnot r \Rightarrow s$ \hfill 8, 3, I5
+				\item $\lnot\lnot r \lor s$ \hfill  9, E18
+				\item $r \lor s$ \hfill 10, E15 
+			\end{enumerate}
+			Hence, $\vdash$$((p \lor q) \land (p \Rightarrow r) \land (q \Rightarrow s) \land (\lnot r)) \Rightarrow (r \lor s)$ \hfill \qed
+	\section{Question 7}
+		\subsection{Part c}
+			Let c be the contract is satisfied. \\
+			Let b be the building is completed by November 30th. \\
+			Let e be the electrical subcontractor be done by November 10th. \\
+			Let m be the bank loses money. \\
+			\\
+			Prove that $((c \Leftrightarrow b) \land (e \Leftrightarrow b) \land (m \Leftrightarrow \lnot c)) \Rightarrow (e \Leftrightarrow \lnot m)$ \\
+			Solution: (direct proof) \\
+			\begin{enumerate}
+				\item $(c \Leftrightarrow b)$ \hfill P1
+				\item $(e \Leftrightarrow b)$ \hfill P2
+				\item $(m \Leftrightarrow \lnot c)$ \hfill P3
+				\item $(c \Rightarrow b) \land (b \Rightarrow c)$ \hfill 1, E20
+				\item $(c \Rightarrow b)$ \hfill 4, I2
+				\item $(b \Rightarrow c) \land (c \Rightarrow b)$ \hfill 4, E9
+				\item $(b \Rightarrow c)$ \hfill 6, I2
+				\item $(e \Rightarrow b) \land (b \Rightarrow e)$ \hfill 2, E20
+				\item $(e \Rightarrow b)$ \hfill 9, I2
+				\item $(b \Rightarrow e) \land (e \Rightarrow b)$ \hfill 9, E9
+				\item $(b \Rightarrow e)$ \hfill 12, I2
+				\item $(m \Rightarrow \lnot c) \land (\lnot c \Rightarrow m)$ \hfill 3, E20
+				\item $(m \Rightarrow \lnot c)$ \hfill 15, I2
+				\item $(\lnot c \Rightarrow m) \land (m \Rightarrow \lnot c)$ \hfill 15, E9
+				\item $(\lnot c \Rightarrow m)$ \hfill 18, I2
+				\item $(c \Rightarrow \lnot m)$ \hfill 16, E19
+				\item $(\lnot m \Rightarrow c)$ \hfill 19, E19
+				\item $(e \Rightarrow c)$ \hfill 9, 7, I5
+				\item $(c \Rightarrow e)$ \hfill 5, 11, I5
+				\item $(e \Rightarrow \lnot m)$ \hfill 18, 16, I5
+				\item $(\lnot m \Rightarrow e)$ \hfill 17, 19, I5
+				\item $(e \Rightarrow \lnot m) \land (\lnot m \Rightarrow e)$ \hfill 20, 21, I6
+				\item $(e \Leftrightarrow \lnot m)$ \hfill 22, E20
+			\end{enumerate}
+			Hence, $\vdash$$((c \Leftrightarrow b) \land (e \Leftrightarrow b) \land (m \Leftrightarrow \lnot c)) \Rightarrow (e \Leftrightarrow \lnot m)$ \hfill \qed \\
+			Hence, the electrical subcontractor completes his work by November 10 if and only if the bank does not lose money.
+\end{document}
