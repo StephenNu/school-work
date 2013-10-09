@@ -18,22 +18,34 @@
 	\maketitle	
 	\section{Question 2.1}
 		\subsection{Part c}
-			Evaluate $(\forall x)(\exists y)(P(x) \Rightarrow Q(x, y))$ \\
-			Let x = 1. We obtain $(\exists y)(P(1) \Rightarrow Q(1, y))$ \\
-			Let y = 2. Then $P(1) \equiv T$ and $Q(1, 2) \equiv T$ \\
-			Therefore $(\exists y)(P(1) \Rightarrow Q(1, y)$ is evaluated to true. \\
-			Let x = 2. We obtain $(\exists y)(P(2) \Rightarrow Q(2, y)$ \\
-			Since $P(2) \equiv F$ \\
-			$\therefore (\exists y)(P(2) \Rightarrow Q(2, y))$ is evaluated to true. \\
-			$\therefore (\forall x)(\exists y)(P(x) \Rightarrow Q(x, y))$ is evaluated to true. \\
+			Evaluate $(\forall x)(\exists y)(P(x) \Rightarrow Q(x, y))$
+			\begin{enumerate}
+				\item Let $x = 1$. We obtain $(\exists y)(P(1) \Rightarrow Q(1, y))$ 
+				\begin{enumerate}
+					\item Let $y = 2$. Then $P(1) \equiv T$ and $Q(1, 2) \equiv T$
+					\item Therefore $(\exists y)(P(1) \Rightarrow Q(1, y)$ is evaluated to true.
+				\end{enumerate}
+				\item Let $x = 2$. We obtain $(\exists y)(P(2) \Rightarrow Q(2, y)$
+				\begin{enumerate}
+					\item Since $P(2) \equiv F$
+					\item $\therefore (\exists y)(P(2) \Rightarrow Q(2, y))$ is evaluated to true.
+				\end{enumerate}
+				\item $\therefore (\forall x)(\exists y)(P(x) \Rightarrow Q(x, y))$ is evaluated to true.
+			\end{enumerate}
 		\subsection{Part i}
-			Evaluate $(\exists x)(\exists y)(Q(x, a) \Rightarrow Q(b, y)$ \\
-			Let x = 1. We obtain $(\exists y)(Q(1, a) \Rightarrow Q(b, y)$ \\
-			Let y = 2. We obtarin $(Q(1, a) \Rightarrow Q(b, 2)$ \\
-			since $Q(1, a) \equiv Q(1, 2) \equiv T \equiv Q(b, 2) \equiv Q(1, 2)$ \\
-			$\therefore Q(1, 2) \Rightarrow Q(1, 2)$ is evaluated to true. \\
-			$\therefore (\exists y)(Q(1, a) \Rightarrow Q(b, y))$ is evaluated to true. \\
-			$\therefore (\exists x)(\exists y)(Q(x, a) \Rightarrow Q(b, y))$ is evaluated to true. \\
+			Evaluate $(\exists x)(\exists y)(Q(x, a) \Rightarrow Q(b, y)$
+			\begin{enumerate}
+				\item Let $x = 1$. We obtain $(\exists y)(Q(1, a) \Rightarrow Q(b, y)$
+				\begin{enumerate}
+					\item Let $y = 2$. We obtain $(Q(1, a) \Rightarrow Q(b, 2)$
+					\begin{enumerate}
+						\item Since $Q(1, a) \equiv Q(1, 2) \equiv T \equiv Q(b, 2) \equiv Q(1, 2)$
+						\item $\therefore Q(1, 2) \Rightarrow Q(1, 2)$ is evaluated to true.
+					\end{enumerate}
+					\item $\therefore (\exists y)(Q(1, a) \Rightarrow Q(b, y))$ is evaluated to true.
+				\end{enumerate}
+				\item $\therefore (\exists x)(\exists y)(Q(x, a) \Rightarrow Q(b, y))$ is evaluated to true.
+			\end{enumerate}
 	\section{Question 2.2}
 		\subsection{Part c}
 			Prove $((\forall x)\alpha(x) \lor (\forall x)\beta(x)) \Rightarrow (\forall x)(\alpha(x) \lor \beta(x))$ \\
@@ -100,19 +112,20 @@
 				\item $R(k)$ \hfill 8, I2
 				\item $\lnot U(c, k) \land R(k)$ \hfill 9, E9
 				\item $\lnot U(c, k)$ \hfill 10, I2
-				\item $T(c, k) \land R(k) \land \lnot U(c, k)$ \hfill 7, E9
+				\item $T(c, k) \land (R(k) \land \lnot U(c, k))$ \hfill 7, E9
 				\item $T(c, k)$ \hfill 12, I2
 				\item $P(c) \land R(k)$ \hfill 5, 9, I6
 				\item $P(c) \land R(k) \land T(c, k)$ \hfill 14, 13, I6
 				\item $S(c, k)$ \hfill 15, 3, I3
-				\item $(\forall y)((R(y) \land S(c, y) \Rightarrow Z(c, y) \land P(c)$ \hfill 4, E9
-				\item $(\forall y)((R(y) \land S(c, y) \Rightarrow Z(c, y)$ \hfill 17, I2
+				\item $(\forall y)((R(y) \land S(c, y) \Rightarrow Z(c, y)) \land P(c)$ \hfill 4, E9
+				\item $(\forall y)((R(y) \land S(c, y) \Rightarrow Z(c, y))$ \hfill 17, I2
+				\item $(R(k) \land S(x, k)) \Rightarrow Z(c, k)$ \hfill 18, UI
 				\item $R(k) \land S(c, y)$ \hfill 9, 16, I6
-				\item $Z(c, k)$ \hfill 19, 18, I3
-				\item $P(c) \land R(k) \land Z(c, k)$ \hfill 14, 20, I6
-				\item $P(c) \land R(k) \land Z(c, k) \land \lnot U(c, k)$ \hfill 21, 11, I6
-				\item $(\exists y)(P(c) \land R(y) \land Z(c, y) \land \lnot U(c, y)$ \hfill 22, EQ
-				\item $(\exists x)(\exists y)(P(x) \land R(y) \land Z(x, y) \land \lnot U(x, y)$ \hfill 23, EQ
+				\item $Z(c, k)$ \hfill 20, 19, I3
+				\item $P(c) \land R(k) \land Z(c, k)$ \hfill 14, 21, I6
+				\item $P(c) \land R(k) \land Z(c, k) \land \lnot U(c, k)$ \hfill 22, 11, I6
+				\item $(\exists y)(P(c) \land R(y) \land Z(c, y) \land \lnot U(c, y)$ \hfill 23, EQ
+				\item $(\exists x)(\exists y)(P(x) \land R(y) \land Z(x, y) \land \lnot U(x, y)$ \hfill 24, EQ
 			\end{enumerate}
 			$\therefore ((P1 \land P2 \land P3) \Rightarrow C)$ \hfill $\qed$ \\
 	\section{Question 2.4}
