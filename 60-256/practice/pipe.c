@@ -1,6 +1,8 @@
 #include <stdio.h>
 #include <stdlib.h>
 #include <signal.h>
+#include <unistd.h>
+#include <sys/stat.h>
 long fact(int n)
 {
 	if (n == 1)
@@ -8,9 +10,20 @@ long fact(int n)
 	else
 		return n* fact(n-1);
 }
+int fib(int n)
+{
+	if (n == 0 || n == 1)
+	{
+		return n;
+	}
+	else
+	{
+		return fib(n-1) + fib(n-2);
+	}
+}
 void child(int fd[])
 {
-	char t, *k;
+	char t;
 	int i = 0;
 	close(fd[1]);
 	read(fd[0], &t, 1);
@@ -26,18 +39,6 @@ void parent(int fd[])
 	printf("%s\n",t);
 	write(fd[1], t, 1);
 }
-
-int fib(int n)
-{
-	if (n == 0 || n == 1)
-	{
-		return n;
-	}
-	else
-	{
-		return fib(n-1) + fib(n-2);
-	}
-}
 int main()
 {
 	int pid, fd[2];
@@ -48,7 +49,7 @@ int main()
 	}
 	else
 	{
-		if (pid = fork() == 0)
+		if ((pid = fork()) == 0)
 		{
 			child(fd);
 			exit(0);

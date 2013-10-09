@@ -18,12 +18,12 @@ void play_game(char *, int);
 int main()
 {
     pid_t pid1, pid2;
-
+    char player_1 = "Player 1", player_2 = "Player 2";
     printf("\nThis is a 2-players game with a referee\n");
 
   //create two palyers
-    if((pid1 = fork()) == 0) play_game("Player 1", 1);
-    if((pid2 = fork()) == 0) play_game("Player 2", 2);
+    if((pid1 = fork()) == 0) play_game(Player_1, 1);
+    if((pid2 = fork()) == 0) play_game(Player_2, 2);
 
     /**************
      Notice, due the design of function play_game(), the following

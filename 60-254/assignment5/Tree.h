@@ -17,13 +17,13 @@ public:
 	int size() const;
 	int subSize(TreeNode<T>*);
 
-	TreeNode<T>* next(TreeNode<T>*);
+	TreeNode<T>* next(TreeNode<T>* const) const;
 	TreeNode<T>* TreeSearch(TreeNode<T>*, const T&) const;
 
-	const bool find(const T&) const;
+	bool find(const T&) const;
 
 	void print() const;
-	void print_in_order(const TreeNode<T>*) const;
+	void print_in_order(TreeNode<T>*) const;
 };
 
 template <class T>
@@ -235,7 +235,7 @@ void Tree<T>::remove(const T& key)
 	}
 }
 template <class T>
-TreeNode<T>* Tree<T>::next(TreeNode<T>* root)
+TreeNode<T>* Tree<T>::next(TreeNode<T>* const root) const
 {
 	if (root == 0 || root->left() == 0)
 		return root;
@@ -243,7 +243,7 @@ TreeNode<T>* Tree<T>::next(TreeNode<T>* root)
 		return this->next(root->left());
 }
 template <class T>
-TreeNode<T>* Tree<T>::TreeSearch(TreeNode<T>* root, const T& key) const
+TreeNode<T>* Tree<T>::TreeSearch(TreeNode<T>* const root, const T& key) const
 {
 	if (root == 0)
 	{
@@ -274,7 +274,7 @@ void Tree<T>::print() const
 	std::cout << std::endl;
 }
 template <class T>
-void Tree<T>::print_in_order(const TreeNode<T>* root) const
+void Tree<T>::print_in_order(TreeNode<T>* root) const
 {
 	if (root != 0)
 	{
@@ -285,7 +285,7 @@ void Tree<T>::print_in_order(const TreeNode<T>* root) const
 }
 
 template <class T>
-const bool Tree<T>::find(const T& key) const
+bool Tree<T>::find(const T& key) const
 {
 	TreeNode<T>* find = this->TreeSearch(this->_root, key);
 	return find != 0;

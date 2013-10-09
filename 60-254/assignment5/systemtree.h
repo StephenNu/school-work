@@ -20,13 +20,13 @@ public:
 	TreeNode<T>* next(TreeNode<T>*);
 	TreeNode<T>* TreeSearch(TreeNode<T>*, const T&) const;
 
-	const bool find(const T&) const;
+	bool find(const T&);
 
 	void print() const;
-	void print_op(int ) const;
-	void print_right(const TreeNode<T>*) const;
-	void print_left(const TreeNode<T>*) const;
-	void print_in_order(const TreeNode<T>*) const;
+	void print_op(int) const;
+	void print_right(TreeNode<T>*) const;
+	void print_left(TreeNode<T>*) const;
+	void print_in_order(TreeNode<T>*) const;
 };
 
 template <class T>
@@ -277,18 +277,7 @@ void Tree<T>::print() const
 	std::cout << std::endl;
 }
 template <class T>
-void Tree<T>::print_in_order(const TreeNode<T>* root) const
-{
-	if (root != 0)
-	{
-		print_in_order(root->left());
-		std::cout << " " << *(*root);
-		print_in_order(root->right());	
-	}
-}
-
-template <class T>
-const bool Tree<T>::find(const T& key) const
+bool Tree<T>::find(const T& key)
 {
 	TreeNode<T>* find = this->TreeSearch(this->_root, key);
 	return find != 0;
@@ -311,7 +300,7 @@ void Tree<T>::print_op(int op) const
 	std::cout << std::endl;
 }
 template <class T>
-void Tree<T>::print_right(const TreeNode<T>* root) const
+void Tree<T>::print_right(TreeNode<T>* root) const
 {
 	if (root == 0)
 	{
@@ -329,7 +318,7 @@ void Tree<T>::print_right(const TreeNode<T>* root) const
 	}
 }
 template <class T>
-void Tree<T>::print_left(const TreeNode<T>* root) const
+void Tree<T>::print_left(TreeNode<T>* root) const
 {
 	if (root == 0)
 	{
@@ -344,5 +333,15 @@ void Tree<T>::print_left(const TreeNode<T>* root) const
 	else
 	{
 		this->print_left(root->left());
+	}
+}
+template <class T>
+void Tree<T>::print_in_order(TreeNode<T>* root) const
+{
+	if (root != 0)
+	{
+		print_in_order(root->left());
+		std::cout << " " << *(*root);
+		print_in_order(root->right());	
 	}
 }

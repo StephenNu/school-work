@@ -1,11 +1,12 @@
 #include <stdio.h>
 #include <stdlib.h>
+#include <unistd.h>
 /*
  * purpose: to print the pid and ppid of a parent two children and then two children each of the two childrens
  * lab 52, 2013-02-27
  * Stephen Nusko, 102693282
  */
-int main (int argc, char *argv[])
+int main ()
 {
 	int pid = fork(), pid1, pid2, pid3, pid4, pid5;
 	if (pid == -1)

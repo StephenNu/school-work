@@ -8,7 +8,7 @@
 \usepackage{fancyhdr}
 
 \pagestyle{fancy}
-\rhead{Stephen Nusko 103693282 \\ 60-231 assignment 2}
+\rhead{Stephen Nusko 103693282 \\ 60-231 Assignment 2}
 
 \title{[03-60-231] Assignment 2}
 \author{Stephen Nusko \\ 103693282}
@@ -41,20 +41,20 @@
 			\begin{enumerate}
 				\item $\lnot((\forall x)(\alpha(x) \lor \beta(x))$ \hfill Hypothesis
 				\item $(\exists x)\lnot(\alpha(x) \lor \beta(x))$ \hfill 1, FE7
-				\item $(\exists x)\lnot\alpha(x) \land \lnot\beta(x))$ \hfill 2, E17
-				\item $\lnot\alpha(x) \land \lnot\beta(x)$ \hfill 3, UI 
-				\item $\lnot\alpha(x)$ \hfill 4, I2 
-				\item $\lnot\beta(x) \land \lnot\alpha(x)$ \hfill 4, E9 
-				\item $\lnot\beta(x)$ \hfill 6, I2
+				\item $(\exists x)(\lnot\alpha(x) \land \lnot\beta(x))$ \hfill 2, E17
+				\item $\lnot\alpha(c) \land \lnot\beta(c)$ \hfill 3, EI, c is a constant
+				\item $\lnot\alpha(c)$ \hfill 4, I2 
+				\item $\lnot\beta(c) \land \lnot\alpha(c)$ \hfill 4, E9 
+				\item $\lnot\beta(c)$ \hfill 6, I2
 				\item $(\exists x)\lnot\alpha(x)$ \hfill 5, EQ
 				\item $(\exists x)\lnot\beta(x)$ \hfill 7, EQ
 				\item $(\exists x)\lnot\alpha(x) \land (\exists x)\lnot\beta(x)$ \hfill 8, 9, I6
 				\item $\lnot(\forall x)\alpha(x) \land (\exists x)\lnot\beta(x)$ \hfill 10, FE7
 				\item $\lnot(\forall x)\alpha(x) \land \lnot(\forall x)\beta(x)$ \hfill 11, FE7
-				\item $\lnot((\forall x)\alpha(x) \lor (\forall x)\beta(x)$ \hfill 12, E17
+				\item $\lnot((\forall x)\alpha(x) \lor (\forall x)\beta(x))$ \hfill 12, E17
 			\end{enumerate}
 			$\therefore \lnot((\forall x)(\alpha(x) \lor \beta(x)) \Rightarrow \lnot((\forall x)\alpha(x) \lor (\forall x)\beta(x))$ \\
-			$\therefore ((\forall x)\alpha(x) \lor (\forall x)\beta(x)) \Rightarrow (\forall x)(\alpha(x) \lor \beta(x))$ \\
+			$\therefore ((\forall x)\alpha(x) \lor (\forall x)\beta(x)) \Rightarrow (\forall x)(\alpha(x) \lor \beta(x))$ \hfill $\qed$ \\
 		\subsection{Part d}
 			Prove $(\forall x)(\alpha(x) \Rightarrow \beta(x)) \Rightarrow ((\forall x)\lnot\beta(x) \Rightarrow (\forall x)\lnot\alpha(x))$ \\
 			Solution: (indirect proof) \\
@@ -67,21 +67,26 @@
 				\item $\lnot(\forall x)\lnot\alpha(x) \land (\forall x)\lnot\beta(x)$ \hfill 4, E9
 				\item $\lnot(\forall x)\lnot\alpha(x)$ \hfill 7, I2
 				\item $(\exists x)\lnot\lnot\alpha(x)$ \hfill 8, FE7
-				\item $(\exists x)\alpha(x)$ \hfill 9, E15
-				\item $\alpha(x)$ \hfill 10, EI
-				\item $\lnot\beta(x)$ \hfill 5, UI 
-				\item $\alpha(x) \land \lnot\beta(x)$ \hfill 10, 11, I6
-				\item $(\exists x)(\alpha(x) \land \lnot\beta(x))$ \hfill 12, EQ
-				\item $(\exists x)(\lnot\lnot\alpha(x) \land \lnot\beta(x))$ \hfill 13, E15 
-				\item $(\exists x)\lnot(\lnot\alpha(x) \lor \beta(x))$ \hfill 14, E17
-				\item $\lnot((\forall x)(\lnot\alpha(x) \lor \beta(x)))$ \hfill 15, FE7
-				\item $\lnot((\forall x)(\alpha(x) \Rightarrow \beta(x)))$ \hfill 16, E18
+				\item $\lnot\lnot\alpha(c)$ \hfill 8, EI
+				\item $\lnot\beta(c)$ \hfill 5, UI 
+				\item $\lnot\lnot\alpha(c) \land \lnot\beta(c)$ \hfill 9, 10, I6
+				\item $(\exists x)(\lnot\lnot\alpha(x) \land \lnot\beta(x))$ \hfill 11, EQ
+				\item $(\exists x)\lnot(\lnot\alpha(x) \lor \beta(x))$ \hfill 12, E17
+				\item $\lnot((\forall x)(\lnot\alpha(x) \lor \beta(x)))$ \hfill 13, FE7
+				\item $\lnot((\forall x)(\alpha(x) \Rightarrow \beta(x)))$ \hfill 14, E18
 			\end{enumerate}
 			$\therefore \lnot((\forall x)\lnot\beta(x) \Rightarrow (\forall x)\lnot\alpha(x)) \Rightarrow \lnot((\forall x)(\alpha(x) \Rightarrow \beta(x)))$ \\
-			$\therefore (\forall x)(\alpha(x) \Rightarrow \beta(x)) \Rightarrow (\forall x)\lnot\beta(x) \Rightarrow (\forall x)\lnot\alpha(x)$ \\
+			$\therefore (\forall x)(\alpha(x) \Rightarrow \beta(x)) \Rightarrow (\forall x)\lnot\beta(x) \Rightarrow (\forall x)\lnot\alpha(x)$ \hfill \qed \\
 	\section{Question 2.3}
 		\subsection{Part d}
-			Prove $((\exists x)(P(x) \land (\forall y)((R(y) \land S(x, y)) \Rightarrow Z(x, y))) \land ((\forall x)(P(x) \Rightarrow (\exists y)(R(y) \land \lnot U(x, y) \land T(x, y)))) \land ((\forall x)(\forall y)((P(x) \land R(y) \land T(x, y)) \Rightarrow S(x, y))) \Rightarrow ((\exists x)(\exists y)(P(x) \land R(x) \land Z(x, y) \land \lnot U(x, y)))$ \\
+			\begin{tabular}{r l}
+				P1: & $(\exists x)(P(x) \land (\forall y)((R(y) \land S(x, y)) \Rightarrow Z(x, y))$ \\
+				P2: & $(\forall x)(P(x) \Rightarrow (\exists y)(R(y) \land \lnot U(x, y) \land T(x, y))$ \\
+				P3: & $(\forall x)(\forall y)((P(x) \land R(y) \land T(x, y)) \Rightarrow S(x, y)$ \\ \hline
+				C: & $(\exists x)(\exists y)(P(x) \land R(x) \land Z(x, y) \land \lnot U(x, y))$ \\
+			\end{tabular}
+			\newline \\
+			Prove: $((P1 \land P2 \land P3) \Rightarrow C)$ \\
 			Solution: (direct proof) \\
 			\begin{enumerate}
 				\item $(\exists x)(P(x) \land (\forall y)((R(y) \land S(x, y)) \Rightarrow Z(x, y)))$ \hfill Hypothesis from P1
@@ -109,53 +114,58 @@
 				\item $(\exists y)(P(c) \land R(y) \land Z(c, y) \land \lnot U(c, y)$ \hfill 22, EQ
 				\item $(\exists x)(\exists y)(P(x) \land R(y) \land Z(x, y) \land \lnot U(x, y)$ \hfill 23, EQ
 			\end{enumerate}
-			$\therefore ((\exists x)(P(x) \land (\forall y)((R(y) \land S(x, y)) \Rightarrow Z(x, y))) \land ((\forall x)(P(x) \Rightarrow (\exists y)(R(y) \land \lnot U(x, y) \land T(x, y)))) \land ((\forall x)(\forall y)((P(x) \land R(y) \land T(x, y)) \Rightarrow S(x, y))) \Rightarrow ((\exists x)(\exists y)(P(x) \land R(x) \land Z(x, y) \land \lnot U(x, y)))$ \\
+			$\therefore ((P1 \land P2 \land P3) \Rightarrow C)$ \hfill $\qed$ \\
 	\section{Question 2.4}
 		\subsection{Part f}
 		The universe of discourse are poems. \\
-		Let I(x) denote an interesting poem. \\
-		Let M(x) denote a modern poem. \\
-		Let F(x) denote a poem written by me. \\
-		Let S(x) denote a poem written about a soap bubble. \\
-		Let R(x) denote a poem that is popular with people of real taste. \\
-		Let A(x) denote a poem that is affected. \\
-		Then we must prove: $((\lnot(\exists x)(I(x) \land \lnot R(x))) \land (\lnot(\exists x)(M(x) \land \lnot B(x))) \land ((\forall x)(F(x) \land S(x))) \land (\lnot(\exists x)(\lnot M(x) \land S(x)))) \Rightarrow ((\forall x)(F(x) \land \lnot I(x)))$ \\
-		\begin{enumerate}
-			\item $\lnot(\exists x)(I(x) \land \lnot R(x))$ \hfill Hypothesis from P1
-			\item $\lnot(\exists x)(M(x) \land \lnot B(x))$ \hfill Hypothesis from P2
-			\item $(\forall x)(F(x) \land S(x))$ \hfill Hypothesis from P3
-			\item $\lnot(\exists x)(B(x) \land R(x))$ \hfill Hypothesis from P4
-			\item $\lnot(\exists x)(\lnot M(x) \land S(x))$ \hfill Hypothesis from P5
-			\item $(\forall x)\lnot(I(x) \land \lnot R(x))$ \hfill 1, FE8
-			\item $(\forall x)(\lnot I(x) \lor \lnot\lnot R(x))$ \hfill 6, E16
-			\item $(\forall x)(\lnot\lnot R(x) \lor \lnot I(x))$ \hfill 7, E10
-			\item $(\forall x)(\lnot R(x) \Rightarrow \lnot I(x))$ \hfill 8, E18
-			\item $\lnot R(x) \Rightarrow \lnot I(x)$ \hfill 9, UI
-			\item $(\forall x)\lnot(\lnot M(x) \land S(x))$ \hfill 5, FE8
-			\item $(\forall x)(\lnot\lnot M(x) \lor \lnot S(x))$ \hfill 11, E16
-			\item $(\forall x)(\lnot S(x) \lor \lnot\lnot M(x))$ \hfill 12, E10
-			\item $(\forall x)(\lnot S(x) \lor M(x))$ \hfill 13, E15
-			\item $(\forall x)(S(x) \Rightarrow M(x))$ \hfill 14, E18
-			\item $S(x) \Rightarrow M(x)$ \hfill 15, UI
-			\item $(\forall x)\lnot(M(x) \land \lnot B(x))$ \hfill 2, FE8
-			\item $(\forall x)(\lnot M(x) \lor \lnot\lnot B(x))$ \hfill 17, E16
-			\item $(\forall x)(\lnot M(x) \lor B(x))$ \hfill 18, E15
-			\item $(\forall x)(M(x) \Rightarrow B(x))$ \hfill 19, E18
-			\item $M(x) \Rightarrow B(x)$ \hfill 20, UI
-			\item $(\forall x)\lnot(B(x) \land R(x))$ \hfill 4, FE8
-			\item $(\forall x)(\lnot B(x) \lor \lnot R(x))$ \hfill 22, E16
-			\item $(\forall x)(B(x) \Rightarrow \lnot R(x))$ \hfill 23, E18
-			\item $B(x) \Rightarrow \lnot R(x)$ \hfill 24, UI
-			\item $S(x) \Rightarrow B(x)$ \hfill 16, 21, I5
-			\item $S(x) \Rightarrow \lnot R(x)$ \hfill 26, 25, I5
-			\item $S(x) \Rightarrow \lnot I(x)$ \hfill 27, 10, I5
-			\item $F(x) \land S(x)$ \hfill 3, UI
-			\item $F(x)$ \hfill 29, I2
-			\item $S(x) \land F(x)$ \hfill 29, E9
-			\item $S(x)$ \hfill 32, I2
-			\item $\lnot I(x)$ \hfill 33, 28, I3
-			\item $F(x) \land \lnot I(x)$ \hfill 30, 34, I6
-			\item $(\forall x)(F(x) \land \lnot I(x))$ \hfill 45, Gen
-		\end{enumerate}
-			$\therefore ((\lnot(\exists x)(I(x) \land \lnot R(x))) \land (\lnot(\exists x)(M(x) \land \lnot B(x))) \land ((\forall x)(F(x) \land S(x))) \land (\lnot(\exists x)(\lnot M(x) \land S(x)))) \Rightarrow ((\forall x)(F(x) \land \lnot I(x)))$ \\
+			Let I(x) denote an interesting poem. \\
+			Let M(x) denote a modern poem. \\
+			Let F(x) denote a poem written by me. \\
+			Let S(x) denote a poem written about a soap bubble. \\
+			Let R(x) denote a poem that is popular with people of real taste. \\
+			Let A(x) denote a poem that is affected. \\
+			\newline
+			\begin{tabular}{r l}
+				P1: & $\lnot(\exists x)(I(x) \land \lnot R(x))$ \\
+				P2: & $\lnot(\exists x)(M(x) \land \lnot B(x))$ \\
+				P3: & $(\forall x)(F(x) \Rightarrow S(x))$ \\
+				P4: & $\lnot(\exists x)(B(x) \land R(x))$ \\
+				P5: & $\lnot(\exists x)(\lnot M(x) \land S(x))$ \\ \hline
+				C: & $(\forall x)(F(x) \Rightarrow \lnot I(x))$ \\
+			\end{tabular}
+			\newline \\
+			Prove $((P1 \land P2 \land P3 \land P4 \land P5) \Rightarrow C)$ \\
+			Solution: (direct proof)
+			\begin{enumerate}
+				\item $\lnot(\exists x)(I(x) \land \lnot R(x))$ \hfill Hypothesis from P1
+				\item $\lnot(\exists x)(M(x) \land \lnot B(x))$ \hfill Hypothesis from P2
+				\item $(\forall x)(F(x) \Rightarrow S(x))$ \hfill Hypothesis from P3
+				\item $\lnot(\exists x)(B(x) \land R(x))$ \hfill Hypothesis from P4
+				\item $\lnot(\exists x)(\lnot M(x) \land S(x))$ \hfill Hypothesis from P5
+				\item $(\forall x)\lnot(I(x) \land \lnot R(x))$ \hfill 1, FE8
+				\item $(\forall x)(\lnot I(x) \lor \lnot\lnot R(x))$ \hfill 6, E16
+				\item $(\forall x)(\lnot\lnot R(x) \lor \lnot I(x))$ \hfill 7, E10
+				\item $(\forall x)(\lnot R(x) \Rightarrow \lnot I(x))$ \hfill 8, E18
+				\item $\lnot R(x) \Rightarrow \lnot I(x)$ \hfill 9, UI
+				\item $(\forall x)\lnot(\lnot M(x) \land S(x))$ \hfill 5, FE8
+				\item $(\forall x)(\lnot\lnot M(x) \lor \lnot S(x))$ \hfill 11, E16
+				\item $(\forall x)(\lnot S(x) \lor \lnot\lnot M(x))$ \hfill 12, E10
+				\item $(\forall x)(\lnot S(x) \lor M(x))$ \hfill 13, E15
+				\item $(\forall x)(S(x) \Rightarrow M(x))$ \hfill 14, E18
+				\item $S(x) \Rightarrow M(x)$ \hfill 15, UI
+				\item $(\forall x)\lnot(M(x) \land \lnot B(x))$ \hfill 2, FE8
+				\item $(\forall x)(\lnot M(x) \lor \lnot\lnot B(x))$ \hfill 17, E16
+				\item $(\forall x)(\lnot M(x) \lor B(x))$ \hfill 18, E15
+				\item $(\forall x)(M(x) \Rightarrow B(x))$ \hfill 19, E18
+				\item $M(x) \Rightarrow B(x)$ \hfill 20, UI
+				\item $(\forall x)\lnot(B(x) \land R(x))$ \hfill 4, FE8
+				\item $(\forall x)(\lnot B(x) \lor \lnot R(x))$ \hfill 22, E16
+				\item $(\forall x)(B(x) \Rightarrow \lnot R(x))$ \hfill 23, E18
+				\item $B(x) \Rightarrow \lnot R(x)$ \hfill 24, UI
+				\item $S(x) \Rightarrow B(x)$ \hfill 16, 21, I5
+				\item $S(x) \Rightarrow \lnot R(x)$ \hfill 26, 25, I5
+				\item $S(x) \Rightarrow \lnot I(x)$ \hfill 27, 10, I5
+				\item $F(x) \Rightarrow \lnot I(x)$ \hfill 3, 28, I5
+			\end{enumerate}
+			$\therefore ((P1 \land P2 \land P3 \land P4 \land P5) \Rightarrow C)$ \hfill $\qed$ \\
 \end{document}

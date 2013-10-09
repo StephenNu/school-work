@@ -32,7 +32,7 @@ char * myfgets(FILE *fp)
 	return hi;
 }
 
-int main(int argc, char *argv[])
+int main()
 {
 	FILE *fp = fopen("test.dat", "r");
 	char *no = myfgets(fp);

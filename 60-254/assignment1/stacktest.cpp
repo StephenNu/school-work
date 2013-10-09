@@ -10,7 +10,7 @@ int main()
 	bool valid = true;
 	cout << "please input a string to match" << endl;
 	cin >> str;
-	for (int i = 0; i < str.length() && valid; i++) // n + 1 time complexity
+	for (unsigned int i = 0; i < str.length() && valid; i++) // n + 1 time complexity
 	{
 		valid  = checkInput(str[i]);		// max comparisons in function is 3 called n times so n + 3.
 	}
@@ -30,7 +30,6 @@ int main()
 bool checkInput(char in)
 {
 	char top = ' ';
-	bool check = true;
 	if (in == '(' || in == '{' || in == '[')
 	{
 		fun.push(in);

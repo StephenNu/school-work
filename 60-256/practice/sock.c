@@ -10,7 +10,10 @@ int main(int argc, char *argv[])
 {
 	int sd, portnum;
 	struct sockaddr_in serv;
-
+	if (argc == 0)
+	{
+		exit(9);
+	}
 	sd = socket(AF_INET , SOCK_STREAM, 0);
 	serv.sin_family = AF_INET;
 	serv.sin_addr.s_addr = htonl(INADDR_ANY);

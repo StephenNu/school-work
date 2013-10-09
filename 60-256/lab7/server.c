@@ -1,11 +1,11 @@
-
+#include <sys/stat.h>
 #include <fcntl.h>
 #include <stdio.h>
 #include <stdlib.h>
-
+#include <unistd.h>
 void readerChild(int fd);
 
-int main(int argc, char *argv[]){
+int main(){
 
     int fd1, fd2;
     char ch;

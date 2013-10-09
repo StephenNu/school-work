@@ -1,6 +1,9 @@
 #include <stdio.h>
 #include <stdlib.h>
 #include <fcntl.h>
+#include <sys/stat.h>
+#include <unistd.h>
+#include <time.h>
 #define MAX 500
 int checkPrime(int n)
 {
@@ -16,8 +19,7 @@ int checkPrime(int n)
 }
 int main()
 {
-	int fd1, fd2, i = 0, pid, prime, k = 0, ch;
-	char newLine ='\n';
+	int fd1, fd2, i = 0, pid, prime;
 	
 	unlink("./tmp/nuskos");
 	if (mkfifo("./tmp/nuskos", 0777)) {
@@ -27,7 +29,7 @@ int main()
 	srand(time(NULL));
 	for (i = 0; i < 10; i++)
 	{
-		if (pid = fork() == 0)
+		if ((pid = fork()) == 0)
 		{
 			int b;
 			fd2 = open("./tmp/nuskos", O_RDONLY);

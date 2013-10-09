@@ -12,7 +12,6 @@ int counter = 0;
 int main() 
 {
 	pthread_t thread_id1, thread_id2;
-	int i, j;
 	pthread_create(&thread_id1, NULL, thread_fun, NULL);
 	pthread_create(&thread_id2, NULL, thread_fun2, NULL);
 	pthread_join(thread_id1, NULL);
@@ -22,7 +21,7 @@ int main()
 	return 0;
 }
 
-void *thread_fun(void *dummy)
+void *thread_fun(void * dummy)
 {
 	for (;;)
 	{
@@ -38,7 +37,7 @@ void *thread_fun(void *dummy)
 		}
 	}
 }
-void *thread_fun2(void *dummy)
+void *thread_fun2(void * dummey)
 {
 	for (;;)
 	{

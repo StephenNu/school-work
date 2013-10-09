@@ -9,7 +9,7 @@ void print(int[], int);
 void swap(int*, int*);
 using namespace std;
 
-int main(int argc, char *argv[])
+int main()
 {
 	int A[100000];
 	int B[10];

@@ -9,7 +9,7 @@ int removeMin();
 using namespace std;
 int hi[10];
 int size = 10;
-int main(int argc, char* argv[])
+int main()
 {
 	hi[0] = 4;
 	hi[1] = 3;

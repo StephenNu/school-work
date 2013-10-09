@@ -1,6 +1,6 @@
 #include "LinkedList.h"
 
-template <class T, container = LinkedList<T>>
+template <class T>
 class Queue
 {
 private:
@@ -33,7 +33,7 @@ T& Queue<T>::front()
 template <class T>
 const T& Queue<T>::front() const
 {
-	return this->_data.front();
+	return _data.front();
 }
 
 template <class T>

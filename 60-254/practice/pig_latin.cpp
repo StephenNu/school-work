@@ -3,11 +3,14 @@
 #include <ctype.h>
 #define MAX 500
 using namespace std;
+/*
+	converts a sentence into pig latin.
+*/
 // if vowel start add ay to end
 // if constant place at end add ay
 void spacekittens(char str[]);
 void swap(char*, char*);
-int main(int argc, char *argv[])
+int main()
 {
 	char sent[MAX], *token, final[MAX], inter[MAX];
 	final[0] = '\0';

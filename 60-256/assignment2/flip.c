@@ -5,9 +5,13 @@ void flipImage(FILE *, FILE *);
 int getCols(char *);
 int getLines(char *);
 
-int main (int argc, char *argv[])
+int main (int argc, char* argv[])
 {
 	FILE *fin, *fout;
+	if (argc == 0)
+	{
+		exit(9);
+	}
 	fin = fopen(argv[1], "r");
 	if (fin == NULL)
 	{

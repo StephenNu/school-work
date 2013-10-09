@@ -6,8 +6,8 @@ class Node
 {
 private:
 	T _element;
-	Node<T>* _next;
 	Node<T>* _previous;
+	Node<T>* _next;
 public:
 	Node ();
 	Node (const T&, Node<T>* const, Node<T>* const);
@@ -15,8 +15,8 @@ public:
 	T& element();
 	const T& element() const;
 
-	Node<T>* const next() const;
-	Node<T>* const previous() const;
+	Node<T>*  next();
+	Node<T>*  previous();
 	void set_next(Node<T>* const);
 	void set_previous(Node<T>* const);
 };
@@ -46,13 +46,13 @@ const T& Node<T>::element() const
 }
 
 template <class T>
-Node<T>* const Node<T>::next() const
+Node<T>* Node<T>::next()
 {
 	return this->_next;
 }
 
 template <class T>
-Node<T>* const Node<T>::previous() const
+Node<T>* Node<T>::previous()
 {
 	return this->_previous;
 }

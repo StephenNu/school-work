@@ -1,7 +1,9 @@
 #include <stdlib.h>
 #include <stdio.h>
 #include <fcntl.h>
+#include <unistd.h>
 #define MAX 256
+
 int main (int argc, char* argv[])
 {
 	char hi;
@@ -20,7 +22,7 @@ int main (int argc, char* argv[])
 		}
 		else
 		{
-			while (check = read(fp, &hi, 1) > 0)
+			while ((check = read(fp, &hi, 1)) > 0)
 			{
 				if (write(fout, &hi, check) != 1)
 				{

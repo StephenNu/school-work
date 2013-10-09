@@ -6,6 +6,10 @@ long findNewLine(FILE *, long start);
 int main (int argc, char* argv[])
 {
 	FILE *f1, *f2;
+	if (argc == 0)
+	{
+		exit(9);
+	}
 	f1 = fopen(argv[1], "r");
 	if (f1 == NULL)
 	{
@@ -24,7 +28,7 @@ int main (int argc, char* argv[])
 
 void reverse(FILE *f1, FILE *f2)
 {
-	char in[MAX_SIZE], check;
+	char in[MAX_SIZE];
 	long i = findNewLine(f1, -2);
 	while (i != SEEK_SET)
 	{

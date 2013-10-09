@@ -1,12 +1,17 @@
+#include <stdlib.h>
 #include <stdio.h>
 #include <unistd.h>
 #include <sys/socket.h>
-
+#include <sys/stat.h>
 int main (int argc, char *argv[])
 {
 	char ch, name[100];
 	int sd, ip, port;
 	struct sockaddr_in serv;
+	if (argc != 2)
+	{
+		exit(9);
+	}
 	sd = socket(AF_INET, SOCK_STREAM, 0);
 	serv.sin_family = AF_INET;
 	sscanf(argv[1], "%d", &ip);

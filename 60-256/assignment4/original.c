@@ -9,7 +9,7 @@
 int read_args(char *, char *[]);
 
 
-int main(int argc, char *argv[]){
+int main(){
 	pid_t pid;
 	char line[255];
 	char *arg_list[20];

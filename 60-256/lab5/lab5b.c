@@ -1,12 +1,13 @@
 #include <stdio.h>
 #include <stdlib.h>
 #include <fcntl.h>
+#include <unistd.h>
 /*
  * purpose: to use a child process to read and output a file opened by the parent.
  * lab 52 2013-02-27
  * Stephen Nusko, 103693282
  */
-int main(int argc, char* argv[])
+int main()
 {
 	int fp = open("file.txt", O_RDONLY);
 	if (fp == -1)
@@ -24,7 +25,7 @@ int main(int argc, char* argv[])
 	{
 		char t;
 		long int check;
-		while (check = read(fp, &t, 1) > 0)
+		while ((check = read(fp, &t, 1)) > 0)
 		{
 			if (write(1, &t, 1) != 1)
 			{
@@ -39,9 +40,9 @@ int main(int argc, char* argv[])
 	}
 	else
 	{
-		int status;
-		wait(&status);
-		printf("My child has terminated its life %d\n", WEXITSTATUS(status));
+		int stat;
+		wait(&stat);
+		printf("My child has terminated its life %d\n", WEXITSTATUS(stat));
 	}
 	}
 	return 0;

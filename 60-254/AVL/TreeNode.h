@@ -9,16 +9,18 @@ private:
 public:
 	TreeNode(const T&);
 	
-	TreeNode<T>* const left();
-	const TreeNode<T>* const left () const;
-	TreeNode<T>* const right();
-	const TreeNode<T>* const right() const;
-	TreeNode<T>* const parent();
-	const TreeNode<T>* const parent() const;
+	void left(TreeNode<T>*);
+	void right(TreeNode<T>*);
+	TreeNode<T>* left();
+	const TreeNode<T>* left () const;
+	TreeNode<T>* right();
+	const TreeNode<T>* right() const;
+	TreeNode<T>* parent();
+	const TreeNode<T>*  parent() const;
 	T& element();
 	const T& element() const;
 	int height() const;
-	const int height() const;
+	int height(const TreeNode<T>*) const;
 	void set_left(TreeNode<T>* const);
 	void set_right(TreeNode<T>* const);
 	void set_parent(TreeNode<T>* const);
@@ -33,53 +35,81 @@ TreeNode<T>::TreeNode(const T& element)
 	: _element(element), _left(0), _right(0), _parent(0)
 {
 }
-
 template <class T>
-TreeNode<T>* const TreeNode<T>::left()
+void TreeNode<T>::left(TreeNode<T>* a)
+{
+	this->_left = a;
+}
+template <class T>
+void TreeNode<T>::right(TreeNode<T>* b)
+{
+	this->_right = b;
+}
+template <class T>
+TreeNode<T>* TreeNode<T>::left()
 {
 	return this->_left;
 }
 
 template <class T>
-const TreeNode<T>* const TreeNode<T>::left() const
+const TreeNode<T>* TreeNode<T>::left() const
 {
 	return this->_left;
 }
 
 template <class T>
-TreeNode<T>* const TreeNode<T>::right()
+TreeNode<T>* TreeNode<T>::right()
 {
 	return this->_right;
 }
 
 template <class T>
-const TreeNode<T>* const TreeNode<T>::right() const
+const TreeNode<T>* TreeNode<T>::right() const
 {
 	return this->_right;
 }
 
 template <class T>
-TreeNode<T>* const TreeNode<T>::parent()
+TreeNode<T>* TreeNode<T>::parent()
 {
 	return this->_parent;
 }
 
 template <class T>
-const TreeNode<T>* const TreeNode<T>::parent() const
+const TreeNode<T>* TreeNode<T>::parent() const
 {
 	return this->_parent;
 }
 
 template <class T>
-int TreeNode<T>::height()
+int TreeNode<T>::height() const
 {
-	return this->_height;
+	int left = 1 + height(this->left()), right = 1 + height(this->right());
+	if (left > right)
+	{
+		return left;
+	}
+	else 
+	{
+		return right;
+	}
 }
 
 template <class T>
-const int TreeNode<T>::height() const
-{
-	return this->_height;
+int TreeNode<T>::height(const TreeNode<T>* a) const
+{	
+	if (a == 0)
+		return 0;
+	else
+	{
+		int left = 1 + height(this->left()), right = 1 + height(this->right());
+		std::cout << "left = " << left << " right = " << right << std::endl;
+		if (left > right)
+
+			return left;
+		else
+			return right;
+	}
 }
 template <class T>
 void TreeNode<T>::set_left(TreeNode<T>* const left)

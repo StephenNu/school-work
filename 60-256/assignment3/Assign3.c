@@ -1,13 +1,14 @@
 #include <stdio.h>
 #include <stdlib.h>
 #include <fcntl.h>
+#include <unistd.h>
 #define MAX 500
 void itoa (int, char*);
 int length(char*);
 void swap (char*, char*);
-int main(int argc, char* argv[])
+int main()
 {
-	int n, m, k, i = 0, sum = 0;
+	int m, k, i = 0, sum = 0;
 	char b, t_char[MAX];
 	double avg = 0.0;
 	long int check;
@@ -20,7 +21,7 @@ int main(int argc, char* argv[])
 	}
 	else
 	{
-		while (check = read(fp, &b, 1) > 0 && b != ' ')
+		while ((check = read(fp, &b, 1)) > 0 && b != ' ')
 		{
 			t_char[i++] = b;
 		}
@@ -31,7 +32,7 @@ int main(int argc, char* argv[])
 		t_char[i] = '\n';
 		m = atoi(t_char);
 		i = 0;
-		while (check = read(fp, &b, 1) > 0 && b != '\n')
+		while ((check = read(fp, &b, 1)) > 0 && b != '\n')
 		{
 			t_char[i++] = b;
 		}
@@ -40,7 +41,6 @@ int main(int argc, char* argv[])
 			perror("reading problem "); exit(2);
 		}
 		t_char[i] = '\n';
-		n = atoi(t_char);
 		for (k = 0; k < m; k++)
 		{
 			int pid = fork();
@@ -83,7 +83,7 @@ int main(int argc, char* argv[])
 		}
 		lseek(fpout, SEEK_SET, 0);
 		i = 0;
-		while (check = read(fpout, &b, 1) > 0)
+		while ((check = read(fpout, &b, 1)) > 0)
 		{
 			if (b == '\n')
 			{

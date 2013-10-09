@@ -8,12 +8,9 @@ private:
 public:
 	TreeNode(const T&);
 	
-	TreeNode<T>* const left();
-	const TreeNode<T>* const left () const;
-	TreeNode<T>* const right();
-	const TreeNode<T>* const right() const;
-	TreeNode<T>* const parent();
-	const TreeNode<T>* const parent() const;
+	TreeNode<T>* left();
+	TreeNode<T>* right();
+	TreeNode<T>* parent();
 	T& element();
 	const T& element() const;
 	void set_left(TreeNode<T>* const);
@@ -32,37 +29,19 @@ TreeNode<T>::TreeNode(const T& element)
 }
 
 template <class T>
-TreeNode<T>* const TreeNode<T>::left()
+TreeNode<T>* TreeNode<T>::left()
 {
 	return this->_left;
 }
 
 template <class T>
-const TreeNode<T>* const TreeNode<T>::left() const
-{
-	return this->_left;
-}
-
-template <class T>
-TreeNode<T>* const TreeNode<T>::right()
+TreeNode<T>* TreeNode<T>::right()
 {
 	return this->_right;
 }
 
 template <class T>
-const TreeNode<T>* const TreeNode<T>::right() const
-{
-	return this->_right;
-}
-
-template <class T>
-TreeNode<T>* const TreeNode<T>::parent()
-{
-	return this->_parent;
-}
-
-template <class T>
-const TreeNode<T>* const TreeNode<T>::parent() const
+TreeNode<T>* TreeNode<T>::parent()
 {
 	return this->_parent;
 }

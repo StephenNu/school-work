@@ -17,16 +17,16 @@ public:
 	int size() const;
 	int subSize(TreeNode<T>*);
 	void balance(TreeNode<T>*);
-	TreeNode<T>* next(TreeNode<T>*);
-	TreeNode<T>* TreeSearch(TreeNode<T>*, const T&) const;
+	TreeNode<T>* next(const TreeNode<T>* const) const;
+	TreeNode<T>* TreeSearch(const TreeNode<T>* const, const T&) const;
 
 	TreeNode<T>* find_grand_child(TreeNode<T>* const);
 	void restructure(TreeNode<T>*);
 
-	const bool find(const T&) const;
+	bool find(const T&) const;
 
 	void print() const;
-	void print_in_order(const TreeNode<T>*) const;
+	void print_in_order(const TreeNode<T>* const) const;
 };
 
 template <class T>
@@ -81,7 +81,7 @@ TreeNode<T>* Tree<T>::find_grand_child(TreeNode<T>* const root)
 template <class T>
 void Tree<T>::restructure(TreeNode<T>* x)
 {
-	if (root == 0 || root->parent() == 0 || root->parent()->parent() == 0)
+	if (x == 0 || x->parent() == 0 || x->parent()->parent() == 0)
 	{
 		return;
 	}
@@ -89,53 +89,51 @@ void Tree<T>::restructure(TreeNode<T>* x)
 	{
 		TreeNode<T>* z = x->parent()->parent(), *a, *b, *c;
 		TreeNode<T>* y = x->parent();
-		this->inorder(x, y, z, a, b, c);
-		TreeNode<T>* T0 = x->left(), *T1, *T2, *T3;
-		if (x->right == 0)
+		TreeNode<T>* T0, *T1, *T2, *T3;
+		if (x == z->left()->right())
 		{
-			T1 = x->right();
-			T2 = y->right();
-			T3 = z->right();
+			a = y;
+			b = x;
+			c = z;
+			T0 = a->left();
+			T1 = b->left();
+			T2 = b->right();
+			T3 = c->right();
 		}
-		else if (z->left() == 0)
+		else if (x == z->right()->right())
 		{
-			T1 = y->left();
-			T2 = z->left();
-			T3 = z->right();
+			a = z;
+			b = y;
+			c = x;
+			T0 = a->left();
+			T1 = b->left();
+			T2 = c->right();
+			T3 = c->left();
+		}
+		else if (x == z->right()->left())
+		{
+			a = z;
+			b = y;
+			c = x;
+			T0 = a->left();
+			T1 = b->left();
+			T2 = b->right();
+			T3 = c->right();
 		}
 		else
 		{
-			T1 = y->left();
-			T2 = y->right();
-			T3 = z->right();
+			a = z;
+			b = y;
+			c = x;
+			T0 = a->left();
+			T1 = a->right();
+			T2 = b->right();
+			T3 = c->right();
 		}
-	}
-}
-
-template <class T>
-void Tree<T>::inorder(TreeNode<T>* x, TreeNode<T>* y, TreeNode<T>* z, TreeNode<T>* a, TreeNode<T>* b, TreeNode<T>* c)
-{
-	if (x == z->left()->right())
-	{
-		c = x;
-		x = y;
-		y = c;
-	}
-	else if (x = z->right()->right())
-	{
-		c = x;
-		x = z;
-		z = c;
-	}
-	else if (x == z->right->left())
-	{
-		c = z;
-		z = x;
-		x = c;
-
-		c = y;
-		y = z;
-		z = c;
+		a->left(T0);
+		a->right(T1);
+		c->left(T2);
+		c->right(T3);
 	}
 }
 
@@ -191,8 +189,8 @@ void Tree<T>::insert(const T& element)
 				}
 			}
 		}
-		new_node->_height() = this->subSize(new_node);
-		this->balance(new_node);
+		std::cout << "hello " << this->subSize(new_node) << std::endl;
+		this->balance(_root);
 	}
 }
 template <class T>
@@ -228,22 +226,24 @@ void Tree<T>::balance(TreeNode<T>* root)
 	}
 	else if (root->left() != 0 || root->right() != 0)
 	{
-		if ((root->left()->height() - root->right()->height()) != 1 || (root->right()->height() - root->left()->height() != 1))
+		if ((this->subSize(root->left()) - this->subSize(root->right())) != 1 || ((this->subSize(root->right()) - this->subSize(root->left()) != 1)))
 		{
-			TreeNode<T>* grand_child = this->find_grand_child(root)
+			TreeNode<T>* grand_child = this->find_grand_child(root);
 			this->restructure(grand_child);
 		}
 	}
-	else if (root->left() != 0 && root->left()->height() != 1)
+	/*else if (root->left() != 0 && this->subSize(root->left()) != 1)
 	{
 		TreeNode<T>* grand_child = this->find_grand_child(root);
 		this->restructure(grand_child);
 	}
-	else if (root->right() != 0 && root->right()->height() != 1)
+	else if (root->right() != 0 && this->subSize(root->right()) != 1)
 	{
 		TreeNode<T>* grand_child = this->find_grand_child(root);
 		this->restructure(grand_child);
-	}
+	}*/
+	if (root->left() != 0 || root->right() != 0)
+		std::cout << this->subSize(root->left()) << " " << this->subSize(root->right()) << std::endl;
 }
 
 template <class T>
@@ -359,7 +359,7 @@ void Tree<T>::remove(const T& key)
 	}
 }
 template <class T>
-TreeNode<T>* Tree<T>::next(TreeNode<T>* root)
+TreeNode<T>* Tree<T>::next(const TreeNode<T>* const root ) const
 {
 	if (root == 0 || root->left() == 0)
 		return root;
@@ -367,7 +367,7 @@ TreeNode<T>* Tree<T>::next(TreeNode<T>* root)
 		return this->next(root->left());
 }
 template <class T>
-TreeNode<T>* Tree<T>::TreeSearch(TreeNode<T>* root, const T& key) const
+TreeNode<T>* Tree<T>::TreeSearch(const TreeNode<T>* const root, const T& key) const
 {
 	if (root == 0)
 	{
@@ -398,18 +398,18 @@ void Tree<T>::print() const
 	std::cout << std::endl;
 }
 template <class T>
-void Tree<T>::print_in_order(const TreeNode<T>* root) const
+void Tree<T>::print_in_order(const TreeNode<T>* const root) const
 {
 	if (root != 0)
 	{
 		print_in_order(root->left());
-		std::cout << " " << *(*root);
+		std::cout <<  " " << *(*root);
 		print_in_order(root->right());	
 	}
 }
 
 template <class T>
-const bool Tree<T>::find(const T& key) const
+bool Tree<T>::find(const T& key) const
 {
 	TreeNode<T>* find = this->TreeSearch(this->_root, key);
 	return find != 0;

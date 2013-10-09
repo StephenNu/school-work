@@ -47,11 +47,8 @@ LinkedList<T>::LinkedList ()
 template <class T>
 LinkedList<T>::~LinkedList ()
 {
-	Node<T>* next_object = this->_head.next();
-	while (this->_size != 0)
 	{
 		this->pop_front();
-		next_object = this->_head.next();
 	}
 }
 
