@@ -1,3 +1,8 @@
+Plagiarism
+==========
+Everything in this repository is related to the courses I've taken at University of Windsor, in the spirit of show casing my knowledge and approach to problems.
+None of this gives permission for any plagiarism of material for any other purpose.
+
 school-work
 ===========
 This repository will contain some of my hand-ins for my school assignments.
