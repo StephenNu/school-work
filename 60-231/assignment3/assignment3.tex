@@ -1,0 +1,189 @@
+\documentclass{article}
+\usepackage[english]{babel}
+\usepackage{amsmath}
+\usepackage{amssymb}
+\usepackage{changepage}
+\usepackage{amsthm}
+\usepackage[margin=1in]{geometry}
+\usepackage{fancyhdr}
+
+\pagestyle{fancy}
+\rhead{Stephen Nusko \\ 103693282}
+\lhead{03-60-231 \\ Assignment 3}
+\title{[03-60-231] Assignment 3}
+\author{Stephen Nusko \\ 103693282}
+
+\begin{document}
+	\thispagestyle{empty}
+	\maketitle	
+	\section{Question 3.1}
+		\subsection{Part b}
+			Prove that if $A \subset B$, and $B \subseteq C$, then $A \subset C$ \\
+			Proof: (Direct Proof) Suppose $A \subset B$ and $B \subseteq C$ \\
+			We are to prove $A \subset C$ by definition this is equivalent to $A \subseteq C$ and $A \neq C$ \\
+			\begin{enumerate}
+				\item First we prove $A \subseteq C$
+				\begin{enumerate}
+					\item $A \subseteq B \land A \neq B$ \hfill (assumption $A \subset B$), (definition of $\subset$)
+					\item $A \subseteq B$ \hfill a, I2
+					\item $A \subseteq C$ \hfill (assumpution $B \subseteq C$), b, Lemma 3.2.3 (iii)
+				\end{enumerate}
+				\item $\therefore A \subseteq C$
+				\item Now we prove $A \neq C$
+				\begin{enumerate}
+					\item $(\exists x)(x \in B \land x \notin A)$ \hfill (assumption $A \subset C$), Lemma 3.2.6
+					\item $a \in B \land a \notin A$ \hfill a, EI, a is a new constant
+					\item $a \in B$ \hfill b, I2
+					\item $a \notin A \land a \in B$ \hfill b, E9
+					\item $a \notin A$ \hfill d, I2
+					\item $(\forall x)(x \in B \Rightarrow x \in C)$ \hfill (assumption $B \subseteq C$), (definition of $\subseteq$)
+					\item $a \in B \Rightarrow a \in C$ \hfill f, UI
+					\item $a \in C$ \hfill c, g, I3 
+					\item $a \notin A \land a \in C$ \hfill e, h, I6
+					\item $(\exists x)(x \notin A \land x \in C)$ \hfill i, EQ
+					\item $(\exists x)(x \notin A \land x \in C) \lor (\exists x)(x \in A \land x \notin C)$ \hfill j, I1
+					\item $(\exists x)(x \in A \land x \notin C) \lor (\exists x)(x \notin A \land x \in C)$ \hfill k, E10
+					\item $A \neq C$ \hfill l, (defintion of $\neq$)
+				\end{enumerate}
+				\item $\therefore A \neq C$
+				\item $\therefore A \subseteq C \land A \neq C$ \hfill 2, 4, I6
+				\item $\therefore A \subset C$ \hfill 5, (definition of $\subset$)
+			\end{enumerate}
+			hence $A \subset B \land B \subseteq C \Rightarrow A \subset C$ \hfill $\qed$
+	\section{Question 4.5}
+		\subsection{Part c}
+			Prove that $(\overline{A} \cap B \cap \overline{C} \cap D) \cup (A \cap \overline{C}) \cup (\overline{B} \cup \overline{C}) \cup (\overline{C} \cap \overline{D}) = \overline{C}$ \\
+			Proof: (Bidirectional proof)
+			\begin{enumerate}
+				\item $\Leftrightarrow (\overline{A} \cap B \cap \overline{C} \cap D) \cup (A \cap \overline{C}) \cup (\overline{B} \cap \overline{C}) \cup (\overline{C} \cap \overline{D})$
+				\item $\Leftrightarrow (\overline{A} \cap B \cap \overline{C} \cap D) \cup (\overline{C} \cap A) \cup (\overline{B} \cap \overline{C}) \cup (\overline{C} \cap \overline{D})$ \hfill 1, Thm 4.2.2 (iii)
+				\item $\Leftrightarrow (\overline{A} \cap B \cap \overline{C} \cap D) \cup (\overline{C} \cap A) \cup (\overline{C} \cap \overline{B}) \cup (\overline{C} \cap \overline{D})$ \hfill 2, Thm 4.2.2 (iii)
+				\item $\Leftrightarrow (\overline{A} \cap B \cap \overline{C} \cap D) \cup (\overline{C} \cap A) \cup (\overline{C} \cap (\overline{B} \cup \overline{D}))$ \hfill 3, Thm 4.2.3 (ii)
+				\item $\Leftrightarrow (\overline{A} \cap B \cap \overline{C} \cap D) \cup (\overline{C} \cap A) \cup (\overline{C} \cap (\overline{D} \cup \overline{B}))$ \hfill 4, Thm 4.2.2 (iii)
+				\item $\Leftrightarrow (\overline{A} \cap B \cap \overline{C} \cap D) \cup (\overline{C} \cap (A \cup (\overline{D} \cup \overline{B})))$ \hfill 5, Thm 4.2.3 (ii)
+				\item $\Leftrightarrow (\overline{C} \cap D \cap \overline{A} \cap B) \cup (\overline{C} \cap ((A \cup \overline{D}) \cup \overline{B}))$ \hfill 6, Thm 4.2.2 (iv)
+				\item $\Leftrightarrow (\overline{C} \cap (D \cap \overline{A} \cap B)) \cup (\overline{C} \cap (\overline{D} \cup A \cup \overline{B})))$ \hfill 7, Thm 4.2.2 (iii)
+				\item $\Leftrightarrow (\overline{C} \cap (D \cap \overline{A} \cap B)) \cup (\overline{C} \cap (\overline{D} \cup \overline{\overline{A}} \cup \overline{B})))$ \hfill 8, Thm 4.3.7 (i)
+				\item $\Leftrightarrow (\overline{C} \cap (D \cap \overline{A} \cap B)) \cup (\overline{C} \cap \overline{(D \cap \overline{A} \cap B)})$ \hfill 9, Thm 4.3.6 (ii)x2
+				\item $\Leftrightarrow (\overline{C} \cap ((D \cap \overline{A} \cap B)) \cup \overline{(D \cap \overline{A} \cap B)})$ \hfill 10, Thm 4.2.3 (ii)
+				\item $\Leftrightarrow (\overline{C} \cap U)$ \hfill 11, Thm 4.3.7 (iii)
+				\item $\Leftrightarrow \overline{C}$ \hfill 12, definition of $\cap$ and definition of $U$
+			\end{enumerate}
+			Hence, $(\overline{A} \cap B \cap \overline{C} \cap D) \cup (A \cap \overline{C}) \cup (\overline{C} \cap \overline{D}) = \overline{C}$ \hfill $\qed$
+	\section{Question 4.6}
+		\subsection{Part a}
+			Let $X \cup Y = X$ for and set $X$, then $(\forall X)(X \cup Y = X)$. Prove that $Y = \emptyset$ \\
+			Proof: (contridiction)
+			\begin{enumerate}
+				\item suppose $Y \neq \emptyset$, then $(\exists x)(x \in Y)$ \hfill assumption
+				\item $x \in Y$ \hfill 1, EI
+				\item $x \in Y \lor x \in \emptyset$ \hfill 2, I1
+				\item $x \in \emptyset \lor x \in Y$ \hfill 3, E10
+				\item $x \in (\emptyset \cup Y)$ \hfill 4, definition of $\cup$
+				\item $\emptyset \cup Y = \emptyset$ \hfill definition of sets $X$ and $Y$, UI
+				\item $x \in \emptyset$ \hfill 5, 6, sub$_{=}$
+				\item $false$ \hfill 7, definition of $\emptyset$
+			\end{enumerate}
+			Hence if $X \cup Y = X$ for all set $X$, then $Y = \emptyset$ \hfill $\qed$
+	\section{Question 4.8}
+		\subsection{Part c}
+			Prove that $(A \cup B) - C = (A - C) \cup (B - C)$ \\
+			This is equivalent to proving $(\forall x)(x \in ((A \cup B) - C)) \Leftrightarrow (\forall x)(x \in ((A - C) \cup (B - C)))$ \\
+			Proof: (Bidirectional proof) \\
+			\begin{enumerate}
+				\item $\Leftrightarrow (\forall x)(x \in ((A \cup B) - C))$ 
+				\item $\Leftrightarrow x \in ((A \cup B) - C)$ \hfill UI
+				\item $\Leftrightarrow x \in (A \cup B) \land x \notin C$ \hfill (definition of $-$)
+				\item $\Leftrightarrow (x \in A \lor x \in B) \land x \notin C$ \hfill (definition of $\cup$)
+				\item $\Leftrightarrow x \notin C \land (x \in A \lor x \in B)$ \hfill E9
+				\item $\Leftrightarrow (x \notin C \land x \in A) \lor (x \notin C \land x \in B)$ \hfill E13
+				\item $\Leftrightarrow (x \in A \land x \notin C) \lor (x \in B \land x \notin C)$ \hfill E10, E10
+				\item $\Leftrightarrow (x \in (A - C)) \lor (x \in (B - C))$ \hfill (definition of $-$), (defintion of $-$)
+				\item $\Leftrightarrow x \in ((A - C) \cup (B - C))$ \hfill (definition of $\cup$)
+				\item $\Leftrightarrow (\forall x)(x \in ((A - C) \cup (B - C)))$ \hfill gen
+			\end{enumerate}
+			Hence, $(A \cup B) - C = (A - C) \cup (B - C)$ \hfill $\qed$
+	\section{Question 4.9}
+		\subsection{Part a}
+			Prove that $A \subseteq B \Leftrightarrow A \cap \overline{B} = \emptyset$ \\
+			We must prove $(A \subseteq B \Rightarrow A \cap \overline{B}) \land (A \cap \overline{B} \Rightarrow A \subseteq B)$ \\
+			First we will prove that $A \subseteq B \Rightarrow A \cap \overline{B} = \emptyset$ \\
+			Proof: (contridiction)
+			Assume $A \subseteq B$ and $A \cap \overline{B} \neq \emptyset$
+			\begin{enumerate}
+				\item $(\forall x)(x \in A \Rightarrow x \in B)$ \hfill assumption, (definition of $\subseteq$)
+				\item $(\exists x)(x \in A \cap \overline{B})$ \hfill assumption, (definition of $\neq \emptyset$)
+				\item $x \in A \Rightarrow x \in B$ \hfill 1, UI
+				\item $x \in A \cap \overline{B}$ \hfill 2, EI
+				\item $x \in A \land x \in \overline{B}$ \hfill 2, (definition of $\cap$)
+				\item $x \in A$ \hfill 5, I2
+				\item $x \in B$ \hfill 6, 3, I3
+				\item $x \in \overline{B} \land x \in A$ \hfill 4, E9
+				\item $x \in \overline{B}$ \hfill 7, I2
+				\item $x \in B \land x \in \overline{B}$ \hfill 7, 9, I6
+				\item $false$ \hfill 10, E1
+			\end{enumerate}
+			$\therefore A \subseteq B \Rightarrow A \cap \overline{B} = \emptyset$ \\
+			Now we prove $A \cap \overline{B} = \emptyset \Rightarrow A \subseteq B$ \\
+			Proof: (Direct proof) \\
+			Assume $A \cap \overline{B} = \emptyset$
+			\begin{enumerate}
+				\item $\lnot(\exists x)(x \in A \cap \overline{B})$ \hfill assumption, (definition of $= \emptyset$)
+				\item $(\forall x)\lnot(x \in A \cap \overline{B})$ \hfill 1, FE8
+				\item $\lnot(x \in A \cap x \in \overline{B})$ \hfill 2, UI
+				\item $\lnot(x \in A \land x \in \overline{B})$ \hfill 3, (definition of $\cap$)
+				\item $\lnot(x \in A) \lor x \notin \overline{B}$ \hfill 4, E16
+				\item $\lnot(x \in A) \lor x \in \overline{\overline{B}}$ \hfill 5, Lemma 4.3.5
+				\item $\lnot(x \in A) \lor x \in B$ \hfill 6, 
+				\item $x \in A \Rightarrow x \in B$ \hfill 7, E18
+				\item $(\forall x)(x \in A \Rightarrow x \in B)$ \hfill 8, gen
+				\item $A \subseteq B$ \hfill 9, (definition of $\subseteq$)
+			\end{enumerate}
+			$\therefore A \cap \overline{B} = \emptyset \Rightarrow A \subseteq B$ \\
+			$\therefore (A  \subseteq B \Rightarrow A \cap \overline{B} = \emptyset) \land (A \cap \overline{B} = \emptyset \Rightarrow A \subseteq B)$ \hfill I6 \\
+			Hence, $A \subseteq B \Leftrightarrow A \cap \overline{B} = \emptyset$ \hfill $\qed$
+	\section{Question 4.11}
+		\subsection{Part b}
+			We are prove or disprove that $P(A \cup B) = P(A) \cup P(B)$ \\
+			To disprove we must show either $P(A \cup B) \not\subseteq P(A) \cup P(B)$ or $P(A) \cup P(B) \not\subseteq P(A \cup B)$ \\
+			We will show $P(A \cup B) \not\subseteq P(A) \cup P(B)$ \\
+			Disproof: (by counter example) \\
+			Let $A = {a, b}$, and $B = {0, 1}$ \\
+			$A \cup B = \{a, b, 0, 1\}$ \\
+			$P(A) = \{\emptyset, \{a\}, \{b\}, \{a,b\}\}$ \\
+			$P(B) = \{\emptyset, \{0\}, \{1\}, \{0, 1\}\}$ \\
+			$P(A) \cup P(B) = \{\emptyset, \{a\}, \{b\}, \{a,b\}, \{0\}, \{1\}, \{0, 1\}\}$ \\
+			$P(A \cup B) = \{\emptyset, \{a\}, \{b\}, \{a,b\}, \{0\}, \{1\}, \{0, 1\}, \{a, 0\}, \{a, 1\}, \{b, 0\}, \{b, 1\}, \{a, b, 0\}, \{a, b, 1\}, \{0, 1, a\}, \{0, 1, b\}, \{a, b, 0, 1\}\}$ \\
+			since $\{a, b, 0, 1\} \in P(A \cup B)$ and $\{a, b, 0, 1\} \notin P(A) \cup P(B)$ \\
+			$\therefore P(A \cup B) \not\subseteq P(A) \cup P(B)$ \\
+			Hence, $P(A \cup B) \neq (A) \cup P(B)$ \hfill $\qed$
+	\section{Question 4.14}
+		\subsection{Part a}
+			Prove $\bigcup\limits_{x \in \{A\}} X = A$ \\
+			We are to prove $(\forall x)(x \in \bigcup\limits_{x \in \{A\}} X \Leftrightarrow x \in A)$ \\
+			First we will prove $(\forall x)(x \in \bigcup\limits_{x \in \{A\}} X \Rightarrow x \in A)$ \\
+			Proof: (Direct proof)
+			\begin{enumerate}
+				\item Let $x \in \bigcup\limits_{x \in \{A\}} X$,then $(\exists X)(X \in \{A\} \land x \in X)$ \hfill assumption, UI, (defintion of $\bigcup$)
+				\item Since $A = A$, then $A \in \{A\}$ \hfill Lemma 3.2.1, (definition of $\{A\}$)
+				\item $A \in \{A\} \land x \in A$ \hfill 1, 2, EI
+				\item $x \in A \land A \in \{A\}$ \hfill 3, E9
+				\item $x \in A$ \hfill 4, I2
+				\item $(\forall x)(x \in A)$ \hfill 5, gen
+			\end{enumerate}
+			$\therefore (\forall x)(x \in \bigcup\limits_{x \in \{A\}} X \Rightarrow x \in A)$ \\
+			Now we prove $(\forall x)(x \in A \Rightarrow x \in \bigcup\limits_{x \in \{A\}} X)$
+			Proof: (Direct proof)
+			\begin{enumerate}
+				\item Let $x \in A$ \hfill Assumption, UI
+				\item $A \in \{A\}$ \hfill Lemma 3.2.1, (definition of $\{A\}$)
+				\item $A \in \{A\} \land x \in A$ \hfill 2, 1, I6
+				\item $(\exists X)(X \in \{A\} \land x \in X)$ \hfill 3, EQ
+				\item $x \in \bigcup\limits_{x \in \{A\}} X$ \hfill 4, (definition of $\bigcup$)
+				\item $(\forall x)(x \in \bigcup\limits_{x \in \{A\}} X)$ \hfill 5, gen
+			\end{enumerate}
+			$\therefore (\forall x)(x \in A \Rightarrow x \in \bigcup\limits_{x \in \{A\}} X)$ \\
+			$\therefore (\forall x)((x \in \bigcup\limits_{x \in \{A\}} X \Rightarrow x \in A) \land (x \in A \Rightarrow x \in \bigcup\limits_{x \in \{A\}} X))$ \hfill I6\\
+			$\therefore (\forall x)(x \in \bigcup\limits_{x \in \{A\}} X \Leftrightarrow x \in A)$ \hfill E20 \\
+			Hence, $\bigcup\limits_{x \in \{A\}} X = A$ \hfill $\qed$
+\end{document}
