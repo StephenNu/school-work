@@ -1,0 +1,293 @@
+\documentclass{article}
+\usepackage[english]{babel}
+\usepackage{amsmath}
+\usepackage{amssymb}
+\usepackage{changepage}
+\usepackage{amsthm}
+\usepackage[margin=1in]{geometry}
+\usepackage{fancyhdr}
+
+\pagestyle{fancy}
+\rhead{Stephen Nusko \\ 103693282}
+\lhead{03-60-231 \\ Assignment 4}
+\title{[03-60-231] Assignment 4}
+\author{Stephen Nusko \\ 103693282}
+
+\begin{document}
+	\thispagestyle{empty}
+	\maketitle	
+	\section{Question 5.3}
+		\subsection{Part a}
+			Prove or disprove If $R$ and $S$ are asymmetric, then (i) $R \cup S$ is a symmetric relation; (ii) $R \cap S$ is a symmetric relation \\
+			We must prove or disprove $R$ and $S$ are asymmetric $\Rightarrow R \cup S$ is a symmetric relation, \\
+			as well as $R$ and $S$ are asymmetric $\Rightarrow R \cap S$ is a symmetric relation \\
+			We will disprove both statements, first $R$ and $S$ are asymmetric $\Rightarrow R \cup S$ is a symmetric relation \\
+			Let $R = \{(a, b)\}$ \\
+			Let $S = \{(a, b), (c, d)\}$ \\
+			Then both R and S are asymmetric \\
+			first we disprove $R$ and $S$ are asymmetric $\Rightarrow R \cup S$ is a symmetric relation. \\
+			and $R \cup S = \{(a, b), (c, d)\}$ \\
+			By inspection $R \cup S$ is not symmetric \\
+			$\therefore$ If $R$ and $S$ are asymmetric $\Rightarrow R \cup S$ is a symmetric relation is false \\
+			Now we disprove $R$ and $S$ are asymmetric $\Rightarrow R \cap S$ is a symmetric relation \\
+			$R \cap S = \{(a, b)\}$ \\
+			By inspection $R \cap S$ is not symmetric. \\
+			$\therefore$ If $R$ and $S$ are asymmetric $\Rightarrow R \cap S$ is a symmetric relation is false \hfill $\qed$
+	\section{Question 5.9}
+		Let $\mathbb{N}$ be the set of all positive integers and $R$ is a relation in $\mathbb{N}$ such that \\
+		$R = \{(a, b) \in \mathbb{N}$ x $\mathbb{N}$ $|$ the sum of the decimal digits in $a =$ the sum of the decimal digits in $b\}$. \\
+		$\forall a, b \in \mathbb{N}$ let $n, m \in \mathbb{b}$ be the number of digits in $a, b$ respectively, and let $i, j \in \mathbb{B}$ be the individual digits at the respective indexes. \\
+		Then $R = \{(a, b) \in \mathbb{N}$ x $\mathbb{B}$ $|$ $\sum\limits_{i = 1}^{n} a = \sum\limits_{j = 1}^{m} b\}$ \\
+		Prove that $R$ is an equivalence relation. \\
+		To prove the $R$ is an equivalence relation we must prove that $R$ is reflexive, symmetric, and transitive. \\
+		First we will prove that $R$ is reflexive, ie $(\forall x \in \mathbb{N}) (x, x) \in R$ \\
+		Proof: (direct)
+		\begin{enumerate}
+			\item Let $x \in \mathbb{N}$ \hfill hypothesis
+			\item $\sum\limits_{i = 1}^{n} x = \sum\limits_{i = 1}^{n} x$ \hfill high school algebra
+			\item $\sum\limits_{i = 1}^{n} x = \sum\limits_{j = 1}^{m} x$ \hfill change of variable
+			\item $(x, x) \in R$ \hfill definition of $R$
+		\end{enumerate}
+		$\therefore (\forall x \in \mathbb{N}) (x, x) \in R$ \hfill $\qed$ \\
+		$\therefore R$ is reflexive \\
+		Next we prove that $R$ is symmetric, ie if $(x, y) \in R \Rightarrow (y, x) \in R$ \\
+		Proof: (direct)
+		\begin{enumerate}
+			\item Let $(x, y) \in R$ \hfill Hypothesis
+			\item $\sum\limits_{i = 1}^{n} x = \sum\limits_{j = 1}^{m} y$ \hfill definition of $R$
+			\item $\sum\limits_{i = 1}^{n} x = \sum\limits_{i = 1}^{n} x$ \hfill 2, sub$_{=}$
+			\item $\sum\limits_{j = 1}^{m} y = \sum\limits_{i = 1}^{n} x$ \hfill 2, sub$_{=}$
+			\item $(y, x) \in R$ \hfill definition of $R$
+		\end{enumerate}
+		$\therefore (x, y) \in R \Rightarrow (y, x) \in R$ \hfill $\qed$ \\
+		$\therefore R$ is symmetric \\
+		Finally we prove that $R$ is transitive, ie if $(x, y) \in R \land (y, z) \in R \Rightarrow (x, z) \in R$ \\
+		Proof: (direct)
+		\begin{enumerate}
+			\item Let $(x, y) \in R \land (y, z) \in R$ \hfill Hypothesis
+			\item $(x, y) \in R$ and $(y, z) \in R$ \hfill 1, I2, E9, I2
+			\item $\sum\limits_{i = 1}^{n} x = \sum\limits_{j = 1}^{m} y$ and $\sum\limits_{j = 1}^{m} y = \sum\limits_{k = 1}^{o} z$ \hfill definition of $R$ twice
+			\item $\sum\limits_{i = 1}^{n} x = \sum\limits_{k = 1}^{o} z$ \hfill 3, sub$_{=}$
+			\item $(x, z) \in R$ \hfill definition of $R$
+		\end{enumerate}
+		$\therefore (x, y) \in R \land (y, z) \in R \Rightarrow (x, z) \in R$ \hfill $\qed$ \\
+		$\therefore R$ is transitive \\
+		$\therefore R$ is reflexive, symmetric, and transitive. \\
+		$\therefore R$ is an equivalence relation. \hfill $\qed$ \\
+		\\
+		The equivalence class of 98 are all positive integers such that the sum of their digits is equal to 17 \\
+		for valus from in $[0, 50]$ that belong to the equivalence class $[98]/R = \emptyset$
+	\section{Question 5.12}
+		Let $R$ be a reflexive and transitive relation in $X$. \\
+		Let $S$ be a relation in $X$ such that $(x, y) \in S \Leftrightarrow (x, y) \in R \land (y, x) \in R$ 
+		\subsection{Part a}
+			Prove that S is an equivalence relation. \\
+			To prove that $S$ is an equivalence relation we must prove that $S$ is reflexive, symmetric, and transitive. \\
+			First we will prove that $S$ is reflexive, ie $(\forall x \in X)(x, x) \in S$ \\
+			Proof: (direct)
+			\begin{enumerate}
+				\item Let $x \in X$ \hfill hypothesis
+				\item $(x, x) \in R$ \hfill $R$ is reflexive
+				\item $(x, x) \in R \land (x, x) \in R$ \hfill 2, E3
+				\item $(x, x) \in S$ \hfill definition of $S$
+			\end{enumerate}
+			$\therefore (\forall x \in X) (x, x) \in S$ \hfill $\qed$ \\
+			$\therefore S$ is reflexive \\
+			Next we prove that $S$ is symmetric, ie if $(x, y) \in S \Rightarrow (y, x) \in S$ \\
+			Proof: (direct)
+			\begin{enumerate}
+				\item Let $(x, y) \in S$ \hfill hypothesis
+				\item $(x, y) \in R \land (y, x) \in R$ \hfill definition of $S$
+				\item $(y, x) \in R \land (x, y) \in R$ \hfill 2, E9
+				\item $(y, x) \in S$ \hfill definition of $S$
+			\end{enumerate}
+			$\therefore (x, y) \in S \Rightarrow (y, x) \in S$ \hfill $\qed$ \\
+			$\therefore S$ is symmetric \\
+			Finally we prove that $S$ is transitive, ie if $(x, y) \in S \land (y, z) \in S \Rightarrow (x, z) \in S$ \\
+			Proof: (direct)
+			\begin{enumerate}
+				\item Let $(x, y) \in S \land (y, z) \in S$ \hfill Hypothesis
+				\item $(x, y) \in S$ and $(y, z) \in S$ \hfill 1, I2, E9, I2
+				\item $(x, y) \in R \land (y, x) \in R$ and $(y, z) \in R \land (z, y) \in R$ \hfill definition of $S$ twice
+				\item $(x, y) \in R$ and $(y, x) \in R$ and $(y, z) \in R$ and $(z, y) \in R$ \hfill (3, I2, E9, I2) twice
+				\item $(x, y) \in R \land (y, z) \in R$ and $(z, y) \in R \land (y, x) \in R$ \hfill 4, I6 twice
+				\item $(x, z) \in R$ and $(z, x) \in R$ \hfill 5, R is transitive twice
+				\item $(x, z) \in R \land (z, x) \in R$ \hfill 6, I6
+				\item $(x, z) \in S$ \hfill definition of $S$
+			\end{enumerate}
+			$\therefore (x, y) \in S \land (y, z) \in S \Rightarrow (x, z) \in S$ \hfill $\qed$ \\
+			$\therefore S$ is transitive. \\
+			$\therefore S$ is reflexive, symmetric, and transitive. \\
+			$\therefore S$ is an equivalence relation. \hfill $\qed$ 
+		\subsection {Lemma equivalence}
+			Before proving part b we will first prove a helpful lemma equivalence, if $(x, y) \in S \Rightarrow [x]/S = [y]/S$ \\
+			We need to show that $(\forall a)(a \in [x]/S \Rightarrow a \in [y]/S) \land (\forall a)(a \in [y]/S \Rightarrow a \in [x]/S)$ \\
+			Proof: (direct) \\
+			Assume $(x, y) \in S$ \\
+			First we prove that $(\forall a)(a \in [x]/S \Rightarrow a \in [y]/S)$
+			\begin{enumerate}
+				\item $(x, y) \in S$ \hfill Hypothesis
+				\item Let $a \in [x]/S$ \hfill Hypothesis
+				\item $(x, a) \in S$ \hfill definition of $[x]/S$
+				\item $(a, x) \in S$ \hfill $S$ is symmetric
+				\item $(a, x) \in S \land (x, y) \in S$ \hfill 4, 1, I6
+				\item $(a, y) \in S$ \hfill $S$ is transitive
+				\item $(y, a) \in S$ \hfill $S$ is symmetric
+				\item $a \in [y]/S$ \hfill definition of $[y]/S$
+			\end{enumerate}
+			$\therefore (\forall a)(a \in [x]/S \Rightarrow a \in [y]/S)$ \\
+			Now we prove that $(\forall a)(a \in [y]/S \Rightarrow a \in [x]/S)$
+			\begin{enumerate}
+				\item $(x, y) \in S$ \hfill Hypothesis
+				\item $(y, x) \in S$ \hfill $S$ is symmetric
+				\item Let $a \in [y]/S$ \hfill Hypothesis
+				\item $(y, a) \in S$ \hfill definition of $[y]/S$
+				\item $(a, y) \in S$ \hfill $S$ is symmetric
+				\item $(a, y) \in S \land (y, x) \in S$ \hfill  5, 2, I6
+				\item $(a, x) \in S$ \hfill $S$ is transitive
+				\item $(x, a) \in S$ \hfill $S$ is symmetric
+				\item $a \in [x]/S$ \hfill definition of $[x]/S$
+			\end{enumerate}
+			$\therefore (\forall a)(a \in [y]/S \Rightarrow a \in [x]/S)$ \\
+			$\therefore (\forall a)(a \in [x]/S \Rightarrow a \in [y]/S) \land (\forall a)(a \in [y]/S \Rightarrow a \in [x]/S)$ \\
+			$\therefore$ If $(x, y) \in S$, then $[x]/S = [y]/S$
+		\subsection{Part b}
+			Let $\widetilde{R}$ be a relation in $[X]/S$ such that $\widetilde{R} = \{([x]/S, [y]/S)$ $|$ $(x, y) \in R\}$. Prove that $\widetilde{R}$ is a partial order. \\
+			To prove that $\widetilde{R}$ is a partial order, we must prove that $\widetilde{R}$ is reflexive, antisymmetric, and transitive. \\
+			First we will prove that $\widetilde{R}$ is reflexive, ie $(Y \in [X]/S)(Y, Y) \in \widetilde{R}$
+			\begin{enumerate}
+				\item Let $Y \in [X]/S$ \hfill Hypothesis
+				\item $(\exists v)(v \in X \land Y = [v]/S)$ \hfill 1, definition of $[X]/S$
+				\item $v \in X \land Y = [v]/S$ \hfill 2, EI
+				\item $v \in X$ and $Y = [v]/S$ \hfill 3, I2, E9, I2
+				\item $(v, v) \in R$ \hfill $R$ is reflexive
+				\item $([v]/S, [v]/S) \in \widetilde{R}$ \hfill definition of $\widetilde{R}$
+				\item $(Y, Y) \in \widetilde{R}$ \hfill 6, sub$_{=}$
+			\end{enumerate}
+			$\therefore \widetilde{R}$ is reflexive. \\
+			Next we will prove that $\widetilde{R}$ is antisymmetric, ie if $(A, B) \in \widetilde{R} \land (B, A) \in \widetilde{R} \Rightarrow A = B$ \\
+			Saying $(A, B) \in \widetilde{R} \equiv (\exists a, b \in X)(((a, b) \in R \land A = [a]/S \land B = [b]/S)$, by definition of $\widetilde{R}$ \\
+			Proof: (direct) \\
+			\begin{enumerate}
+				\item Let $(A, B) \in \widetilde{R} \land (B, A) \in \widetilde{R}$ \hfill Hypothesis
+				\item $(A, B) \in \widetilde{R}$ and $(B, A) \in \widetilde{R}$ \hfill 1, I2
+				\item $(a, b) \in R \land A = [a]/S \land B = [b]/S$ and $(b, a) \in R \land B = [b]/S \land A = [a]/)S$ \hfill definition of $\widetilde{R}$ twice
+				\item $(a, b) \in R$ and $A = [a]/S$ and $B = [b]/S$ and $(b, a) \in R$ \hfill 3, I2, E9
+				\item $(a, b) \in R \land (b, a) \in R$ \hfill 4, 4, I6
+				\item $(a, b) \in S$ \hfill 5, definition of $S$
+				\item $[a]/S = [b]/S$ \hfill 6, Lemma equivalence
+				\item $A = B$ \hfill 7, sub$_{=}$ twice
+			\end{enumerate}
+			$\therefore \widetilde{R}$ is antisymmetric \\
+			Finally we will prove $\widetilde{R}$ is transitive, ie if $(A, B) \in \widetilde{R} \land (B, C) \in \widetilde{R} \Rightarrow (A, C) \in \widetilde{R}$ \\
+			Proof: (direct)
+			\begin{enumerate}
+				\item $(A, B) \in \widetilde{R} \land (B, C) \in \widetilde{R}$ \hfill Hypothesis
+				\item $(A, B) \in \widetilde{R}$ and $(B, C) \in \widetilde{R}$ \hfill 1, I2, E9, I2
+				\item $(a, b) \in R \land A = [a]/S \land B = [b]/S$ and $(b, c) \in R \land B = [b]/S \land C = [c]/S$ \hfill 2, I2, E9, I2
+				\item $(a, b) \in R$ and $A = [a]/S$ and $B = [b]/S$ and $(b, c) \in R$ and $C = [c]/S$ \hfill 3, I2, E9
+				\item $(a, b) \in R \land (b, c) \in R$ \hfill 4, 4, I6
+				\item $(a, c) \in R$ \hfill $R$ is transitive
+				\item $([a]/S, [c]/S) \in \widetilde{R}$ \hfill definition of $\widetilde{R}$
+				\item $(A, C) \in \widetilde{R}$ \hfill sub$_{=}$
+			\end{enumerate}
+			$\therefore \widetilde{R}$ is transitive. \\
+			$\therefore \widetilde{R}$ is reflexive, antisymmetric, and transitive. \\
+			$\therefore \widetilde{R}$ is a partial order \hfill $\qed$
+	\section{Question 5.18}
+		\subsection {Part c}
+			Let $R$ be a relation in $X$. Prove that $R$ is symmetric iff $R = R^{-1}$ \\
+			We are to prove that $R$ is symmetric $\Leftrightarrow R = R^{-1}$ \\
+			This is the same as proving that $R$ is symmetric $\Rightarrow R = R^{-1} \land R = R^{-1} \Rightarrow R$ is symmetric \\
+			First we will prove $R$ is symmetric $\Rightarrow R = R^{-1}$ \\
+			Proof: (direct) \\
+			Assume $R$ is symmetric. \\
+			We are to prove that $R = R^{-1}$ \\
+			This is the same as proving $(x, y) \in R \Rightarrow (x, y) \in R^{-1} \land (x, y) \in R^{-1} \Rightarrow (x, y) \in R$ \\
+			First we will prove $(x, y) \in R \Rightarrow (x, y) \in R^{-1}$ \\
+			Proof: (direct)
+			\begin{enumerate}
+				\item Let $(x, y) \in R$ \hfill Hyposthesis
+				\item $(y, x) \in R$ \hfill 1, R is symmetric
+				\item $(x, y) \in R^{-1}$ \hfill 2, definition of $R^{-1}$
+			\end{enumerate}
+			$\therefore (x, y) \in R \Rightarrow (x, y) \in R^{-1}$ \\
+			Now we prove $(x, y) \in R^{-1} \Rightarrow (x, y) \in R$ \\
+			Proof: (direct)
+			\begin{enumerate}
+				\item Let $(x, y) \in R^{-1}$ \hfill Hypothesis
+				\item $(y, x) \in R$ \hfill 1, definition of $R^{-1}$
+				\item $(x, y) \in R$ \hfill 2, R is symmetric
+			\end{enumerate}
+			$\therefore (x, y) \in R^{-1} \Rightarrow (x, y) \in R$ \\
+			$\therefore (x, y) \in R \Rightarrow (x, y) \in R^{-1} \land (x, y) \in R^{-1} \Rightarrow (x, y) \in R$ \hfill I6\\
+			$\therefore (x, y) \in R \Leftrightarrow (x, y) \in R^{-1}$ \hfill E20\\
+			$\therefore R = R^{-1}$ \hfill principle of extension \\
+			$\therefore R$ is symmetric $\Rightarrow R = R^{-1}$ \\
+			Next we prove that $R = R^{-1} \Rightarrow R$ is symmetric. \\
+			Proof: (direct) \\
+			Assume $R = R^{-1}$
+			\begin{enumerate}
+				\item Let $(x, y) \in R$ \hfill Hypothesis
+				\item $(y, x) \in R^{-1}$ \hfill 1, definition of $R^{-1}$
+				\item $(y, x) \in R$ \hfill 2, sub$_{=}$
+			\end{enumerate}
+			$\therefore (x, y) \in R \Rightarrow (y, x) \in R$ \\
+			$\therefore R$ is symmetric. \\
+			$\therefore R = R^{-1} \Rightarrow R$ is symmetric. \\
+			$\therefore R$ is symmetric $\Rightarrow R = R^{-1} \land R = R^{-1} \Rightarrow R$ is symmetric. \\
+			$\therefore R$ is symmetric $\Leftrightarrow R = R^{-1}$ \hfill E20 \\
+			Hence, $R$ is symmetric iff $R = R^{-1}$ \hfill $\qed$
+	\section{Question 6.2}
+		Let $\mathbb{N}$ be the set of all positive integers. Let $g : \mathbb{N}$ x $\mathbb{N} \to \mathbb{N}$ such that \\
+			$g((i, j)) = 2^{i}3^{j}$ \\
+		Prove that $g$ is a one-to-one function, Is it onto?
+		First we will prove that $g$ is a one-to-one function, ie that if $g((a, b)) = g((c, d))$, then $(a, b) = (c, d)$
+		Proof: (direct)
+		\begin{enumerate}
+			\item Let $g((a, b)) = g((c, d))$ \hfill Hypothesis
+			\item $2^{a}3^{b} = 2^{c}3^{d}$ \hfill definition of $g$ twice
+			\item $\frac{2^{a}3^{b}}{2^{c}3^{d}} = 1$ \hfill Highschool algebra
+			\item $2^{a-c}3^{b-d} = 1$ \hfill Highschool algebra
+			\item $\forall n \in \mathbb{Z} 2^{n} > 0$ and $\forall m \in \mathbb{Z} 3^{m} > 0$ \hfill Highschool algebra
+			\item $\therefore 2^{a - c} > 0$ and $3^{b - d} > 0$ \hfill 5, UI
+			\item $\because 2, 3$ are both primes $\therefore 2^{a-c} = 1$, and $3^{b-d} = 1$ \hfill 6, Highschool algebra
+			\item $2^{a-c} = 1 \Rightarrow a - c = 0$ \hfill Highschool algebra
+			\item $a - c = 0$ \hfill 7, 8, I3
+			\item $a = c$ \hfill highschool algebra
+			\item $3^{b-d} = 1 \Rightarrow b - d = 0$ \hfill Highschool algebra
+			\item $b - d = 0$ \hfill 7, 11, I3
+			\item $b = d$ \hfill 12, Highschool algebra
+			\item $a = c \land b = d$ \hfill 10, 13 I6
+			\item $(a, b) = (c, d)$ \hfill definition
+		\end{enumerate}
+		$\therefore g$ is a one-to-one function. 
+		Next we will show that $g$ is not onto. \\
+		Proof: (counterexample) \\
+		$2 \in \mathbb{N}$ \hfill 2 is a positive integer. \\
+		$0 \notin \mathbb{N}$, \hfill 0 is not positive integer. \\
+		$2^{1}3^{0} = 2$ \hfill 2 is a prime, and is its only factor. \\
+		however $\lnot(\exists i, j \in \mathbb{N}) g((i, j)) = 2$, because j would have to be equal to 0, and $0 \notin \mathbb{N}$
+		$\therefore g((i, j))$ is not onto.
+	\section{Question 6.5}
+		\subsection{Part b}
+			Prove that if $I_{X} \subseteq f$, then $f = I_{X}$ \\
+			Proof: (direct) \\
+			Assume $I_{X} \subseteq f$ \\
+			We are to prove that $f = I_{X}$, ie that $f \subseteq I_{X} \land I_{X} \subseteq f$ \\
+			We already have the second by our assumption so we must prove that $f \subseteq I_{X}$ \\
+			Proof: (direct)
+			\begin{enumerate}
+				\item Let $(x, y) \in f$ \hfill Hypothesis
+				\item $I_{X} \subseteq f$ \hfill Hypothesis
+				\item $(\exists z \in X)(x, z) \in I_{X}$ \hfill $Domain(f) = Domain(I) = X$
+				\item $(x, z) \in I_{X}$ \hfill EI
+				\item $(x, z) \in f$ \hfill 2, 4, definition of $\subseteq$
+				\item $(x, z) \in f \land (x, y) \in f$ \hfill 1, 5, I6
+				\item $z = y$ \hfill definition of function
+				\item $(x, y) \in I_{X}$ \hfill 4, sub$_{=}$
+			\end{enumerate}
+			$\therefore f \subseteq I_{X}$ \\
+			$\therefore f \subseteq I_{X} \land I_{X} \subseteq f$ \\
+			$\therefore f = I_{X}$ \hfill $\qed$ \\
+\end{document}
