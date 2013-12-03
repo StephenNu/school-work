@@ -1,0 +1,46 @@
+13)
+	PG 139/159, They describe how the system is positioned in relation to the environment containing other systems and processes. They help place the boundaries of the system to be produced.
+
+14)
+	PG 140, Activity diagrams show the activites that make up the system process and the flow of control from one activity to the next.
+
+15)
+	PG 143, Sequence diagrams shows the interactions between actors and objects during a particular use case or use case instance.
+
+16)
+	PG 152, The assumption that Event-driven modeling is based on is that a system has a finite number of states and that events may cause a transition from ont state to another.
+
+17)
+	PG 166, Stakeholder communiation, System analysis, Large-scale reuse
+
+18)
+	PG 167, As a way of facilitating discussion about the system design, as a way of documenting an architecture that has been designed.
+
+19)
+	PG 168, What architectural patterns or styles might be used?, Is there a generic application architecture that can act as a template for the system that is being designed?, how will the system be distributed across a number of cores or processors?, What will be the fundamental approach used to restructure the system.
+
+20)
+	PG 171-172, A logical view, A process view, A development view, A physical view.
+
+21)
+	PG 173, An architectural pattern should describe a system organization that has been successful in previous systems. Including information of when it is useful or not to use that pattern, and the strengths and weaknesses.
+
+22)
+	PG 176, All data contained in a system is managed by a central repository which is then accessible to all of the system components.
+
+23)
+	PG 178, The main advantage of the client-server model is that servers can be distributed across a network.
+
+24)
+	PG 179, The processing of the data in a system is organized so that each filter (processing component) is discrete and carries out one type of data transformation. The pipe (as in data flows) allows the moving of data from one component to another for processing.
+
+25)
+	PG 183, Transaction processing applications are designed to process user requests for information from a database, usually throught the form of interactive systems in which the users make asynchronous requests for a service.
+
+Questions:
+1)
+2)
+3)
+4)
+	Image a project where The customer is a business involved and commited to helping the project along, and plans on having the team stay on after development to maintain the software so documentation is not important. Now if the customer is bought out by a larger corporation what no longer wants to be involved in the process of design, and at the end of the project wishes it to be handed over to internal development department in their business, and expect the current team to have detailed documentation.
+	
