@@ -53,46 +53,28 @@ int main()
 	int t;
 	double sum;
 	int fd[8], k;
-	if (pipe(fd) < 0)
-	{
-		perror("first pipe");
-		exit(1);
-	}
-	if (pipe(fd+2) < 0)
-	{
-		perror("second pipe");
-		exit(1);
-	}
-	if (pipe(fd+4) < 0)
-	{
-		perror("third pipe");
-		exit(1);
-	}
-	if (pipe(fd+6) < 0)
-	{
-		perror("fourth pipe");
-	}
 	for (k = 0; k < 4; ++k)
 	{
+		if (pipe(fd+k*2) < 0)
+		{
+			perror("opening pipe");
+			exit(1);
+		}
 		if ((pid[k] = fork()) == 0)
 		{
 			close(fd[0]);
 			child_calc(fd[2*k + 1], k*8000);
 		}
-		else if (pid < 0)
+		else if (pid[k] < 0)
 		{
 			perror("fork");
 			exit(2);
 		}
-		else
-		{
-			continue;
-		}
 	}
-	close(fd[1]);
-	close(fd[3]);
-	close(fd[5]);
-	close(fd[7]);
+	for (k = 1; k < 8; k += 2)
+	{
+		close(fd[k]);
+	}
 	for (t = 0; t < 100000; t++)
 	{
 		sum = 0.0;
