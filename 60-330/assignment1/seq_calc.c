@@ -3,7 +3,7 @@
 
 double f(double a)
 {
-	return 4/(1+pow(a,2));	
+	return 4/(1+(a*a));	
 }
 
 int main()
@@ -21,6 +21,7 @@ int main()
 			{
 				sum += 4*f(i/32000);
 			}
+
 		}
 		sum += f(1);
 		sum /= 3;
