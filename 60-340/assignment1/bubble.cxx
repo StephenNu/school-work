@@ -14,7 +14,7 @@ void bubble_sort(FwdIter first, FwdIter last)
 	{
 		// Assume list is sorted until you find evidence otherwise.
 		sorted = true;
-		for (FwdIter lead = next(first), follow = first; next(lead) != last; lead = next(lead), follow = next(follow))
+		for (FwdIter lead = next(first), follow = first; lead != last; lead = next(lead), follow = next(follow))
 		{
 			if (*follow > *lead)
 			{
@@ -32,19 +32,20 @@ void print(T input)
 	cout << input << " ";
 }
 
+
 int main()
 {
 	string input;
-	list<string> words;
+	list<decltype(input)> words;
 	// Until an error or EOF read in a string
 	while (cin >> input)
 	{
-		words.push_back(input);
+		words.push_front(input);
 	}
 	// bubble_sort with the iterators of the current container.
 	bubble_sort<decltype(words)::iterator>(begin(words), end(words));
 	// print out all values in the container.
-	for_each(begin(words), end(words), print<string>);
+	for_each(begin(words), end(words), print<decltype(input)>);
 	cout << endl;
 	return 0;
 }

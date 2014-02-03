@@ -2,7 +2,7 @@
 #include <algorithm>
 #include <list>
 #include <string>
-
+#include <cmath>
 using namespace std;
 
 // print out the inputted value.
@@ -17,7 +17,7 @@ template <typename iter>
 iter middle(iter first, iter last)
 {
 	iter slow = first;
-	for (iter fast = first; fast != last; slow = next(slow), fast = next(next(fast)))
+	for (iter fast = first; fast != last; advance(slow, 1), advance(fast, 2))
 	{
 		if (next(fast) == last)
 		{
@@ -29,23 +29,23 @@ iter middle(iter first, iter last)
 
 
 // Quick sort all values between first and last. (assumes they will cross).
-template <typename Biditer>
-void quick_sort(Biditer first, Biditer last)
+template <typename BidiIter>
+void quick_sort(BidiIter first, BidiIter last)
 {
 	if (next(first) != last && first != last)
 	{
 		// Set the middle element as the pivot.
-		Biditer pivot = middle<Biditer>(first, last);
+		BidiIter pivot = middle<BidiIter>(first, last);
 		// Put the pivot out of the way of the partition.
 		iter_swap(first, pivot);
 		// Parition from first + 1 to last, around the value at first.
-		Biditer bound = partition(next(first), last, [first](typename Biditer::value_type const& value) { return value < *first; });
+		BidiIter bound = partition(next(first), last, [first](typename BidiIter::value_type const& value) { return value < *first; });
 		// Put the pivot back to the location it should go.
 		iter_swap(first, prev(bound));
 		// quick_sort the lower half.
-		quick_sort<Biditer>(first, prev(bound));
+		quick_sort<BidiIter>(first, prev(bound));
 		// quick_sort the upper half.
-		quick_sort<Biditer>(bound, last);
+		quick_sort<BidiIter>(bound, last);
 	}
 }
 
@@ -55,16 +55,16 @@ void quick_sort(Biditer first, Biditer last)
 int main()
 {
 	string input;
-	list<string> words;
+	list<decltype(input)> words;
 	// Until an error or EOF read in a string
 	while (cin >> input)
 	{
-		words.push_back(input);
+		words.push_front(input);
 	}
 	// bubble_sort with the iterators of the current container.
 	quick_sort<decltype(words)::iterator>(begin(words), end(words));
 	// print out all values in the container.
-	for_each(begin(words), end(words), print<string>);
+	for_each(begin(words), end(words), print<decltype(input)>);
 	cout << endl;
 	return 0;
 }
