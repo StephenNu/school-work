@@ -1,43 +1,41 @@
 /*
 Student: Stephen Nusko
 ID#: 103693282
-Date: 17/01/2014
+Date: 17/02/2014
 Homework#: 2
 Class: 03-60-330 Operating systems
 */
 
-// Libraries for c output, system calls, and exit function.
+// Libraries for c output, system calls, and exit function, and pthreads.
 #include <stdio.h>
 #include <unistd.h>
 #include <stdlib.h>
 #include <pthread.h>
 
-
-int results[4];
-
+// The 4 different pipes the threads will use to communicate.
+int fd[8];
 // Function definition of f as given in assignment.
 double f(double a)
 {
-	return 4/(1+(a*a));	
+	return 4.0/(1.0+(a*a));	
 }
 	
-// This function is called on each child process to controll their execution.
-void* thread_calc(void* in)
+// This function is called on each thread process to controll their execution.
+void *thread_calc(void* in)
 {
-	int* start = (int*)(in);
-	//int t = 0;
-	// calculate the results for their slices 100,000 times.a
-
-	//while (t < 100000)
-	//{
+	int t = 0;
+	int *start = (int*)in;
+	// calculate the results for their slices 100,000 times.
+	while (t < 100000)
+	{
 		double sum = 0.0, i;
 		// if they are the final 8000 slices include f(1).
 		if (*start +  8000 == 32000)
 		{
 			sum = f(1);
 		}
-		// calculate the remaining 8000 slices the process should do.
-		for (i = (double)*start; i <(double)(*start+8000.0); ++i)
+		// calculate the remaining 8000 slices the thread should do.
+		for (i = (double)(*start); i <(double)(*start+8000.0); ++i)
 		{
 			// if they are the first slice include f(0).
 			if (i == 0)
@@ -56,90 +54,49 @@ void* thread_calc(void* in)
 			}
 		}
 		// write the calculated double to the file descriptor.
-		//if (write(fd, &sum, sizeof(double)) != sizeof(double))
-		//{
-		//	perror("writing");
-		//	exit(1);
-		//}
-	//	++t;
-		results[(*start)/8000] = sum;
-	//}
-	// Kill the child.
+		if (write(fd[((*start)/8000)*2 + 1], &sum, sizeof(double)) != sizeof(double))
+		{
+			perror("writing");
+			pthread_exit(0);
+		}
+		++t;
+	}
+	// Kill the thread.
 	pthread_exit(0);
 }
 
 int main()
 {
-	// store the 4 pids of the children.
+	// store the 4 tids of the threads.
 	pthread_t tid[4];
-	//bool running[4];
-	int t, rc[4];
+	int t;
 	double sum;
-	//double results[4];
-	// store the 4 pipes to communitcate with the children.
-	int sections[4], k;
-	// Create each pipe, and child to receive it.
+	int k;
+	int sections[4];
+	// Create each pipe, and thread to receive it.
 	for (k = 0; k < 4; ++k)
 	{
-		//pthread_cond_init(&cond[k], NULL);
 		// error occured during pipe creation, end program.
-	//	if (pipe(fd+k*2) < 0)
-	//	{
-	//		perror("opening pipe");
-	//		exit(1);
-	//	}
-		// If this is the child process.
+		if (pipe(fd+k*2) < 0)
+		{
+			perror("opening pipe");
+			exit(1);
+		}
+		// Set up sections to be passed to the thread
 		sections[k] = k*8000;
 		if (pthread_create(&tid[k], NULL, thread_calc, &sections[k]) != 0)
 		{
-			// close the read file descriptor.
-	//		close(fd[0]);
-			// launch management function for child, with correct pipe, and starting slice.
-	//		child_calc(fd[2*k + 1], k*8000);
+			// Error occured during thread creation, end program.
 			perror("pthread_create");
 			exit(2);
 		}
 	}
-	// Close all the write ends of the pipe in the parent.
-	//for (k = 1; k < 8; k += 2)
-	//{
-	//	close(fd[k]);
-	//}
 	// Do the calculations 100,000 times.
 	for (t = 0; t < 100000; t++)
 	{
-	for (k = 0; k < 4; ++k)
-	{
-		//pthread_cond_init(&cond[k], NULL);
-		// error occured during pipe creation, end program.
-	//	if (pipe(fd+k*2) < 0)
-	//	{
-	//		perror("opening pipe");
-	//		exit(1);
-	//	}
-		// If this is the child process.
-		sections[k] = k*8000;
-		if (pthread_create(&tid[k], NULL, thread_calc, &sections[k]) != 0)
-		{
-			// close the read file descriptor.
-	//		close(fd[0]);
-			// launch management function for child, with correct pipe, and starting slice.
-	//		child_calc(fd[2*k + 1], k*8000);
-			perror("pthread_create");
-			exit(2);
-		}
-	}
-	for (k = 0; k < 4; ++k)
-	{
-		if (pthread_join(tid[k], NULL))
-		{
-			perror("joining");
-			exit(1);
-		}
-	}
 		sum = 0.0;
 		double curr;
-		/*// Read from the first child.
+		// Read from the first thread.
 		k = read(fd[0], &curr, sizeof(double));
 		// Error occurred during read, end program.
 		if (k < 0)
@@ -147,7 +104,7 @@ int main()
 			perror("reading error");
 		}
 		sum += curr;
-		// Read from the second child.
+		// Read from the second thread.
 		k = read(fd[2], &curr, sizeof(double));
 		// Error occurred during read, end program.
 		if (k < 0)
@@ -155,7 +112,7 @@ int main()
 			perror("reading error");
 		}
 		sum += curr;
-		// Read from the third child.
+		// Read from the third thread.
 		k = read(fd[4], &curr, sizeof(double));
 		// Error occurred during read, end program.
 		if (k < 0)
@@ -163,7 +120,7 @@ int main()
 			perror("reading error");
 		}
 		sum += curr;
-		// Read from the fourth child.
+		// Read from the fourth thread.
 		k = read(fd[6], &curr, sizeof(double));
 		// Error occurred during read, end program.
 		if (k < 0)
@@ -172,12 +129,6 @@ int main()
 		}
 		sum += curr;
 		// Multiple the whole calculated equation.
-		sum /= 3.0;
-		sum *= 1.0/32000.0;*/
-		for (k = 0; k < 4; k++)
-		{
-			sum += results[k];
-		}	
 		sum /= 3.0;
 		sum *= 1.0/32000.0;
 	}
