@@ -1,0 +1,68 @@
+Question 1
+
+ans:
+
+If the processes don't request their resources at the same time in their life span, i.e. if originally the processes came staggered and the first requested at the end, the second in the middle, and the third at the beginning. Restarting all of the right away will cause them to not hit the critical sections of their code concurrently causing deadlock to not occur.
+
+Question 2
+
+ans:
+
+If P3's outstanding requirement is 2 units and the system has only 2 unallocated units, these units can be granted to P3 because P3 can complete. However, no
+
+process will be able to complete if the outstanding requirement of P1 and P2 is more
+
+than 2 units and 1 unit is allocated to one of them. Hence such an allocation would
+
+not be made. In effect, the 2 unallocated units would be ‘reserved’ for allocation to
+
+P3 until P3 ﬁnishes.
+
+Question 3
+
+ans:
+
+Orginaize a master list that separates memory into sub free lists that statisfy a certain size of memory. for m sub lists this would allow quick look up O(log m) and for each free memory list of length n only linear time, however the n would be much smaller then if you were dealing with one unseparated free list.
+
+Question 4
+
+ans: Let a block bi have only one tag situated at its start, and let block bj, which follows bi in memorym be released. Now, the allocator knows abj, the start address of bj, and it has to check hte status of block bi to decide whether bi can be merged with bj. If the size of bi is known to be soi the allocator can access the tag of bi from the memory location with the address abj - sbi. If the size of bi is not known, it cannot know where bi's tag is located. Use of two boundary tags avoids this difficulty because the tag at bi's end immediately precedes the first byte of bj.
+
+Question 5
+
+ans: The numbering of chopsticks creates a situation in which either n - 1 philosophers have a smaller numbered left chopstick but one philosopher has a smaller numbered right for, or the converse. This situation eliminates deadlocks because every philosopher cannot pick up the left chopstick and wait for the right chopstick, or conversely
+
+Question 6
+
+ans: A deadlock can arise if both gates have to be closed simultaneously
+
+for a train to pass, e.g., if length of a train exceeds the distance between gates. Let one
+
+gate be closed. If the trafﬁc jam caused by it extends past the second crossing point,
+
+     the second gate cannot be closed. This situation is a deadlock. There is no difference
+
+     in the deadlock possibilities even if trafﬁc is one way. However, a deadlock would
+
+     not arise if both train and road trafﬁc are one-way in the same direction, e.g., if both
+
+     run from north to south, because the gates would naturally be closed in an order
+
+     which would not cause a trafﬁc jam that blocks the other gate.
+
+     (b) Deadlocks can be prevented in several ways: (i) Close both gates at once. (ii)
+
+	Do not permit stalled road trafﬁc to clutter any gate. (iii) Close one gate, allow train
+
+	to pass it, then close the other gate and allow the train to pass it. (iv) If trafﬁc is
+
+	one-way, always ﬁrst close the gate that is reached ﬁrst by an approaching car. Then
+
+	close the other gate.
+
+Bonus
+
+ans:
+If there are N processes the average external fragmentation will be 0.5*N will be fragmented.
+
+internal (293) 1/2 of a page per process
