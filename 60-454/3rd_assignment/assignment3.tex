@@ -1,0 +1,573 @@
+\documentclass{article}
+\usepackage[english]{babel}
+\usepackage{amsmath}
+\usepackage{amssymb}
+\usepackage{changepage}
+\usepackage{amsthm}
+\usepackage[margin=1in]{geometry}
+\usepackage{fancyhdr}
+\usepackage{hyperref}
+\usepackage{multirow}
+\pagestyle{fancy}
+\rhead{Stephen Nusko \\ 103693282}
+\lhead{03--60--454 \\ Assignment 3}
+\title{[03--60--454] Assignment 3}
+\author{Stephen Nusko \\ 103693282}
+
+\begin{document}
+	\thispagestyle{empty}
+	\maketitle	
+  \section{Question 1}
+    \subsection{Problem Description and Notation}
+    You have a machine to do $n$ jobs $wi, w2, \ldots , wn$. Job $w_{i}$, $1 \leq i \leq n$, 
+    requires $t_{i}$ units of service time and you will receive a service charge $p_{i}$ if the job is done by time $d_{i}$ (the deadline) 
+    but receive nothing (I.E. The service is free) if the job is done after time $t_{i}$. 
+    The machine can only do one job at a time. 
+    Moreover, the machine must do each job $w_{i}$ uninterruptedly for $t_{i}$ consecutive time units.
+    \\
+    \\
+    We now define some helpful notation and sets. \\
+    Let $T$ = $\{ s | s$ is a possible ordering of all jobs$\}$ \\
+    Let $R(s)$ be the set of jobs which we $receive$ a service charge. I.E. $R(s) = \{ w_{i} |$ We receive $w_{i}'s$ service charge for a schedule $s \in T\}$ \\
+    Let $R(s)'$ be the complement of $R(s)$.\\
+    I.E. All the jobs we do not receive a service charge for for a schedule $`s'$. \\
+    Let $profit(s)$ be the profit of a given schedule $s \in T$. \\
+    Let $s = (w_{i}, w_{j}, \ldots, w_{k})$ denote a schedule $s \in T$ where $w_{i}$ is the first job, and so on where $i,j,k \in [1, n]$ with $i \neq j \neq k$ \\
+    Let $idx(w_{i})$ be the index for job $w_{i}$ in the schedule under discussion. \\
+    \subsection{Part a}
+        We are to prove that there exists an optimal solution in which all paying jobs come before non-paying jobs. \\
+      \subsubsection{Prove the existence of an optimal solution}
+        First we will prove that there is at least one optimal solution. \\
+        Let $A$ be the set of ordered pairs such that the first element is a schedule $s \in T$ and the second element is the $profit(s)$ \\
+        I.E. $A = \{ (s, p) | s \in T \land p = profit(s)\}$ \\
+        Choose $s'$ as a linear ordering of jobs I.E. $s' = (w_{1}, w_{2}, \ldots, w_{n})$. \\
+        Since $s'$ is a possible ordering of all jobs $s' \in T$ \\
+        Therefore $s'$ has a profit we denote by $x = profit(s)$ \\
+        Therefore $(s', x) \in A$ \\
+        Therefore $A \neq \emptyset$ \\
+        If we order the set $A$ by the second element in the pair, then by the well-ordering theorem there exists a maximum element. \\
+        Let $(s_{o}, p_{o})$ be the maximum element. \\
+        Then $\forall(x,y) \in A, y \leq p_{o}$ \\
+        $\therefore s_{o}$ maximizes the profit received. \\
+        $\therefore s_{o}$ is a optimal schedule, and therefore an optimal solution. \\
+      \subsubsection{Prove the existence of an optimal solution in which all paying jobs come before non-paying jobs}
+        With the proof of an optimal solution existing, we now proceed and prove the existence of a optimal solution in which all paying jobs come before non-paying jobs. \\
+        Since we have already proven the existence of an optimal solution $s_{o}$ we separate our proof into two cases based on the ordering of $s_{o}$, one where all paying jobs come before non-paying jobs, and secondly where they do not. \\
+        \textbf{Case 1:} All paying jobs come before non-paying jobs. \\
+          Since $s_{o}$ is an optimal solution in which all paying jobs come before non-paying jobs, we conclude that there exists a optimal solution in which all paying jobs come before non-paying jobs. \\
+          \\
+        \textbf{Case 2:} Some non-paying jobs come before paying jobs. \\
+          Let $W(s) = \{w_{i} | w_{i} \in R(s)' \land (\exists w_{j} \in R(s), idx(w_{i}) < idx(w_{j}))\}$ \\
+          I.E. $W(s)$ is the set of jobs for which we do not receive a service charge, and that there is some paying job that comes after them in the ordering for a schedule $`s'$. \\
+          Since by the assumption of the case we are in, there are some non-paying jobs that come before paying jobs in $s_{o}$. $W(s_{o}) \neq \emptyset$. \\
+          Therefore let $x \in W(s_{o})$ denote the farthest right job in $W(s_{o})$, and let $r \in R(s_{o})$ denote the farthest right job that comes after $x$. \\
+          We are guarantied the existence of $r$, because $W$ requires a paying job to come after any of it's members, and we know that $W(s_{o}) \neq \emptyset$. \\
+          We shift all jobs to the right of $x$ to the left, and then place $x$ into the old position of $r$. Generating a schedule $s_{o}'$.
+          For illustration let $r_{i}(s')$ represents the $i^{th}$ job we receive a service charge for, and $r_{j}(s')'$ is the $j^{th}$ job we don't receive a service charge for, \\
+          and then imagine that $s' = (r_{1}(s')', r_{1}(s'), r_{2}(s'),r_{2}(s')')$.\\
+          Then $r_{1}(s')'$ is the is the only element of $W(s')$ and is therefore the farthest right member of $W(s')$, while $r_{2}(s')$ is the farthest right paying job after $r_{1}(s')'$. \\
+          We shift all the jobs after $r_{1}(s')'$ one to the left and then place $r_{1}(s')'$ in the place of the farthest right paying job in this case $r_{2}(s')$. \\
+          This results in $(s')' = (r_{1}(s'), r_{2}(s'),r_{1}(s')',r_{2}(s')')$.\\
+          \\
+          Now that we have illustrated with a simple example we proceed with proving for all cases.
+          We will show that the $profit(s_{o}') = profit(s_{o})$. \\
+          Let $B = \{idx(w_{i}) | idx(w_{i}) \leq idx(r)$ before the shift$\}$ \\
+          Let $A = \{idx(w_{i}) | idx(w_{i}) \leq idx(x)$ after the shift$\}$ \\
+          Consider all jobs to the right of $r$, we note that since $x$ only moves to $r$'s position, and the $\sum_{i \in B} t_{i} = \sum_{i \in A} t_{i}$, Nothing has changed and all those jobs remain non-paying. \\
+          We now consider the set of jobs that have an index $i$ that is $\leq idx(r)$ and $> idx(x)$. \\
+          Each job in this set, must be a paying job, this is because if there was a non-paying job then it would be to the right of $x$ but the left of $r$, and would actually be the farthest right non-paying job that has a paying job after it, which contradicts how we picked $x$ and $r$. \\
+          Now since it is moving earlier in the queue while they maintain their relative ordering to the other jobs in the set. Let $old\_t_{k}$ represent the time the $k^{th}$ member used to complete, it now completes at an earlier time represented by $new\_t_{k}$ with $new\_t{k} \leq old\_{k}$. \\
+          However each job in this set completed before the shift, so for all $k$, $old\_t_{k} \leq d_{k}$. \\
+          By transitivity $new\_t{k} \leq d_{k}$. \\
+          Therefore each job still completes, and $profit(s_{o}')$ is unchanged. \\
+          Now we consider the job $x$, this job did not complete before it's deadline, and has now been moved later in the queue. It now completes at a later time, but since that is still greater then its deadline it remains belonging to the set of non-paying jobs. \\
+          Therefore by the arguments above we can say $R(s_{o}') = R(s_{o}) \land R(s_{o}')' = R(s_{o})'$. \\
+          That is to say, $profit(s_{o}') = profit(s_{o})$. \\
+          If the set $W(s_{o}') = \emptyset$ then we have proven that there exists a optimal solution in which all paying jobs come before non-paying jobs. \\
+          Otherwise if the set $W(s_{o}') \neq \emptyset$ we can repeat the steps described above to generate $s_{o}''$, again if $W(s_{o}'') \neq \emptyset$ we can repeat the steps again and again till all non-paying jobs have been moved. This will take $|W(s_{o})|$ steps. \\
+          Therefore let $s_{o}^{|W(s_{o})|}$ be the solution after $|W(s_{o})|$ steps. 
+          Then by the above arguments $profit(s_{o}^{|W(s_{o})|}) = profit(s_{o})$, and all paying jobs in $s_{o}^{|W(s_{o})|}$ come before non-paying jobs. \\
+          Therefore there exists a optimal solution in which all paying jobs come before non-paying jobs. \\
+          \\
+          Therefore in all cases we can prove the existence of a optimal solution in which all paying jobs come before non-paying jobs. $\qed$ \\
+    \subsection{Part b}
+      We are to prove that there exists an optimal schedule in which every job for which we receive a service charge is sorted in ascending order by the deadline of the jobs. \\
+      First we prove the following lemma. \\
+      \subsubsection{Lemma *}
+        Prove that placing a list of jobs that all complete in time (I.E. Before their deadlines) in ascending order of their deadlines will not cause any jobs to not complete. \\
+        We do a proof by induction on the number of jobs misplaced. \\
+        \textbf{Base Case:} $n = 0$ \\
+        In this case no jobs are misplaced in order of their deadlines, therefore all jobs are unmoved, and therefore all jobs still complete. \\
+        \\
+        \textbf{Base Case:} $n = 1$ \\
+        In this case we have a schedule $s$ in which all jobs complete, but one job is not in the correct position according to ascending order based on deadlines. \\a
+        Let $Right = \{w_{i} | w_{i}$'s position is to the right of $x\}$ \\ 
+        Let $Left = \{w_{i} | w_{i}$'s position is to the left of $x\}$ \\ 
+        Let $x$ denote the job that is out of order. We have two cases either $x$'s deadline $d_{x} > d_{y}$ for some jobs $y \in Right$, or $d_{x} < d_{z}$ for some jobs $z \in Left$. \\
+        \textbf{Sub Case:} $d_{x} > d_{y}$ for some jobs $y \in Right$ \\
+        \indent Remove $x$ from the list \\
+        \indent Then all jobs $y \in Right$ will be shifted to the left to to ensure the ascending order is not changed. \\
+        \indent They now complete earlier then before, so will continue to complete as before. \\
+        \indent let $r_{i}$ be the $i^{th}$ job in the ordering, and let $k$ be the index of the job right before where $x$ should be. \\
+        \indent Then we note that $\sum_{j = 1}^{k} t_{j} + t_{x} \leq d_{k}$, \\
+        \indent this is because $w_{k}$ was completed in its old position so the sum of all completion time plus $t_{x}$ must be less than $d_{k}$. \\
+        \indent We now reinserting $x$ into its proper position. \\
+        \indent This makes the time until $x$ completes equal to $\sum_{j = 1}^{idx(x) - 1} t_{j} + t_{x}$ however this is the same as $\sum_{j = 1}^{k} t_{j} + t_{x}$. \\
+        \indent Since $x$ comes after $r_{k}$ when sorted by ascending deadlines. We have that $d_{k} < d_{x}$. \\
+        \indent therefore by transitivity the time that $x$ takes to complete is less than its deadline $d_{x}$. \\
+        \indent All jobs that come after $x$ are unchanged in position in the list, and will complete at the same time as before. \\
+        \indent Therefore all jobs before x complete in time, x completes in time, and all jobs after x complete in time. \\
+        \indent Therefore in this sub case ordering the list leaves the set of jobs that compete unchanged. \\
+        \\
+        \textbf{Sub Case:} $d_{x} < d_{z}$ for some jobs $z \in Left$. \\
+        \indent Let $beginning = \{w_{i} | idx(w_{i}) \leq idx(x)\}$ \\
+        \indent Since all jobs complete in the schedule $s$, we know that $\sum_{i \in beginning} t_{i} \leq d_{x}$
+        \indent Remove $x$ from the list, and place it in the correct position. \\
+        \indent However since we are we are only shifting jobs in the first $idx(x)$ jobs the set beginning will not change. \\
+        \indent By transitivity, since by our case assumption $d_{x} < d_{z_{\min}}$, $\sum_{i \in beginning} t_{i} \leq d_{z_{\min}}$ where $d_{z_{\min}}$ is the minimum deadline in $Left$ that is greater than $d_{x}$. \\
+        \indent Therefore since all jobs complete before the minimum deadline $d_{z_{\min}}$ all jobs that have changed sides in relation to $x$, will still complete. \\
+        \indent Any job that is to the left of $x$ after it has been moved, has just remained where it was, and thus will still complete. \\
+        \indent Therefore all jobs before x complete in time, x completes in time, and all jobs after x complete in time. \\
+        \indent Therefore in this sub case ordering the list leaves the set of jobs that compete unchanged. \\
+        \\
+        Therefore in both sub cases we found that the set of jobs that complete are unchanged by correcting the job that is misplaced in terms of ascending order by deadline. \\
+        Therefore the base case of $n = 1$ is proven. \\
+        \\
+        \textbf{Inductive step:} Assume for a ordering with $k$ misplaced jobs $k < n$ we can correct their positions, without effecting which jobs complete. \\
+        \\
+        Now given a ordering with $n$ misplaced jobs we will show that correcting their positions will not effect which jobs complete. \\
+        Since the set of all misplaced jobs is not empty. 
+        If we order the set by the deadline, the well-ordering theorem guarantees the existence of a maximum element. \\
+        Let $\max =$ the misplaced job that has the maximum deadline, that is $(\forall d_{i}) d_{i} \leq d_{\max}$. \\
+        Move $\max$ to its correct position. \\
+        Any job to the right of $\max$'s new position is unmoved, and will therefore will take the same amount of time, and will still complete. \\
+        Any job that changed from the right of $\max$ to the left of $\max$ has moved to the left in the queue, and will now finish earlier.\\
+        Thus any jobs that changed sides will still complete.\\
+        Since all jobs completed before, any job that remained to the left of $\max$ was unmoved, and will thus still complete. \\
+        Now we consider if $\max$ will still complete. \\
+        Let $c_{\max}$ be the job that after the move is one index behind $\max$. \\
+        The time it took to complete $c_{\max} was = \sum_{i = 1 \leq idx(c_{\max})} t_{i}$. \\
+        Since $c_{\max}$ completed we know that $\sum_{i = 1 \leq idx(c_{\max})} t_{i} \leq d_{c_{\max}}$. \\
+        And since after the move $c_{\max}$ comes before $\max$ we know that $d_{c_{\max}} < d_{\max}$. \\
+        Therefore since the set of the first $idx(c_{\max})$ jobs before the move is unchanged from the set of the first $idx(\max)$ jobs after the move. \\
+        We know by transitivity that the time that $\max$ now takes is $\sum_{i = 1 \leq idx(c_{\max})} t_{i}$ which is less than  $\leq d_{c_{\max}}$ which is less than $d_{\max}$. \\
+        Therefore $\max$ will still complete.\\
+        Therefore after doing one move we know that all jobs to the left of $\max$ will still complete, $\max$ will still complete, and all jobs to the right of $\max$ will still complete.\\
+        Therefore after correctly placing one job all jobs will still complete. \\
+        Therefore we know have a list of jobs that all complete, with only $n - 1$ misplaced jobs. \\
+        Since $n - 1 < n$ by the inductive hypothesis we can correct the order without changing the set of jobs that complete.\\
+        \\
+        Therefore we have proven that the base cases for $n = 0$ and $n = 1$ that we can correct the position of any misplaced jobs, into ascending order of deadline without effecting the set of jobs that complete before their deadlines. \\
+        We have also improved the inductive step where a list of jobs with $n$ misplaced elements can also be corrected into ascending order. \\
+        Therefore Lemma * is proven. $\qed$
+      \subsubsection{Proof of the existence of a optimal solution in ascending order of deadline}
+        We now prove the existence of a optimal solution in which all paying jobs are sorted in ascending order of deadlines. \\
+        In part 1 we proved the existence of a optimal solution $s_{o}$ where all paying jobs come before non-paying jobs. \\
+        If we restrict our efforts to just the paying jobs at the beginning of the schedule, we have a list of size $|R(s_{o})|$ in which all jobs complete. \\
+        By lemma *, we can rearrange the order creating a solution $s_{o}'$ so that the jobs are sorted in ascending order by their deadlines, without changing the set of completing jobs. \\
+        That is $R(s_{o}') = R(s_{o})$. \\
+        It follows from the definition of complement and that a job can not both be paying and non-paying that $R(s_{o}')' = R(s_{o})'$. \\
+        Therefore $R(s_{o}') = R(s_{o}) \land R(s_{o}')' = R(s_{o})'$. \\
+        Therefore $profit(s_{o}') = profit(s_{o})$.\\
+        Since $s_{o}$ is optimal, therefore $s_{o}'$ is also optimal. \\
+        Therefore their exists a optimal solution in which the jobs in which we receive a service charge are completed in ascending order of their deadlines. $\qed$
+    \subsection{Part c}
+      \subsubsection{English description of the Algorithm}
+        The algorithm is simple. 
+        The algorithm focuses on just selecting the order of the jobs we recieve service charges for, all other jobs are just done in any order. 
+        We start by solving the best choice to fit in a single time slot.
+        We say that this solotion takes $s_{t}$ time and $s_{p}$ profit.
+        From then on the number of time slots keep expanding by one say until we have passed the max deadline of any job or the all jobs have been completed.
+        Each iteration we have $t_{i}$ time to create a solution to fit in.
+        The algorithm considers two solutions to be considered.
+        The first solution is the previous solution plus any job that fits in $t_{i} - s_{t}$.
+        The second solution is the most profitable job that fits in $t_{i}$ time, plus the previously found optimal solution for any remaining time.
+        Which we can add because part b allows use to reorder jobs that complete in terms of their deadlines.
+        The algorithm will store which ever was the maximum profit of the two as the optimal choice for that $t_{i}$. This will repeat as mentioned until the maximum deadline is passed or all jobs have been completed.
+      \subsubsection{Pseudocode}
+        \textbf{Algorithm} max\_fit\_in\_t$(W$, $t$, d$)$; \\
+        \textbf{Input:} A list of jobs $W$ of size $n$, and a time $t$ to fit a job in. And the time al jobs will be completed in d.\\
+        \textbf{Output:} A pair where the first element is the job which maximizes the profit in time $t$ or is a non-existent job with all fields set to zero, and the second element is the index the job was found in list $W$ or $-1$ if no job was found.\\
+        \\
+        \textbf{begin}\\
+        Let max\_job be a job with zero time, zero profit, and zero deadline.\\
+        let index = -1\\
+        for i = 1 to n do\\
+        \indent if W[i].time $\leq t$ and W[i].deadline $>$ d then\\
+        \indent \indent if index == -1 or W[i].profit $>$ max\_job.profit then\\
+        \indent \indent \indent max\_job = W[i]\\
+        \indent \indent \indent index = i\\
+        \indent \indent end if \\
+        \indent end if\\
+        end for\\
+        return (max\_job, index)\\
+        \textbf{end}\\
+        \\
+        \textbf{Algorithm} Job\_Selection$(W)$; \\
+        \textbf{Input:} A list of jobs $1$ to $n$ where each $w_{i} \in W$ has a $t_{i}$ for time, a $d_{i}$ for deadline, and a $p_{i}$ for payment. \\
+        Given a job $w_{i}$ we will access their time, deadline, and payment like $w_{i}.time$, $w_{i}.deadline$, and $w_{i}.payment$ \\
+        \textbf{Output:} A schedule of jobs, that will maximize the profit received from the payments. \\
+        We let a schedule have the following form \\
+        \{\\
+          paying\_jobs\\
+          non-paying\_jobs\\
+          profit\\
+          time\_required\\
+        \}\\
+        Where all jobs in paying\_jobs, are done before non-paying\_jobs, profit is the payments we recieve from paying-jobs, and time\_required is the time all paying\_jobs take to complete. \\
+        \\
+        \textbf{begin} \\
+          let max\_deadline = 0\\
+          let max\_timecompletation = 0\\
+          for i = 1 to n do\\
+          \indent if W[i].deadline $>$ max\_deadline then\\
+          \indent \indent max\_deadline = W[i].deadline\\
+          \indent end if\\
+          \indent max\_timecompletation = max\_timecompletation + W[i].time\\
+          end for\\
+          if max\_deadline $>$ max\_timecompletation then\\
+          \indent let counter = max\_timecompleation\\
+          else \\
+          \indent let counter = max\_deadline\\
+          end if\\
+          let previous\_schedule = \{ paying\_jobs = \{\}, non\_paying\_jobs = $W$, profit = 0, time\_required = 0 \}\\
+          let choices = \{previous\_schudule\}\\
+          for i = 1 to counter do\\
+          \indent let (best\_addition\_to\_previous, idx\_best) =\\
+          \indent \indent max\_fit\_in\_t$($previous\_schedule.non\_paying\_jobs, i $-$ previous\_schedule.time\_required, i$)$\\
+          \indent let (total\_best, total\_best\_idx) = max\_fit\_in\_t$(W$, i, i$)$\\
+          \indent if i $-$ total\_best.time $>$ 0\\
+          \indent \indent let next\_optimal = i $-$ total\_best.time\\
+          \indent else\\
+          \indent \indent let next\_optimal = 1\\
+          \indent end if\\
+          \indent if total\_best $\in $ choices[next\_optimal].paying\_jobs then\\
+          \indent \indent let (total\_best, total\_best\_idx) =\\
+          \indent \indent \indent max\_fit\_in\_t$($choices[next\_optimal].non\_paying\_jobs, i $-$ choices[next\_optimal].time\_required)\\
+          \indent end if
+          \indent let prev\_profit = best\_addition\_to\_previous.profit + previous\_schedule.profit\\
+          \indent let next\_profit = total\_best.profit + choices[next\_optimal].profit
+          \indent if prev\_profit $\geq$ next\_profit and idx\_best $\neq$ -1 then\\
+          \indent \indent move previous\_schedule.non\_paying\_jobs[idx\_best] into previous\_schedule.paying\_jobs\\
+          \indent \indent increase previous\_schedule.time\_required by best\_addition\_to\_previous.time\\
+          \indent \indent increase previous\_schedule.profit by best\_addition\_to\_previous.profit\\
+          \indent else if total\_best\_idx $\neq -1$ then\\
+          \indent \indent replace previous\_schedule.paying with \{total\_best\}\\
+          \indent \indent replace previous\_schudule.non\_paying with $W - \{$total\_best$\}$\\
+          \indent \indent replace previous\_schedule.profit with total\_best.profit\\
+          \indent \indent replace previous\_schedule.time\_required with total\_best.time\\
+          \indent end if\\
+          \indent choices[i + 1] = previous\_schedule\\
+          end for\\
+          return previous\_schedule\\
+        \textbf{end} \\
+      \subsubsection{Correctness}
+        \textbf{max\_fit\_in\_t}\\
+        First if the list of jobs $W$ passed in is empty that then the for loop will never return, in that case the return value will be a pair of a job with zero time, zero profit, and zero deadline, and an index set to -1 because only line 1 and 2 are run and that is the values set on those lines.\\
+        However if there is a job we will prove the following about the loop.\\
+        At the end of every iteration $m$ of the loop max\_job represents the job that has the most profit that can be completed in time $t$ for the first $m^{th}$ jobs and index is the location of that job in the passed in list $\lor$ they are the sentinal value of a job with zero time, zero profit, and zero deadline, and index is -1.\\
+        \textbf{Proof by induction}\\
+        \textbf{Base case: n = 1}\\
+        In this case at the start of the loop index is -1. We have two cases, if the first job in list takes $\leq t$ time and the deadline is greater then d or the previous statement is fales.\\
+        \textbf{sub-case 1: $W[1].time \leq t \land W[1].deadline \geq d$}\\
+        \indent In this sub-case We will pass the first if statement, and then check the next if statement.\\
+        \indent the second if statement will evaulate to true, because index is equal to $-1$.\\
+        \indent we will therefore set max\_job to $W[1]$ and index = $1$.\\
+        \indent Therefore at the end of the first loop max\_job is set to the job in $W$ which maximizes the profit in $\leq t$ time and deadline greater then d, and index is the location in the list this job is found.\\
+        \indent Therefore at the end of the first loop max\_job is set to the job in $W$ which maximizes the profit in $\leq t$ time, and index is the location in the list this job is found $\lor$ they are sentinal value of a job with zero time, zero profit, and zero deadline, and index is -1.\\
+        \\
+        \textbf{sub-case 2: $W[1].time > t \lor W[1].deadline < d$}\\
+        \indent In this sub-case, the first if statement will fail and the loop will end.\\
+        \indent Therefore the values of max\_job is unchanged from a job of all zeros, and index is still $-1$.\\
+        \indent Therefore at the end of the first loop max\_job is set to the job in $W$ which maximimizes the profit in $\leq t$ time, and index is the location in the list of this job $\lor$ they are sential value of a job with zero time, zero profit, and zero deadlin,e and index is $-1$.\\
+        \\
+        Therefore in both sub cases at the end of the first loop max\_job is set to the job in $W$ which maximimizes the profit in $\leq t$ time, and index is the location in the list of this job $\lor$ they are sential value of a job with zero time, zero profit, and zero deadlin,e and index is $-1$.\\
+        \\
+        \textbf{Inductive step} Assume after $k < m$ iterations that at the end of the loop max\_job is set to the job in $W[1, \ldots, k]$ which maximimizes the profit in $\leq t$ time, and index is the location in the list of this job $\lor$ they are sential value of a job with zero time, zero profit, and zero deadlin,e and index is $-1$.\\
+        Now consider iteration $m$, we have two possible results from the previous $m - 1$ iterations. We found a job that takes $\leq t$ time in which case index $\neq -1$, or we didn't and index $= -1$ we consider each case below.\\
+        \textbf{sub-case 1: $index = -1$}\\
+        \indent In this case we are in exactly the same position as a list of size 1, because our inital values are max\_job is all zeros, and index is $-1$.\\
+        \indent Therefore as proven above in the base case this iteration will end correctly.\\
+        \indent Therefore at the end of the first loop max\_job is set to the job in $W$ which maximizes the profit in $\leq t$ time, and index is the location in the list this job is found $\lor$ they are sentinal value of a job with zero time, zero profit, and zero deadline, and index is -1.\\
+        \textbf{sub-case 2: $index \neq -1$}\\
+        \indent In this case max\_job represents the maximum profit for a job in the first $k$ jobs in $W$ which take $< t$ time, and index is the location of that job in the list $W$.\\
+        \indent We have two cases to consider if job $W[m].time \leq t$ or $W[m].time > t$.\\
+        \indent \textbf{sub-sub-case 1: $W[m].time \leq t \land W[m].deadline \geq d$}\\
+        \indent \indent If $W[m]$.profit $< $max\_job.profit then the second if statement fails, and we are left with max\_job and index unchanged, but because $W[m]$.profit is less than max\_job.profit.\\
+        \indent \indent We have that max\_job still represents the maximum profit for a job in $\leq t$ time, and index is its location, and it can be completed in in d time.\\
+        \indent \indent however if $W[m]$.profit $>$ max\_job.profit, then the if statement is true, and we set max\_job to $W[m]$ and index to $m$.
+        \indent \indent We therefore have that max\_job still represents the maximum profit for a job in $\leq t$ time, and index is its location.\\
+        \indent \textbf{sub-sub-case 2: $W[m].time > t \lor W[m].deadline < d$}\\
+        \indent \indent In this case the first if statement fails, and we go to the end of the loop, leaving max\_job and index unchanged.\\
+        \indent \indent Therefore we have that max\_job still represents the maximum profit for a job in $\leq t$ time, and index is its location, and max\_job can be completed in d time.\\
+        \indent Therefore in both sub-sub-cases, we found that max\_job represents the maximum job for a job in $\leq t$ time, and index is its location, and max\_job can be completed in in d time.\\
+        \indent Therefore at the end of the loop max\_job is set to the job in $W$ which maximizes the profit in $\leq t$ time, and can be completed in d time, and index is the location in the list this job is found $\lor$ they are sentinal value of a job with zero time, zero profit, and zero deadline, and index is -1.\\
+        \\
+        Therefore in both the base case and the inductive step we find that at the end of every iteration $m$ of the loop max\_job represents the job that has the most profit that can be completed in time $t$ for the first $m^{th}$ jobs and index is the location of that job in the passed in list $\lor$ they are the sentinal value of a job with zero time, zero profit, and zero deadline, and index is -1.\\
+        \\
+        \textbf{Job\_Selection}\\
+        We need to prove the properties of two for loops we will split them into lemmas.\\
+        \\
+        \textbf{Lemma *}\\
+        Lemma * will prove that the first for loop in Job\_Selection will end with max\_deadline being the maximum deadline in the list, and max\_timecompletation being the sum of all jobs time requirements.\\
+        \textbf{Proof by induction}\\
+        \textbf{Base Case: n = 0}\\
+        The claim is vacuously true.\\
+        Therefore in this base case at the end of the loop max\_deadline is the maximum deadline in the list, and max\_timecompletation is the sum of all jobs time requirements.\\
+        \textbf{Base case: n = 1}\\
+        In this case if the single job has a deadline $> 0$ then max\_deadline will be correctly updated by the if statement. If the single job has a deadline of $0$ then no change of max\_deadline is needed because of the assignment on line 1.\\
+        The final statement in the loop will add the job's time to the current value which is zero.\\
+        Thus max\_timecompletation will be the total time needed for all jobs.\\
+        Therefore the base cases are proven.\\
+        \textbf{Inductive step} Assume for iteration $k < m$ that max\_deadline is the maximum deadline of the first $k$ jobs, and max\_timecompletation is the sum of all time requirements up to the first $k$ jobs.\\
+        Consider the $m^{th}$ iteration. The value in max\_deadline represents the maximum deadline for $m - 1$ jobs, and max\_timecompletation is the sum of all $m - 1$ job time requirements.\\
+        In the if statement if $W[m]$.deadline $>$ max\_deadline, we change max\_deadline to it, otherwise we leave it alone.\\
+        Therefore max\_deadline will represent the maximum deadline for the $m^{th}$ first jobs.\\
+        next the loop will add $W[m]$.time to max\_timecompletation, and since it was the summation of all the first $m - 1$ jobs and we are adding the $m$ job.\\
+        Therefore max\_timecompletation will represent the sum of all the first $m$ job time requirements.\\
+        \\
+        Therefore both the base case and the inductive step is proven.\\
+        Therefore since the length of the list is in $\mathbb{N}$ by lemma * the first for loop in Job\_Selection will end with max\_deadline being the maximum deadline in the list, and max\_timecompletation being the sum of all jobs time requirements.\\
+        \\
+        \textbf{lemma @}\\
+        Lemma @ will prove that the end of each iteration i that choices[i] will contain the optimal schedule that maximizes profit in $i - 1$ time slots.\\
+        \\
+        \textbf{Proof by induction}\\
+        \textbf{Base Case: n = 0}\\
+        In this case before the start of the loop previous\_schedule is set to have no paying\_jobs, no non\_paying\_jobs and profit and time of zero.\\
+        Also choices[1] is set to previous\_schedule current value, and since no jobs fits in a time of 0, it is vacuously true that choices[1] is the optimal schedule for $1 - 1$ time slots.\\
+        \\
+        \textbf{Base Case: n = 1}\\
+        In this case the for loop is only ran once, and as seen in the $n = 0$ case choices[1] is the optimal solution for 0 time slots.\\
+        Since we have proven the correctness of max\_fit\_in\_t, we know that the first line of the for loop we let best\_addition\_to\_previous be the job if it exists that will maximize the profit for previous\_schedule.non\_paying\_jobs (that is all jobs) in $1 - 0$ time slot.\\
+        On the next line we let total\_best be the job that will maximize the profit of all jobs, in 1 time slot.\\
+        We set prev\_profit to choices[1].profit + the job that optimizes for 1 time slot.\\
+        We also set next\_profit to choices[1].profit + the job that optimizes for 1 time slot.\\
+        Since these are the same the profit is also the same.\\
+        If a job was found that fits in 1 time slot, we update previous\_schedule to include that job in paying\_jobs, and increase the profit and time required by the job's profit and time respectively.\\
+        Since we have only 1 time slot and we have the optimal job for one time slot.\\
+        Therefore previous\_schedule is updated to be the optimal choice for 1 time slot.
+        The loop will then add the current value of previous\_schedule to choices[i+1].\\
+        Since i = 1, choices[2] is set to the optimal solution for 1 time slot, we have that choices[n] $\forall n$ is the optimal solution for $i - 1$ time slots.\\
+        Therefore this base case is proven.\\
+        \textbf{Inductive step} Assume for iteration $k < m$ that all values of $1 \leq i \leq k$ of choices[i] is the optimal solution for $i - 1$ time slots.\\
+        \\
+        We select best\_addition\_to\_previous to be the job that maximizes the left over time from the previous solution.\\
+        We let total\_best be the job that maximizes all possible jobs in the current iterations time slots.\\
+        We fill up any remaining time with the optimal solution for $m -$ total\_best.time.\\
+        We then compare the profit of the two, and choose the one that generates the maximum profit.\\
+        This value is then added to choices at choices[m + 1]. \\
+        This value is optimal because the optimal solution has to be in one of those two choices.\\
+        From part a we know that we only need to consider the jobs which can be completed in a time slots.\\
+        Since every choices[i] can be completed in i time, since max\_fit\_in\_t chooses based on deadline of iteration.\\
+        and we know that the job we added has a deadline $\geq$ than the current iteration.\\
+        From part b we know we can rearrange the order of the jobs into order of ascending deadline.\\
+        Which means either adding a single job that fits within the deadline onto the previous solution, or taking a maximum profitable job that fits in the total current time slot and then adds the optimal solution of the remaining time, which from part b can be rearranged so all jobs complete.\\
+        Therefore we have choosen choices[m] to be the optimal solution for $m - 1$ time slots.\\
+        Therefore both the base cases, and the inductive step is proven. $\qed$\\
+      \subsubsection{Time Complexity}
+        \textbf{max\_fit\_in\_t}\\
+        The first two lines each take constant time so say $c_{1}$ operations.\\
+        The for loop runs from 1 to n so takes $n$ operations.\\
+        Each statement inside the for loop takes constant time say $c_{2}$.\\
+        So the for loop takes in total $c_{2}n$ time.\\
+        \\
+        Therefore the total time this function takes is $c_{1} + c_{2}n \leq (|c_{1}| + |c_{2}|)n$\\
+        Therefore max\_fit\_in\_t $\in O(n)$\\
+        \\
+        \textbf{Job\_Selection}\\
+        The first two lines each take constant time so say $c_{1}$ operations.\\
+        The for loop runs from 1 to n so takes $n$ operations.\\
+        Each statement inside the for loop is constant time so say $c_{2}$ operations.\\
+        Therefore the loop in total takes $c_{2}n$ time.\\
+        The if else statements plus the initilization of previous\_schedule takes constant time say $c_{3}$ operations.\\
+        The for loop runs from 1 to counter, and counter was set to the $\min(\max(d_{i}), \sum_{i = 1}^{n} t_{i})$ so it runs $\min(\max(d_{i}), \sum_{i = 1}^{n} t_{i})$ times.\\
+        Since max\_fit\_in\_t $\in O(n)$ each call to the function in the first two lines take a constant times n operations. 
+        Say $c_{4}n + c_{5}n$ operations. \\
+        The selection of the variable next\_optimal through the if else statement takes constant time thus $c_{6}$ operations.\\
+        The if statement takes $cn$ operations naively to check the in operator. While the call to max\_fit\_in\_t also takes some constant times n.\\
+        Therefore the if statement takes $c_{7}n$ operations.
+        All remaining statements besides one are constant time, say $c_{8}$ operations.\\
+        The statement that is not constant time is replacing non\_paying\_jobs with $W - \{$total\_best$\}$ this would take $n - 1$ operations to copy the list over however we can say it takes $c_{9}n$ time because it belongs to $O(n)$.\\
+        Therefore the for loop runs in $\min(\max(d_{i}), \sum_{i = 1}^{n}t_{i}) * (c_{4}n + c_{5}n + c_{6} + c_{7}n + c_{8} + c_{9}n)$\\
+        \\
+        Therefore the total time this function takes is \\
+        $c_{1} + c_{2}n + c_{3} + \min(\max(d_{i}), \sum_{i = 1}^{n}t_{i}) * (c_{4}n + c_{5}n + + c_{6} + c_{7}n + c_{8} + c_{9}n) \leq (|c_{1}| + |c_{2}| + |c_{3}| + |c_{4}| + |c_{5}| + |c_{6}| + |c_{7}| + |c_{8}| + c_{9}|)n * \min(\max(d_{i}), \sum_{i = 1}^{n}t_{i})$\\
+        Therefore job\_Selection $\in O(n * \min(\max(d_{i}), \sum_{i = 1}^{n}t_{i}))$\\a
+  \section{Question 2}
+    Given n brands of cookie $B_{i}$, $1 \leq i \leq n$. Each brand of cookie $B_{i}$ has a price $p_{i}$ and comes with a coupon that carries a value c$_{i}$ for another brand of cookie. If the coupon is for brand B$_{j}$, then c$_{i} \leq p_{j}$. 
+    Moreover, no two different brands of cookie carry their coupon for the same brand of cookie. The objective is to buy one bag of cookie of each brand (with a coupon if available) so that the total price is minimum.\\
+    Present a greedy algorithm which when presented with: (i) p$_{i}$, $1 \leq i \leq n$, 
+    (ii) c$_{i}$, $1 \leq i \leq n$,
+    and (iii) B$_{i}^{'}$, $1 \leq i \leq n$, such that c$_{i}$ is for brand B$_{i}^{'}$, determines an order to buy the cookies so that the total price is minimum. You algorithm must run in $O(n)$ time.\\
+    \subsection{English Description}
+      The algorithm finds the coupon of minimum value and buys the brand the minimum coupon is for, it then proceeds to buy based on the coupon that Brand carries. If all the cookies are not yet purchased then it repeats this process. That is it finds the minimum value of a coupon for a cookie we haven't bought, and buy the cookie that the minimum coupon was for.\\
+    \subsection{Pseudocode}
+      \textbf{Algorithm} buy\_cookies$(B)$\\
+      \textbf{Input:} A list of n brands of cookie $B$, each brand $b_{i}$ comes with a price $p_{i}$ and a coupon $c_{i}$ which tells us which brand $b_{j}$ to buy and the value we get off $b_{j}$.\\
+      \textbf{Output:} A ordering of purchases which minimizes the total price paid with coupon values taken off.\\
+      \\
+      \textbf{begin}\\
+      let purchased = 0\\
+      let order = \{\}\\
+      let list\_of\_cycles = \{\}\\
+      let num\_cycles = 1\\
+      while $B \neq \emptyset$\\
+      \indent let first = $B[1]$\\
+      \indent add first to list\_of\_cycles[num\_cycles]\\
+      \indent remove first from $B$\\
+      \indent let second = brandOf$($coupon$($first$))$\\
+      \indent while second $\neq$ first do\\
+      \indent \indent add second to list\_of\_cycles[num\_cycles]\\
+      \indent \indent remove second from $B$\\
+      \indent \indent let second = brandOf$($coupon$($second$))$\\
+      \indent end while\\
+      \indent num\_cycles = num\_cycles + 1\\
+      end while\\
+      for i = 1 to num\_cycles do\\
+      \indent let curr\_cycle = list\_of\_cycles[i]\\
+      \indent let min = couponValue$($curr\_cycle[1]$)$\\
+      \indent let min\_brand = brandOf$($coupon$($curr\_cycle[1]$))$\\
+      \indent k = 1 to size$($curr\_cycle$)$ do\\
+      \indent \indent if min $>$ couponValue$($curr\_cycle[k]$)$ then\\
+      \indent \indent \indent min = couponValue$($curr\_cycle[k]$)$\\
+      \indent \indent \indent min\_brand = brandOf$($coupon$($curr\_cycle[k]$))$\\
+      \indent \indent end if\\
+      \indent end for\\
+      \indent let first = min\_brand\\
+      \indent add first to order\\
+      \indent let second = brandOf$($coupon$($first$))$\\
+      \indent while second $\neq$ first do\\
+      \indent \indent add second to order\\
+      \indent \indent let second = brandOf$($coupon$($second$))$\\
+      \indent end while\\
+      end for\\
+      return order\\
+      \textbf{end}\\
+    \subsection{correctness}
+      After the first while loop we have separated the list of brands into connected sub-components.\\
+      Because no brand can hold a coupon of itself there must be at least 2 brands of cookies.\\
+      We start with that as a base case.\\
+      \textbf{Proof by induction}\\
+      \textbf{Base Case: n = 2}\\
+      In this case we grab the first element in the first statement.\\
+      It is added to the current cycle, and is removed from $B$.\\
+      We set second to the next brand of the coupon entering the while loop.\\
+      We add second to the current cycle, and remove it from $B$.\\
+      We update second to point to the brand that the current coupon is for.\\
+      In this case that is back to the first brand, therefore the loop ends.\\
+      the only thing left in the outer loop is increasing num\_cycles to 1.\\
+      Therefore at the end of the loop $B$ is empty, list\_of\_cycles contains each cycle that can be found in $B$ is now in list\_of\_cycles.\\
+      Therefore we have separated the list of brands into connected sub-components.\\
+      \\
+      \textbf{Inductive step} Assume that after iterations $k < m$ brands that the list has separated the brands into connected sub-components.\\
+      \\
+      At the start of iteration $m$ we have separated the list of brands into $m - 1$ connected componts, and num\_cycles is equal to $m - 1$.\\
+      Since $B$ is not empty we grab the first brand in the list.\\
+      We then add first to the current cycle and then remove it from $B$.
+      let the second equal the brandOf$($coupon$($first$))$.\\
+      That is second is the brand that the coupon of first is for.\\
+      We then add second to the current cycle and then remove it from $B$.\\
+      We then update second to point to the brand that the current coupon is for.\\
+      If this is not the first one we added to the cycle we repeat this process until then.\\
+      This will cause the entire cycle that is generated by first to be removed from $B$ and placed in the current cycle.\\
+      The while loop will end, and we will increase the value of num\_cycles by 1.\\
+      Therefore at the end of loop we will have separated another connected sub-component, and the num\_cycles will be equal to $m$.\\
+      Therefore the base case is proven, and the inductive step is also proven.\\
+      Therefore the first while loop will separate the list of brands $B$ into num\_cycles connected sub-components.\\
+      \\
+      The second while loop is simple in execution, it goes through each cycle grabs the minimum coupon value, and then buys the brand that coupon is for. 
+      Then purchases the rest of the cycle.\\
+      The first for loop in the cycle will select the minimum value of a coupon seen thus far setting min to it.\\
+      at the same time it sets the brand the coupon is for to min\_brand.\\
+      After that we use the same way that we used in the first while loop to go through the cycles.\\
+      but this time we add each brand to the order.\\
+      Since we repeat this for all the cycles in the original $B$. We will order all brands based on the starting with the brand that has the minimum coupon for it.\\
+      \\
+      We will prove for the case of a single cycle of size n that buying the brand that has the minimum coupon value for it. Will maximize the the savings of buying all the brands.\\
+      \\
+      We can think of buying all brands as paying the cost $\sum_{i = 1}^{n} brand_{i}$, and since we can not use the coupon for the first brand we buy.\\
+      We can only have the coupon reduce the price up by $\sum_{i = 1 \land i \neq first}^{n} coupon_{i}$ where first is the brand we bought to start the cycle.\\
+      Therefore we want to minimize $\sum_{i = 1}^{n} brand_{i} - \sum_{i = 1 \land i \neq first}^{n} coupon_{i}$.\\
+      However we must purchase all brands we can not decrease $\sum_{i = 1}^{n} brand_{i}$, therefore we have to maximize $\sum_{i = 1 \land i \neq first}^{n} coupon_{i}$.\\
+      Since the only difference we can make is the choice of first brand we buy.\\
+      We therefore minimize the value of the coupon we will lose, so the sum of all the coupons we get to use is the highest.\\
+      Therefore for a single cycle we must buy the brand that has the minimum coupon value.\\
+      \\
+      Since each cycle must be purchased and has to start with a first, to minimize the cost for all cycles we must purchase each cycles minimum brand savings.\\
+      Therefore from our method described above, we will correctly minmize the amount of money we pay.\\
+    \subsection{time complexity}
+      The first four statements take constant time say $c_{1}$\\
+      The while loop will run until $B$ is empty, and each loop as proven above removes one connected sub-component.\\
+      Therefore the loop will run $r$ times where $r$ is the number of connected sub-components.\\
+      Inside the loop the first four statements is constant time so $c_{2}$.\\
+      The inner loop will go through the current cycle and do constant operations so it takes $c_{3}|r_{i}|$ where $|r_{i}|$ is the size of the connected sub-component.\\
+      However since we run over it for all connected sub-components and $\sum_{i = 1}^{r} |r_{i}| = n$\\
+      Therefore the inner loop is $c_{4}n$ operations.\\
+      Therefore the first loop runs $(|c_{3}| + |c_{4}|)n$ operations.\\
+      The second loop runs through each cycle so $r$ times.\\
+      Each loop we go do constant work $c_{5}$ plus a loop that executes $|r_{i}|$ times, doing constant work $c_{6}$.\\
+      Since we do it $r$ times and it is over all sub-components the the amount of operations in the loop is n.\\
+      Therefore the second loop runs in $(|c_{5}| + |c_{6}|)n$.\\
+      Therefore the function buy\_cookies operates in $c_{1} + c_{2} + (|c_{3}| + |c_{4}| + |c_{5}| + |c_{6}|)n \leq  (|c_{1}| + |c_{2}| + |c_{3}| + |c_{4}| + |c_{5}| + |c_{6}|)n$\\
+      Therefore buy\_cookies $\in O(n)$. $\qed$.\\      
+  \section{Question 3}
+    \subsection{English Description}
+      This algorithm is simple, it proceeds by doing a recursive depth first search of the inputted tree.
+      It keeps track of all parent values above a certain node in an array $parents$, if there is $> g(v)$ elements in $parents$ then we set the value of that node to the value in $parents$ otherwise to undefined.\\
+    \subsection{Pseudocode}
+      \textbf{Algorithm} replace\_tree$(T)$\\
+      \textbf{Input:} A rooted tree $T$ from which every node $v$ has a nonnegative value $g(v)$.\\
+      \textbf{Output:} The values of $g(v)$ for all nodes $v$ are replaced with their $g(v)$th parent's value.\\
+      \\
+      \textbf{begin}\\
+      let parents = []\\
+      let n = 0\\
+      replace\_tree$(T$, parents, n$)$\\      
+      \textbf{end}\\
+      \\
+      \textbf{Algorithm} replace\_tree\_internal$(T$, $parents$, $n)$\\
+      \textbf{Input:} A rooted tree $T$ from which every node $v$ has a nonnegative value $g(v)$, the values of all ancestors $parents$, and the number of ancestors $n$ in $parents$.\\
+      \textbf{Output:} The values of $g(v)$ for all nodes $v$ are replaced with their $g(v)$th parent's value.\\
+      \\
+      \textbf{begin}\\
+      let $val = g(T)$\\
+      $parents[n+1] = val$\\
+      $new\_n = n + 1$\\
+      if $new\_n - val > 0$ then\\
+      \indent $g(T) = parents[new\_n - val]$\\
+      else\\
+      \indent $g(T) = \perp$\\
+      end if\\
+      for each child $v$ of $T$ do\\
+      \indent replace\_tree\_internal$(v$, $parents$, $new\_n)$\\
+      end for\\
+      \textbf{end}
+    \subsection{Correctness}
+      \textbf{replace\_tree\_internal}\\
+      The function replace\_tree\_internal takes three arguments, the current vertex, the value of $g$ for all ancestors in order stored in $parents$ and the number of ancestors $n$.\\
+      Assuming the correct information passed in, we evaluate the the correctness of replace\_tree\_internal under these assumptions.\\
+      We get the current value of the vertex $T$.\\
+      we store that value into the next position of $parents$ and set a variable to the new number of elements in $parents$.\\
+      If there was more than $g(T)$ ancestors that is number of elements in minus the value of $g(T)$, we set the current value to the $g(T)$th ancestor, that is $parents[new\_n - g(T)]$.\\
+      Otherwise we set the current value to $\perp$.\\
+      This correctly updates the current value, and then for each child we call replace\_tree\_internal with the new\_n and the modified parents.\\
+      We know that if our assumption of the correct input holds that we have now passed in the current node's value onto all children.\\
+      And since the input is a tree we know that there is no cycles and we will only visit each node once.\\
+      Therefore replace\_tree\_internal is correct assuming the ancestor values are passed in are all there and in the correct order, and $n$ is the correct number of elements in $parents$.\\ $\qed$
+
+      \textbf{replace\_tree}\\
+      This function sets up the correct values for the start of the recursive internal function.\\
+      Since there are no ancestors of the root, we leave parent empty, and therefore the number of elements in parents is 0 which we store in n. 
+      Therefore the function replace\_tree then calls replace\_tree\_internal, which was proven correct assuming that all the values passed in were correct.
+      Therefore since replace\_tree\_internal is correct, we have replace\_tree is correct. $\qed$\\
+    \subsection{Time complexity}
+      \textbf{replace\_tree\_internal}\\
+      Since the input is a tree we know there is no cycles, no disconnected sub components and we only ever call the function on each of its children.\\
+      The depth first search will only finish once every vertex is seen. \\
+      Therefore the complexity will be of the order of the number of vertexs, that is replace\_tree\_internal $\in O(|V|)$\\
+      \\
+      \textbf{replace\_tree}
+      the first two lines take constant time, and then replace\_tree\_internal takes $O(|V|)$ time.\\
+      Therefore replace\_tree also takes $O(|V|)$ time.
+\end{document}

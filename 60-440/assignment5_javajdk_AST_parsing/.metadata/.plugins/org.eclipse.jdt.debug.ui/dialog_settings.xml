@@ -1,0 +1,14 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<section name="Workbench">
+	<section name="org.eclipse.jdt.debug.ui.MAIN_METHOD_SELECTION_DIALOG">
+		<item value="true" key="ShowStatusLine"/>
+		<item value="&lt;?xml version=&quot;1.0&quot; encoding=&quot;UTF-8&quot;?&gt;&#x0A;&lt;History&gt;&#x0A;&lt;historyRootNode&gt;&#x0A;&lt;infoNode&gt;=de.vogella.jdt.infos/\/usr\/share\/eclipse\/plugins\/org.eclipse.jdt.compiler.tool_1.0.300.v20140311-1758.jar&amp;lt;org.eclipse.jdt.internal.compiler.tool(EclipseCompilerImpl.class[EclipseCompilerImpl&lt;/infoNode&gt;&#x0A;&lt;infoNode&gt;=de.vogella.jdt.infos/\/usr\/share\/eclipse\/plugins\/org.eclipse.osgi_3.10.1.v20140909-1633.jar&amp;lt;org.eclipse.core.runtime.adaptor(EclipseStarter.class[EclipseStarter&lt;/infoNode&gt;&#x0A;&lt;infoNode&gt;=de.vogella.jdt.infos/\/usr\/share\/eclipse\/plugins\/org.eclipse.jdt.core_3.10.0.v20140902-0626.jar&amp;lt;org.eclipse.jdt.internal.compiler.batch(Main.class[Main&lt;/infoNode&gt;&#x0A;&lt;/historyRootNode&gt;&#x0A;&lt;/History&gt;" key="History"/>
+		<section name="DialogBoundsSettings">
+			<item value="600" key="DIALOG_WIDTH"/>
+			<item value="188" key="DIALOG_Y_ORIGIN"/>
+			<item value="660" key="DIALOG_X_ORIGIN"/>
+			<item value="500" key="DIALOG_HEIGHT"/>
+			<item value="1|Cantarell|11.0|0|GTK|1|" key="DIALOG_FONT_NAME"/>
+		</section>
+	</section>
+</section>

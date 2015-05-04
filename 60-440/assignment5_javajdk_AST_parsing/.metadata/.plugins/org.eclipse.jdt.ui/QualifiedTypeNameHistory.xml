@@ -1,0 +1,17 @@
+<?xml version="1.0" encoding="UTF-8" standalone="no"?>
+<qualifiedTypeNameHistroy>
+<fullyQualifiedTypeName name="org.eclipse.jdt.core.dom.MethodInvocation"/>
+<fullyQualifiedTypeName name="java.util.Set"/>
+<fullyQualifiedTypeName name="org.eclipse.jdt.core.dom.IBinding"/>
+<fullyQualifiedTypeName name="org.eclipse.jdt.core.dom.IVariableBinding"/>
+<fullyQualifiedTypeName name="org.eclipse.jdt.core.dom.ITypeBinding"/>
+<fullyQualifiedTypeName name="org.eclipse.jdt.core.dom.SimpleName"/>
+<fullyQualifiedTypeName name="java.lang.System"/>
+<fullyQualifiedTypeName name="java.util.LinkedHashMap"/>
+<fullyQualifiedTypeName name="java.util.Collections"/>
+<fullyQualifiedTypeName name="java.util.Comparator"/>
+<fullyQualifiedTypeName name="java.util.Map"/>
+<fullyQualifiedTypeName name="java.util.Map.Entry"/>
+<fullyQualifiedTypeName name="java.util.Iterator"/>
+<fullyQualifiedTypeName name="org.eclipse.jdt.core.dom.Expression"/>
+</qualifiedTypeNameHistroy>

@@ -1,0 +1,311 @@
+<courses>
+  <course acad_year="2004" term_id="1" crn="10018">
+    <course_group>BIOL</course_group>
+    <course_num>E-169c</course_num>
+    <title>Immunology I</title>
+    <meeting>
+      <meeting_days>W</meeting_days>
+      <meeting_begin>1935</meeting_begin>
+      <meeting_end>2135</meeting_end>
+      <location>Science Center Hall C</location>
+    </meeting>
+    <course_head>
+      <person person_id="Pe1be2ae94357a0cb43164abef98ec438">
+        <person_name>Jeffrey Lyczak</person_name>
+        <person_lname>Lyczak</person_lname>
+        <person_fname>Jeffrey</person_fname>
+        <person_title>PhD, Manager of Microbiology, Nucryst Pharmaceuticals</person_title>
+      </person>
+    </course_head>
+    <description>This course presents an overview of the immune system and focuses on providing the student with a solid background in modern molecular and cellular immunology. The course covers the molecules of the immune system, including antibodies, T-cell receptors, and major histocompatibility locus-encoded proteins and cytokines; the genes encoding these molecules; the cells of the immune system and their interactions; and the biological functions of the immune system and its regulation. Prerequisite: background in biology, biochemistry, and genetics.</description>
+  </course>
+  <course acad_year="2006" term_id="1" crn="10025">
+    <course_group>CHEM</course_group>
+    <course_num>E-2a</course_num>
+    <title>Organic Chemistry I</title>
+    <meeting>
+      <meeting_days>R</meeting_days>
+      <meeting_begin>1800</meeting_begin>
+      <meeting_end>2100</meeting_end>
+      <location>Science Center Hall C</location>
+    </meeting>
+    <course_head>
+      <person person_id="P69237a356b1d948fd2d0eb792be7e851">
+        <person_name>Craig Masse</person_name>
+        <person_lname>Masse</person_lname>
+        <person_fname>Craig</person_fname>
+        <person_title>PhD, Research Scientist, Amgen, Inc</person_title>
+      </person>
+      <person person_id="P0624b81797cef1e45240c0a87d13cd89">
+        <person_name>Gregory Philip Tochtrop</person_name>
+        <person_lname>Tochtrop</person_lname>
+        <person_fname>Gregory Philip</person_fname>
+        <person_title>PhD, Postdoctoral Fellow in Chemistry and Chemical Biology, Harvard University</person_title>
+      </person>
+    </course_head>
+    <description>CHEM E-2a and &lt;a href="http://www.extension.harvard.edu/2005-06/courses/chem.jsp#e-2b"&gt;CHEM E-2b&lt;/a&gt; present the fundamental chemistry of carbon-containing compounds. Emphasis is placed on gaining an understanding of the relationship between structure and reactivity, the mechanisms of important reactions, useful synthetic procedures, and methods of determining molecular structure. We also discuss the relevance of organic chemistry to biological systems, medicine, environmental science, and industry.&lt;br /&gt; &lt;br /&gt; Weekly discussion sections are offered Monday, Tuesday, and Wednesday, 5-6 pm or 6-7 pm. Laboratories are offered Tuesday, 7-11 pm; Saturday, 9 am-1 pm; and, depending on enrollment, Wednesday, 7-11 pm; and they meet approximately every other week on a schedule to be announced. Students may choose which section and lab to attend. Students may not wear contact lenses in the labs and safety glasses are required. Prerequisite for CHEM E-2a: one year of general chemistry. Prerequisite for CHEM E-2b: CHEM E-2a or equivalent.</description>
+  </course>
+  <course acad_year="2002" term_id="1" crn="10026">
+    <course_group>CHIN</course_group>
+    <course_num>E-1 Section 1</course_num>
+    <title>Elementary Modern Chinese I</title>
+    <meeting>
+      <meeting_days>MR</meeting_days>
+      <meeting_begin>1730</meeting_begin>
+      <meeting_end>1930</meeting_end>
+      <location>Vanserg Hall 25A</location>
+    </meeting>
+    <course_head>
+      <person person_id="P65080fd8bfc1e7e53ec7d9749d698a2b">
+        <person_name>Raymond D. Lum</person_name>
+        <person_lname>Lum</person_lname>
+        <person_fname>Raymond D.</person_fname>
+        <person_title>PhD, Asian Bibliographer, Harvard College Library</person_title>
+      </person>
+    </course_head>
+    <description>Introduction to modern Mandarin pronunciation, grammar, vocabulary, and writing in Chinese characters and romanization. Emphasis is on conversation. Approximately 400 characters and half of the basic grammar are learned. &lt;em&gt;Pinyin&lt;/em&gt; romanization and simplified characters are used. Not for students who have studied Chinese previously.</description>
+  </course>
+  <course acad_year="2005" term_id="1" crn="10027">
+    <course_group>CHIN</course_group>
+    <course_num>E-30</course_num>
+    <title>Elementary Modern Chinese III</title>
+    <meeting>
+      <meeting_days>TR</meeting_days>
+      <meeting_begin>1730</meeting_begin>
+      <meeting_end>1930</meeting_end>
+      <location>Vanserg Hall 29</location>
+    </meeting>
+    <course_head>
+      <person person_id="Pd29d307878d54f8cee27181e053b45bf">
+        <person_name>Min Wan</person_name>
+        <person_lname>Wan</person_lname>
+        <person_fname>Min</person_fname>
+        <person_title>BA, Drill Instructor in Chinese, Harvard University</person_title>
+      </person>
+    </course_head>
+    <description>This course is a continuation of &lt;a href="http://www.extension.harvard.edu/2005-06/courses/chin.jsp#e-2"&gt;CHIN E-2&lt;/a&gt;. Additional vocabulary and more complex grammar patterns are introduced. Emphasis is on further development of listening and speaking skills while increasing attention to reading and writing. Prerequisite: CHIN E-2 or equivalent.</description>
+  </course>
+  <course acad_year="2005" term_id="1" crn="10033">
+    <course_group>CSCI</course_group>
+    <course_num>E-113</course_num>
+    <title>Introduction to C, Unix/Linux, and CGI Programming</title>
+    <meeting>
+      <meeting_days>W</meeting_days>
+      <meeting_begin>1935</meeting_begin>
+      <meeting_end>2135</meeting_end>
+      <location>Science Center Hall A</location>
+    </meeting>
+    <course_head>
+      <person person_id="P9e87890a852d9dfcc040472175d0d996">
+        <person_name>Bruce Molay</person_name>
+        <person_lname>Molay</person_lname>
+        <person_fname>Bruce</person_fname>
+        <person_title>AB, Lecturer in Extension, Harvard University</person_title>
+      </person>
+    </course_head>
+    <description>Designed for students with some programming experience, this course provides a rigorous introduction to writing and using software tools in the Unix and GNU/Linux programming environments to build command-line and web-based programs. The curriculum covers the C programming language, Unix shell scripts, HTML, and CGI programming. Topics include text processing, memory management, files and pipes, and processes and protocols. Students write programs to analyze data and generate reports, use shell scripts to combine tools into applications and interactive webpages, and use CGI to provide web access to databases. Prerequisites: a working knowledge of a structured programming language such as C++, Java, or Pascal; a data structures course such as &lt;a href="http://www.extension.harvard.edu/2005-06/courses/csci.jsp#e-119"&gt;CSCI E-119&lt;/a&gt;.</description>
+  </course>
+  <course acad_year="2005" term_id="1" crn="10062">
+    <course_group>ECON</course_group>
+    <course_num>E-10a</course_num>
+    <title>Principles of Economics</title>
+    <meeting>
+      <meeting_days>R</meeting_days>
+      <meeting_begin>1935</meeting_begin>
+      <meeting_end>2135</meeting_end>
+      <location>Harvard Hall 201</location>
+    </meeting>
+    <course_head>
+      <person person_id="P2fdc3c8b664a7e6e00e67fe1f0d73ffe">
+        <person_name>Siddiq M. Abdullah</person_name>
+        <person_lname>Abdullah</person_lname>
+        <person_fname>Siddiq M.</person_fname>
+        <person_title>PhD, Professor of Economics, Pine Manor College</person_title>
+      </person>
+    </course_head>
+    <description></description>
+  </course>
+  <course acad_year="2005" term_id="1" crn="10080">
+    <course_group>EXPO</course_group>
+    <course_num>E-5 Section 1</course_num>
+    <title>Fundamentals of Grammar</title>
+    <meeting>
+      <meeting_days>M</meeting_days>
+      <meeting_begin>1730</meeting_begin>
+      <meeting_end>1930</meeting_end>
+      <location>Sever Hall 104</location>
+    </meeting>
+    <course_head>
+      <person person_id="P0cb5d1aa3adfbfafe074906f8b44271a">
+        <person_name>Charles Henebry</person_name>
+        <person_lname>Henebry</person_lname>
+        <person_fname>Charles</person_fname>
+        <person_title>PhD, Preceptor in Expository Writing, Harvard University</person_title>
+      </person>
+    </course_head>
+    <description>A review of the elements of grammar. We examine sentence structure, correct verb forms, case of pronouns, agreement, punctuation, and restrictive and nonrestrictive (that-which) clauses. Short readings illustrate the basic elements of grammar and style. Short writing assignments offer students opportunities to practice the lessons of the course.</description>
+  </course>
+  <course acad_year="2005" term_id="1" crn="10100">
+    <course_group>EXPO</course_group>
+    <course_num>E-510</course_num>
+    <title>Editing Technical Prose</title>
+    <meeting>
+      <meeting_days>T</meeting_days>
+      <meeting_begin>1935</meeting_begin>
+      <meeting_end>2135</meeting_end>
+      <location>Sever Hall 212</location>
+    </meeting>
+    <course_head>
+      <person person_id="Paf1136c73191c4b7bd4c07e6c349f499">
+        <person_name>Christine J. McCarthy</person_name>
+        <person_lname>McCarthy</person_lname>
+        <person_fname>Christine J.</person_fname>
+        <person_title>MA, Author, Editor</person_title>
+      </person>
+    </course_head>
+    <description>This course introduces students to all aspects of copyediting. While it focuses on technical and scientific prose, the course benefits students interested in editing or improving text regardless of technical background. Students evaluate and edit several types of computer, scientific, and other technical documents, including prose that appears on the Internet. Weekly editing assignments help students master editing principles, including proper word choice, consistency, and sentence structure. The course emphasizes prose style, audience, and purpose.</description>
+  </course>
+  <course acad_year="2005" term_id="1" crn="10115">
+    <course_group>FREN</course_group>
+    <course_num>E-1a Section 1</course_num>
+    <title>Elementary French I</title>
+    <meeting>
+      <meeting_days>T</meeting_days>
+      <meeting_begin>1730</meeting_begin>
+      <meeting_end>1930</meeting_end>
+      <location>Sever Hall 306</location>
+    </meeting>
+    <course_head>
+      <person person_id="Pc6d9baa76b6e0c17f0de3dadf1e5d395">
+        <person_name>Susan E. B&amp;#233;cam</person_name>
+        <person_lname>B&amp;#233;cam</person_lname>
+        <person_fname>Susan E.</person_fname>
+        <person_title>PhD</person_title>
+      </person>
+    </course_head>
+    <description>An introduction to French with an emphasis on communication. Extensive practice in all four skills--listening, speaking, reading, and writing--and a thorough review of the grammar necessary to support those skills. Students are encouraged to communicate in French through role-play and other interpersonal activities. They also read brief selections on French and Francophone culture, and write short dialogues and descriptions. For students with no knowledge of French.</description>
+  </course>
+  <course acad_year="2005" term_id="1" crn="10119">
+    <course_group>FREN</course_group>
+    <course_num>E-1 Section 2</course_num>
+    <title>Intensive Elementary French I</title>
+    <meeting>
+      <meeting_days>TR</meeting_days>
+      <meeting_begin>1935</meeting_begin>
+      <meeting_end>2135</meeting_end>
+      <location>Boylston Hall 105</location>
+    </meeting>
+    <course_head>
+      <person person_id="Pe755dbac5d6640810772155a2e12fd78">
+        <person_name>Mahalia C. Gayle</person_name>
+        <person_lname>Gayle</person_lname>
+        <person_fname>Mahalia C.</person_fname>
+        <person_title>AM</person_title>
+      </person>
+    </course_head>
+    <description>An introduction to oral and written French for students with little or no background in the language, this course encourages students to communicate with each other and the instructor in simple language using role-play and other interpersonal activities. Students read short pieces on modern French culture, see a modern French film, and write compositions on subjects of personal interest. Grammar includes present and near future tenses and &lt;em&gt;pass&amp;#233; compos&amp;#233;&lt;/em&gt;.</description>
+  </course>
+  <course acad_year="2007" term_id="1" crn="10120">
+    <course_group>FREN</course_group>
+    <course_num>E-1x</course_num>
+    <title>Reading for Information</title>
+    <meeting>
+      <meeting_days>MW</meeting_days>
+      <meeting_begin>1935</meeting_begin>
+      <meeting_end>2135</meeting_end>
+      <location>51 Brattle Street 223</location>
+    </meeting>
+    <course_head>
+      <person person_id="P6082da09d339f73e67802f391d51c468">
+        <person_name>Louise Marie Wills</person_name>
+        <person_lname>Wills</person_lname>
+        <person_fname>Louise Marie</person_fname>
+        <person_title>PhD, Development Associate, Phillips Brooks House Association, Harvard University</person_title>
+      </person>
+    </course_head>
+    <description>A systematic approach to written French involving grammar and usage. Differences between French and English are pointed out and illustrated by reading simple French texts. Students gradually become familiar with French ways of expression. Conducted in English. Prerequisite: a basic knowledge of English grammar.</description>
+  </course>
+  <course acad_year="2005" term_id="1" crn="10131">
+    <course_group>GERM</course_group>
+    <course_num>E-1a</course_num>
+    <title>Elementary German I</title>
+    <meeting>
+      <meeting_days>W</meeting_days>
+      <meeting_begin>1730</meeting_begin>
+      <meeting_end>1930</meeting_end>
+      <location>Sever Hall 308</location>
+    </meeting>
+    <course_head>
+      <person person_id="Pd108e0209b1c79ee3eb46aff6c343cb2">
+        <person_name>Thomas R. Siefert</person_name>
+        <person_lname>Siefert</person_lname>
+        <person_fname>Thomas R.</person_fname>
+        <person_title>AM, Teaching Assistant in German, Harvard University</person_title>
+      </person>
+    </course_head>
+    <description>In this course, students learn to speak and write German in unstilted and grammatically correct fashion. We listen to German-language broadcasts and songs, watch pieces of films, read texts on the Internet, and discuss them together. A grammar handbook with exercises is also included. Prerequisite for &lt;a href="http://www.extension.harvard.edu/2005-06/courses/germ.jsp#e-1b"&gt;GERM E-1b&lt;/a&gt;: GERM E-1a or equivalent.</description>
+  </course>
+  <course acad_year="2002" term_id="1" crn="10150">
+    <course_group>CGRK</course_group>
+    <course_num>E-1a</course_num>
+    <title>Elementary Classical Greek</title>
+    <meeting>
+      <meeting_days>M</meeting_days>
+      <meeting_begin>1935</meeting_begin>
+      <meeting_end>2135</meeting_end>
+      <location>Sever Hall 208</location>
+    </meeting>
+    <course_head>
+      <person person_id="P06e380890b7699c7a4f75ab4353d2a83">
+        <person_name>Christopher Krebs</person_name>
+        <person_lname>Krebs</person_lname>
+        <person_fname>Christopher</person_fname>
+        <person_title>PhD, Assistant Professor of the Classics, Harvard University</person_title>
+      </person>
+    </course_head>
+    <description>An introduction to the language of ancient Greece, covering basic grammar. The course emphasizes reading, with selections from Greek literature supplementing grammatical exercises. Prerequisite: previous study of a foreign language helpful.</description>
+  </course>
+  <course acad_year="2005" term_id="1" crn="10178">
+    <course_group>ITAL</course_group>
+    <course_num>E-1a</course_num>
+    <course_num>D-1a</course_num>
+    <title>Elementary Italian I</title>
+    <meeting>
+      <meeting_days>R</meeting_days>
+      <meeting_begin>1935</meeting_begin>
+      <meeting_end>2135</meeting_end>
+      <location>Sever Hall 208</location>
+    </meeting>
+    <course_head>
+      <person person_id="P88da5da359ea23c329272d5b64c0d026">
+        <person_name>Annalessandra A. Di Paolo</person_name>
+        <person_lname>Paolo</person_lname>
+        <person_fname>Annalessandra A. Di</person_fname>
+        <person_title>Teaching Assistant in Romance Languages and Literatures, Harvard University</person_title>
+      </person>
+    </course_head>
+    <description>This course is designed for students with little or no knowledge of Italian. Students study basic Italian grammar and learn to express themselves orally through interaction with their instructor and classmates. The course also focuses on listening comprehension and elementary readings.</description>
+  </course>
+  <course acad_year="2006" term_id="1" crn="10179">
+    <course_group>ITAL</course_group>
+    <course_num>E-1</course_num>
+    <course_num>D-2</course_num>
+   <course_num>F-3</course_num>
+    <title>Intensive Elementary Italian I</title>
+    <meeting>
+      <meeting_days>TR</meeting_days>
+      <meeting_begin>1730</meeting_begin>
+      <meeting_end>1930</meeting_end>
+      <location>Vanserg Hall 28</location>
+    </meeting>
+    <course_head>
+      <person person_id="P5f5d0899e32ceb2b129eea028f44b41e">
+        <person_name>Antonio Di Sanzo</person_name>
+        <person_lname>Sanzo</person_lname>
+        <person_fname>Antonio Di</person_fname>
+        <person_title>PhD, Chairman, Foreign Language Department, Town of Reading Public Schools</person_title>
+      </person>
+    </course_head>
+    <description>Conducted in Italian, this course is designed for beginners with no knowledge of Italian. The aim of the course is to develop basic oral expression, listening comprehension, and elementary reading and writing skills. Focus on cultural issues and group activities.</description>
+  </course>
+</courses>

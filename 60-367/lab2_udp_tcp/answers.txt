@@ -1,0 +1,68 @@
+1) The ip address of client is 192.168.1.102
+ The port number is 1161
+
+2) the ip address of gaia is 128.119.245.12
+port is 80
+
+3) my ipaddress is 137.207.22.206
+39881 is my port
+
+4) flag set for SYN (2 bit) sequence is set to 0
+
+5) The sequence number is still 0 and the acknowledgement field (number) is 1, the value is determined by the fact the server has received the first message from the client. The flag bits are set for both SYN (2) and ACK (16)
+
+6) sequence number of post message is 152504 
+
+7) 
+  1) first segment has sequence number of 1, the time it was sent was 4.161586, the ACK for the segment was received at 5.671593, the difference between the time sent and receiving the ACK was 1.510007
+  2) second segment has sequence number of 614, the time it was sent was 4.161764, the ACK for the segment was received at 5.671707, the difference between the time sent and receiving the ACK was 1.509943
+  3) third segment has a sequence number of 1988, the time it was sent was 4.161786, the ACK for the segment was received at 5.684356, the difference between the time sent and receiving the ACK was 1.52257
+  4) fourth segment has a sequence number of 3362, the time it was sent was 4.161798, the ACK for the segment was received at 5.684503, the difference between the time sent and receiving the ACK was 1.522705
+  5) fifth segment has a sequence number of 4736, the time it was sent was 5.671655, the ACK for the segment was received at 6.501577, the difference between the time sent and receiving the ACK was 0.829922
+  6) sixth segment has a sequence number of 6110, the time it was sent was 5.671691, the ACK for the segment was received at 6.501656, the difference between the time sent and receiving the ACK was 0.829965
+
+alpha = 0.125
+  estimatedRTT = 1.51007
+  estimatedRTT = 0.875*1.51007 + 0.125*1.509943 = 1.510054125
+  estimatedRTT = 0.875*1.510054125 + 0.125*1.52257 = 1.51161860937
+  estimatedRTT = 0.875*1.51161860937 + 0.125*1.522705 = 1.5130044082
+  estimatedRTT = 0.875*1.5130044082 + 0.125*0.829922 = 1.42761910717
+  estimatedRTT = 0.875*1.42761910717 + 0.125*0.829965 = 1.35291234377
+
+8)
+  1) The first segment has 613 bytes
+  2) The second segment has 1374 bytes
+  3) The third segment has 1374 bytes
+  4) The fourth segment has 1374 bytes
+  5) The fifth segment has 1374 bytes
+  6) The sixth segment has 1374 bytes
+
+9) The window size was always bigger then the amount of informatino sent
+
+10) no black lines were present and no byte sequences were retransmitted
+
+11) Most of the segments were 1374 bytes which was then acknowedged by the server. In our trace no combined ACKs were sent.
+
+12) W = 29250 bytes found by using statistics -> windows scaling graph which implies using the estimatedRTT of 1.35291234377 that the average TCP throughput is (3/4)*(W/estimatedRTT) = (3/4)*(29250/1.35291234377) = 16215.0194734 bytes per second
+
+13) Where the gaps are. THe slow start exponentially increases the amount of packets being sent until the first dropped packets. avoidence occurs when the connection pauses to allow the receiver to catch up.
+
+14) done
+
+
+
+UDP
+
+1) it has source port, dest port, length, and checksum you expand the UDP portion
+
+2) Each header was 2 bytes which can been seen on the bottom left so with four headers that is 8 bytes.
+
+3) The length was 43 bytes, which is the number of bytes in the header plus the number of bytes in the message.
+
+4) the maximum number that can be stored in an two unsigned  byte field is 65535 so the maximum in the payload is the maximum value - header fields so 65527 is the largest payload size.
+
+5) Same thing as four the highest value in two unsigned bytes which is 65535. 
+
+6) the protocol value is 17 found by expanding the IP section in wireshark
+
+7) The source and dest get switched, since the datagram is now going in the other direction.

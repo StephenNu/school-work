@@ -1,0 +1,24 @@
+No.     Time           Source                Destination           Protocol Length Info
+     10 0.039567000    128.119.245.12        137.207.22.3          HTTP     247    HTTP/1.1 304 Not Modified 
+
+Frame 10: 247 bytes on wire (1976 bits), 247 bytes captured (1976 bits) on interface 0
+Ethernet II, Src: PaloAlto_00:02:01 (00:1b:17:00:02:01), Dst: Azurewav_9c:ee:36 (e0:b9:a5:9c:ee:36)
+Internet Protocol Version 4, Src: 128.119.245.12 (128.119.245.12), Dst: 137.207.22.3 (137.207.22.3)
+Transmission Control Protocol, Src Port: 80 (80), Dst Port: 35850 (35850), Seq: 1, Ack: 492, Len: 181
+    Source Port: 80 (80)
+    Destination Port: 35850 (35850)
+    [Stream index: 0]
+    [TCP Segment Len: 181]
+    Sequence number: 1    (relative sequence number)
+    [Next sequence number: 182    (relative sequence number)]
+    Acknowledgment number: 492    (relative ack number)
+    Header Length: 32 bytes
+    .... 0000 0001 1000 = Flags: 0x018 (PSH, ACK)
+    Window size value: 54
+    [Calculated window size: 6912]
+    [Window size scaling factor: 128]
+    Checksum: 0x91eb [validation disabled]
+    Urgent pointer: 0
+    Options: (12 bytes), No-Operation (NOP), No-Operation (NOP), Timestamps
+    [SEQ/ACK analysis]
+Hypertext Transfer Protocol

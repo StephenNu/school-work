@@ -28,7 +28,7 @@ void PrintEmployeeRecord(const Employee e[]);
 /* Save the contents of the employee record list to the newly created text file specified by FileName */
 void SaveEmployeeRecords(const Employee e[], const char *FileName);
 
-void main()
+int main()
 {
 	int i;
 	Employee e1[MAX];

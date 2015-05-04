@@ -1,0 +1,56 @@
+1) 192.168.1.101 is my host while the destination host has ip of 143.89.14.34
+
+2) ICMP sits at the IP level and doesn't deal with ports like TCP and UDP. it always uses the same port which is 1.
+
+3) I will examine packet 3 the code was 0, and the type was 8. Other fields are
+a) checksum (2 bytes)
+b) Identifier (BE) (2 bytes big endian)
+c) Identifier (LE) (2 bytes little endian)
+d) Sequence number (BE) (2 bytes)
+e) Sequence number (LE) (2 bytes)
+
+4) the code is 0 and the type is 0, the other fields are the same as 3.
+
+5) I choose packet 2, the ip address of my host was 192.168.1.101 while the destination host was 10.216.228.1
+
+6) yes
+
+7) Yes this one has a ttl and other information so that it can trace the route.
+
+8) The contain addition fields that store the original request that was sent. both the IP level and the ICMP level.
+
+9) They are not error messages. This is because they successfully reached the destination before their TTL expired.
+
+10) step 10 to 11 had a huge difference in my personal screenshot while in the screenshot provided in the lab it occured between steps 9 and 10. In the lab provided screenshot the jump occured when transmitting from a ISP in the States to one in France.
+
+IP
+
+1) expanded it. my ip address is 192.168.1.102
+
+2) ICMP (1) is the value
+
+3) 20 bytes for the entire IP header. and 64 bytes in the payload. I moved the selection over and read the value from the bottom left.
+
+4) No we can tell because there was no reassembled segments.
+
+5) TTL and Identification always change, and checksum will most likely always change.
+
+6) Everything else stays the same. 
+
+7) They are in order. increasing by one each time.
+
+8) The first segmented packet was 92.
+
+9) it says [two IPv4 fragments ... ] in wireshark also the fragment offset is not 0. it also says what the payloads were 92 was the first.
+
+10) identification is 0x32f9 (13049) TTL = 1
+
+11) identification changes because its unique, and the ttl is always the same because its the first router.
+
+12) it has a fragement offset. that isn't 0. only these two. (92 and 93)
+
+13) total length, flags, checksum, fragments.
+
+14) three fragments.
+
+15) fragment offset, checksum, some flags.

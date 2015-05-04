@@ -1,0 +1,16 @@
+Manifest-Version: 1.0
+Bundle-ManifestVersion: 2
+Bundle-Name: Infos
+Bundle-SymbolicName: 440_Parsing_Bonus_Assignment;singleton:=true
+Bundle-Version: 1.0.0.qualifier
+Bundle-Activator: nuskos.jdt.infos.Activator
+Require-Bundle: org.eclipse.ui,
+ org.eclipse.core.runtime,
+ org.eclipse.core.resources;bundle-version="3.9.1",
+ org.eclipse.jdt;bundle-version="3.10.0",
+ org.eclipse.jdt.core;bundle-version="3.10.0",
+ org.eclipse.core.runtime.compatibility;bundle-version="3.2.200",
+ org.eclipse.jdt.ui;bundle-version="3.10.1",
+ org.eclipse.jface.text;bundle-version="3.9.1"
+Bundle-RequiredExecutionEnvironment: JavaSE-1.7
+Bundle-ActivationPolicy: lazy

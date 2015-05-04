@@ -1,0 +1,301 @@
+\documentclass{article}
+\usepackage[english]{babel}
+\usepackage{amsmath}
+\usepackage{amssymb}
+\usepackage{changepage}
+\usepackage{amsthm}
+\usepackage[margin=1in]{geometry}
+\usepackage{fancyhdr}
+
+\pagestyle{fancy}
+\rhead{Stephen Nusko \\ 103693282}
+\lhead{0360454 \\ Assignment 1}
+\title{[0360454] Assignment 1}
+\author{Stephen Nusko \\ 103693282}
+
+\begin{document}
+	\thispagestyle{empty}
+	\maketitle	
+  \section{Question 1}
+    let $f: \mathbb{N} \rightarrow \mathbb{R}^{+}\cup \{0\}$ and $g: \mathbb{N} \rightarrow \mathbb{R}^{+} \cup \{0\}$. Prove that $O(f) \subset O(g)$ if and only if $f \in O(g)$ and $f \not\in \Omega(g)$ \\
+    We need to prove that $O(f) \subset O(g) \Leftrightarrow  f \in O(g) \land f \not\in \Omega(g)$ \\
+    \subsection{Left to right}
+      First we will prove $O(f) \subset O(g) \Rightarrow f \in O(g) and f \not\in \Omega(g)$ \\
+      Proof: (contradiction) \\
+      Assume $O(f) \subset O(g)$ and $(f \not\in O(g) \lor f \in \Omega(g))$ \\
+      \subsubsection{Case 1: $f \not\in O(g)$}
+      \begin{enumerate}
+        \item $f \in O(f)$ \hfill Theorem 0.3 (a)
+        \item $f \in O(g)$ \hfill $O(f) \subset O(g)$
+        \item $f \in O(g) \land f \not\in O(g)$ \hfill 60-231
+        \item $false$
+      \end{enumerate}
+      \subsubsection{Case 2: $f \in \Omega(g)$}
+      \begin{enumerate}
+          \item $(\exists z: \mathbb{N} \rightarrow \mathbb{R}^{+} \cup \{0\})z \in O(g) \land z \not\in O(f)$ \hfill $O(f) \subset O(g)$
+          \item $z \in O(g) \land z \not\in O(f)$ \hfill EI
+          \item $z \in O(g)$ and $z \not\in O(f)$ \hfill I2, E9, I2
+          \item $c_{1}g(n) \leq f(n)$  $\forall n \geq n_{0}$ \hfill $f \in \Omega(g)$
+          \item $g(n) \leq \frac{1}{c_{1}}f(n)$  $\forall n \geq n_{0}$ \hfill Math
+          \item $z(n) \leq c_{2}g(n)$  $\forall n \geq n_{1}$ \hfill $z \in O(g)$
+          \item $\frac{1}{c_{2}}z(n) \leq g(n)$  $\forall n \geq n_{1}$ \hfill Math
+          \item $\frac{1}{c_{2}}z(n) \leq \frac{1}{c_{1}}f(n)$  $\forall n \geq max(n_{0}, n_{1})$ \hfill transitivity
+          \item $z(n) \leq \frac{c_{2}}{c_{1}}f(n)$  $\forall n \geq max(n_{0}, n_{1})$ \hfill Math
+          \item $z(n) \in O(f)$ \hfill Definition of $O(f)$
+          \item $z(n) \in O(f) \land z(n) \not\in O(f)$ \hfill 60-231
+          \item $false$
+      \end{enumerate}
+    \subsection{Right to left}
+      Next we prove $f \in O(g) \land f \not\in \Omega(g) \Rightarrow O(f) \subset O(g)$ \\
+      We will prove that $O(f) \subseteq O(g)$ and then $O(g) \neq O(f)$ \\
+      Assume $f \in O(g)$ and $f \not\in \Omega(g)$
+      \subsubsection{Prove: $O(f) \subseteq O(g)$}
+      Proof: (direct) \\
+      We are to prove that $(\forall z)(z \in O(f) \Rightarrow z \in O(g)$
+          \begin{enumerate}
+            \item let $z \in O(f)$ \hfill assumption
+            \item $z \in O(f) \land f \in O(g)$ \hfill 60-231
+            \item $z \in O(g)$ \hfill Theorem 0.3 (c)
+          \end{enumerate}
+          $\therefore O(f) \subseteq O(g)$
+      \subsubsection{Prove: $O(g) \neq O(f)$}
+        Proof: (contradiction)
+        \begin{enumerate}
+          \item Suppose $O(g) = O(f)$ \hfill assumption
+          \item $g \in O(g)$ \hfill Theorem 0.3 (a)
+          \item $g \in O(f)$ \hfill 1
+          \item $f \in O(g) \land g \in O(f)$ \hfill assumption, 3
+          \item $f \in \Theta(g)$ \hfill Theorem 0.3 (b)
+          \item $f \in O(g) \cap \Omega(g)$ \hfill Theorem 0.1 (b)
+          \item $f \in O(g)$ and $f \in \Omega(g)$ \hfill 6, I2, E9, I2
+          \item $f \in \Omega(g) \land f \not\in \Omega(g)$ \hfill assumption, 7
+          \item $false$
+        \end{enumerate}
+        $\therefore O(g) \neq O(f)$ \\
+        $\therefore O(f) \subseteq O(g) \land O(g) \neq O(f)$ \\
+        $\therefore O(f) \subset O(g)$ \\ 
+        \\
+        $\therefore O(f) \subset O(g) \Leftrightarrow f \in O(g)$ and $f \not\in \Omega(g) \hfill \qed$
+	\section{Question 2}
+    Prove that $n! \in o(n^{n})$ by using definition of the $o$-notation \\
+    We will prove first that $\forall c \in \mathbb{R}^{+}, c \geq 1, n$!$ < cn^{n}$  $\forall n \geq n_{0}$ \\
+    Then we will prove that $\forall c \in \mathbb{R}^{+}, 0 < c < 1, n! < cn^{n}$  $\forall n \geq n_{0}$ \\
+    \subsection{$c \geq 1$}
+      Proof: (by induction) \\
+      \subsubsection{Base Case: n = 2}
+        $2! = 2 * 1! = 2 * 1 * 0! = 2 * 1 * 1 = 2 < c2^{2} = c4 \hfill \forall c \geq 1$ \\
+        $\therefore$ when $n = 2, n! < cn^{n}$  $\forall c \geq 1$
+      \subsubsection{Inductive step}
+        Assume $k! < ck^{k}$, $\forall k < n$ \\
+        $n$!$ = n * (n - 1)$! \\
+        $< n * c * {(n - 1)}^{n - 1}$ \\
+        $< c * n * n^{n - 1}$ \\
+        $< cn^{n}$ \\
+        $\therefore if k! < ck^{k}, \forall k < n$, then $n! < cn^{n}$ \\
+        $\therefore$ We have proved the base case and the inductive step. \\
+        $\therefore \forall c \in \mathbb{R}^{+}, c \geq 1, n! < cn^{n}$ $\forall n \geq 2$
+    \subsection{$0 < c < 1$}
+      First we will prove lemma *, which states n! has n + 1 terms involved in its product.
+      \subsubsection{lemma *}
+        Proof: (by induction) \\
+        Base Case: $n = 0$ \\
+        $0! = 1 \Rightarrow 0 + 1 terms = n + 1 terms$ \\
+        $\therefore$ when $n = 0$, $n$! has n + 1 terms. \\
+        Inductive Step: \\
+        Assume n! has n + 1 terms \\
+        $(n + 1)! = (n + 1) * n$! \\
+        $(n + 1) * (n + 1$ terms$)$ \\
+        $\therefore (n + 1)$! has $(n + 1) + 1$ terms \\
+        $\therefore$ We have proved the base case and the inductive step. \\
+        $\therefore \forall n \geq 1, n!$ has $n + 1$ terms $\qed$ \\
+        \\
+        After proving lemma *, we proceed by noting that since $0 < c < 1$. $\exists m \in \mathbb{R}^{+}, m > 1$ such that $c = \frac{1}{m}$ \\
+        Let us choose such a $m$ and then a $n_{0}$ such that $n_{0} = max(3,\lceil m \rceil)$ \\
+        We will now prove $n$!$ < cn^{n} \equiv n$!$ < \frac{1}{m}n^{n} \equiv m(n$!$) < n^{n}$ in both $m \leq 3$ and $m > 3$ cases.\\
+        \subsubsection{Case 1: $m \leq 3$}
+          Proof: (by induction) \\
+          Base Case: $n = 3$ \\
+          $m \leq 3 \Rightarrow m * 3! = m * 6 < 3 * 3! = 18 < 3^{3} = 27$ \\
+          $\therefore$ When $n = 3$, $mn < n^{n}$ \\
+          Inductive Step: \\
+          Assume $m*n! < n^{n}$ \\
+          $m * (n + 1)! = m * (n + 1) * n! = (n + 1) * m * n!$ \\
+          $< (n + 1) * n^{n}$ \\
+          $< (n + 1) * {(n + 1)}^{n}$ \\
+          $= {(n + 1)}^{n + 1}$ \\
+          $\therefore m * (n + 1)! < {(n + 1)}^{n + 1}$ \\
+          $\therefore$ We have proved the base case and the inductive step. \\
+          $\therefore$ When $m \leq 3$, $m(n!) < n^{n}$  $\forall n \geq max(3, \lceil m \rceil)$
+          \subsubsection{Case 2: $m > 3$}
+            In this case $n \geq m$ \\
+            By lemma * above, $n!$ has $n + 1$ terms and $n \geq m > 3$, $n!$ has the form $n!_{n+1 terms} = n * (n - 1) * \dots * 1 * 1$ because $0! = 1! = 1$ \\
+            by dropping the two 1's we get $n!_{n-1 terms}$ \\
+            Now we note that $m * n!_{n-1 terms}$ has n terms involved, while $n^{n}$ is the product of n multiplied n times, so $n^{n}$ has n terms. \\
+            We match the terms up as follows \\
+            \begin{table}[h]
+              \begin{tabular}{|l|l|l|l|l|l|}
+                \hline
+                $m * n!_{n-1 terms} =$ & $m$ & $n$  & $(n - 1)$ & $\dots$  & 2 \\ \hline
+                $n^{n} =$              & $n$ & $n$  & $n$       & $\dots$  & $n$    \\ \hline
+              \end{tabular}
+            \end{table} \\
+            As can be seen for each term in $m * n!_{n-1 terms}$ we can pair it with a $n$ in $n^{n}$ \\
+            $\because n \geq m, \therefore \forall terms \in (m * n!_{n-1 terms})$, each term is less than or equal to its corresponding term in $n^{n}$ \\
+            $\because 2 < n, \therefore m * n! < n^{n}$ \\
+            $\therefore$ when $m > 3$, $m * n! < n^{n}$  $\forall n \geq max(3,\lceil m \rceil)$ \\
+            \\
+            $\therefore \forall m > 1, m * n! < n^{n} \equiv n! < cn^{n}$  $\forall n \geq max(3,\lceil m \rceil)$ \\
+            $\therefore n! < cn^{n}, \forall c > 0$, and $n \geq max(3,\lceil \frac{1}{c} \rceil) \because 2 < 3$ we can just increase the $n_{0}$ in the proof for $c \geq 1$ \\
+            $\therefore \forall c \in \mathbb{R}^{+}, \exists n_{c} \in \mathbb{N}, n! < cn^{n}$, $\forall n \geq n_{c}$ \\
+            $\therefore n! \in o(n^{n}) \qed$
+  \section{Question 3}
+  \begin{center}Prove or disprove that $f(n) + o(f(n)) \in \Theta(f(n))$ \\
+  We will prove that \[\lim_{n \to \infty} \frac{f(n) + o(f(n))}{f(n)} = k > 0 \] \end{center}
+    
+  \begin{center} This will show that $f(n) + o(f(n)) \in \Theta(f(n))$ by Theorem 0.2(c) \\
+  First let z(n) = o(f(n)), and note that from Theorem 0.2(d) \end{center}
+  \[\lim_{n \to \infty} \frac{z(n)}{f(n)} = 0  \because z(n) \in o(f(n))\]
+  Now we show that $f(n) + o(f(n)) \in \Theta(f(n))$ \\
+    \[\lim_{n \to \infty} \frac{f(n) + o(f(n))}{f(n)} \\
+      = \lim_{n \to \infty} \frac{f(n) + z(n)}{f(n)}  \\
+      = \lim_{n \to \infty} \frac{f(n)}{f(n)} + \frac{z(n)}{f(n)} \\
+      = \lim_{n \to \infty} \frac{f(n)}{f(n)} + \lim_{n \to \infty} \frac{z(n)}{f(n)} \\
+      = (\lim_{n \to \infty} 1) + 0 \\
+      = 1
+      = k \geq 0
+    \]
+  \begin{center}$\therefore f(n) + o(f(n)) \in \Theta(f(n)) \qed$\end{center}
+    \section{Question 4}
+      List the functions below from lowest asymtotic order to highest asymptoic order. If any two (or more) are of the same asymptotic order, indicate which. Provide proofs. \\
+      First we will list the order of the functions and then provide a series of proofs that will show that each smaller terms belongs to small-$o$ of the next largest. \\
+      This will be true except for the last two which are both constants, we will show in that case that the values of the constants as n goes to infinity gives us the correct order. \\
+
+      \[\prod_{k=2}^{n}(1 - \frac{1}{k^{2}}) < log_{\sqrt{n}} n^{6} < lg^{2} n < 10^{lg lg n} < n^{2} < (n^{2} - 3n)^{3} < n! < n^{n} \]
+      \subsection{$n! \in o(n^{n})$}
+        In question 2 we showed that $n! \in o(n^{n})$
+        $\therefore n! \in o(n^{n})$ $\qed$
+        \subsection{($n^{2} - 3n)^{3} \in o(n!)$}
+        For all future proofs we will be using Theorem 0.2(d) to prove that each function belongs to $o$ of the next largest. \\
+        First let us show the expansion of $(n^{2} - 3n)^{3}$. \\
+        $(n^{2} - 3n)^{3} = (n^{2} - 3n)(n^{2} - 3n)^{2} = (n^{2} - 3n)(n^{4} - 6n^{3} + 9n^{2}) = n^{6} - 9n^{5} + 27n^{4} - 27n^{3}$ \\
+        Secondly we prove lemma +
+        \subsubsection{lemma +}
+          Lemma + states that the degree of $n!$ is n $\forall n \geq 1$. \\
+          Proof: (by induction) \\
+          Base Case: n = 1 \\
+          In this case, we must remember that $0! = 1 = (n - 1)!$ \\
+          $n! = n * (n - 1)! = n * 0! = n * 1 = n^{1} = 1$ \\
+          $\therefore$ when $n = 1$, the degree of n! is 1.
+          Assume k! highest degree $\forall k < n$
+          Since $(n - 1)!$ has degree $n - 1$, $(n - 1)!$ has the form $(n - 1)! = An^{n - 1} + Bn^{n - 2} + \dots + Z$, where $A,B,\dots,Z \in \mathbb{Z}$ \\
+          $n! = n * (n - 1)!$ \\
+          $= n * (An^{n -1} + Bn^{n - 2} + \dots + Z)$ \\
+          $= An^{n} + Bn^{n - 1} + \dots + Zn$ \\
+          $\therefore$, we have proved both the base case, and the inductive step. \\
+          $\therefore$, the degree of $n!$ is n. $\forall n \geq 1$  $\qed$. \\          
+        \\
+        \begin{center}Now we must solve the following\end{center}
+          \[\lim_{n \to \infty} \frac{(n^{2} - 3n)^{3}}{n!} = \lim_{n \to \infty} \frac{n^{6} - 9n^{5} + 27n^{4} - 27n^{3}}{n!}\]
+          Dividing by the highest power, which as n goes to infinity is n since $n!$ has degree $n$ because of lemma +. \\
+          and Since $n!$ is a polynominal of degree n it is has the form $n! = An^{n} + Bn^{n-1} + \dots + Z$, where $A, B, \dots, Z \in \mathbb{Z}$ \\
+        Therefore, \[\lim_{n \to \infty} \frac{\frac{n^{6}}{n^{n}} - \frac{9n^{5}}{n^{n}} + \frac{27n^{4}}{n^{n}} - \frac{27n^{3}}{n^{n}}}{\frac{An^{n}}{n^{n}} + \frac{Bn^{n-1}}{n^{n}} + \dots + \frac{Z}{n^{n}}} = \frac{0}{A} = 0\]
+        $\therefore (n^{2} - 3n)^{3} \in o(n!)$, by Theorem 2(d). $\qed$
+        \subsection{$n^{2} \in o((n^{2} - 3n)^{3})$}
+          Again by limits we are to prove that the following limit is equal to zero.
+          \[\lim_{n \to \infty} \frac{n^{2}}{(n^{2} - 3n)^{3}} = \lim_{n \to \infty} \frac{n^2}{n^{6} - 9n^{5} + 27n^{4} - 27n^{3}} = \lim_{n \to \infty}\frac{\frac{n^{2}}{n^{6}}}{\frac{n^{6}}{n^{6}} + \frac{9n^{5}}{n^{6}} + \frac{27n^{4}}{n^{6}} + \frac{27n^{3}}{n^{6}}} = \frac{0}{1} = 0\]
+          $\therefore n^{2} \in o((n^{2} - 3n)^{6})$, by Theorem 2(d). $\qed$
+        \subsection{$10^{lg lg n} \in o(n^{2})$}
+        Since $10^{lg lg n} \equiv lg^{lg 10} n$, and by example 2, page 48 in the textbook $lg^{k}n \in o(n^{c})$ $\forall k, c > 0.$ \\
+        $\therefore 10^{lg lg n} < o(n^{2})$ $\qed$
+        \subsection{$lg^{2}n \in o(10^{lg lg n})$}
+        Since $10^{lg lg n} \equiv lg^{lg 10} n = lg^{3 + \epsilon}n,$ for some $\epsilon$. We can show by limits
+        \[\lim_{n \to \infty} \frac{lg^{2}n}{lg^{3 + \epsilon}n} = \lim_{n \to \infty} \frac{\frac{lg^{2}n}{lg^{3 + \epsilon}n}}{\frac{lg^{3 + \epsilon}n}{lg^{3 + \epsilon}n}} = \frac{0}{1} = 0\]
+        $\therefore lg^{2}n \in o(10^{lg lg n})$, by Theorem 2(d). $\qed$
+        \subsection{$log_{\sqrt{n}}n^{6} \in o(lg^{2}n)$}
+        Since \[\lim_{n \to \infty}log_{\sqrt{n}}n^{6} = \lim_{n \to \infty}log_{n^{\frac{1}{2}}}n^{\frac{1}{2}^{12}} = \lim_{n \to \infty}12log_{n^{\frac{1}{2}}}n^{\frac{1}{2}} = 12\]
+          We can show by limits,
+          \[\lim_{n \to \infty}\frac{log_{\sqrt{n}}n^{6}}{lg^{2}n} = \lim_{n \to \infty}\frac{12}{lg^{2}n} = 0\]
+          $\therefore log_{\sqrt{n}}n^{6} \in o(lg ^{2}n)$, by Theorem 2(d). $\qed$
+          \subsection{$\prod_{k=2}^{n}(1 - \frac{1}{k^{2}}) < log_{\sqrt{n}}n^{6}$}
+          First we prove lemma @
+          \subsubsection{lemma @}
+            We will prove that $\prod_{k=2}^{n}(1 - \frac{1}{k^{2}}) = \frac{n + 1}{2n}$ \\
+            Proof: (by induction) \\
+            Base case: $n = 2$ \\
+            In this case $\prod_{k=2}^{n}(1 - \frac{1}{k^{2}}) = 1 - \frac{1}{2^{2}} = \frac{4 - 1}{4} = \frac{2 + 1}{2*2} = \frac{n + 1}{2n}$ \\
+            $\therefore$ When $n = 2, \prod_{k=2}^{n}(1 - \frac{1}{k^{2}}) = \frac{n + 1}{2n}$ \\
+            Inductive step: \\
+            Assume $\prod_{k=2}^{l}(1 - \frac{1}{k^{2}}) = \frac{l + 1}{2l}, \forall l < n$ \\
+            $\prod_{k=2}^{n}(1 - \frac{1}{k^{2}}) = (1 - \frac{1}{n^{2}}) * \prod_{k=2}^{n-1}(1 - \frac{1}{k^{2}}) = (1 - \frac{1}{n^{2}})*\frac{(n - 1) + 1}{2(n - 1)}$ \\
+            $= (\frac{n^{2}}{n^{2}} - \frac{1}{n^{2}})*(\frac{n}{2(n-1)}) = (\frac{n^{2} - 1}{n^{2}})*(\frac{n}{2(n - 1)}) = \frac{n^{2} - 1}{2n(n - 1)} = \frac{(n - 1)(n + 1)}{2n(n - 1)}$ \\
+            $= \frac{n + 1}{2n}$ \\
+            $\therefore$ We have proven the base case, and the inductive step. \\
+            $\therefore \prod_{k=2}^{n}(1 - \frac{1}{k^{2}}) = \frac{n + 1}{2n}$, $\forall n \geq 2$ \\
+          \\
+          Now we prove that $\lim_{n \to \infty}\prod_{k=2}^{n}(1 - \frac{1}{k^{2}}) = \frac{1}{2} < \lim_{n \to \infty}log_{\sqrt{n}}n^{6} = 12$. We show by limits \\
+          \[\lim_{n \to \infty}\prod_{k=2}^{n}(1 - \frac{1}{k^{2}}) = \lim_{n \to \infty}\frac{n + 1}{2n} = \lim_{n \to \infty}\frac{\frac{n}{n} + \frac{1}{n}}{\frac{2n}{n}} = \frac{1}{2}\]
+      \[\lim_{n \to \infty}log_{\sqrt{n}}n^{6} = \lim_{n \to \infty}12 = 12\]
+      Since $\frac{1}{2} < 12$, $\therefore \prod_{k=2}^{n}(1 - \frac{1}{k^{2}}) < \log_{\sqrt{n}}n^{6}$, as n goes to infinity. $\qed$
+    \section{Question 5}
+      \subsection{Part a}
+        We are to solve the recurrence $T(n) = 4T(\frac{n}{2}) + n^{2} + nlgn$ \\
+        Note that $a = 4, b = 2, f(n) = n^{2} + nlgn$ \\
+        $log_{b}a = log_{2}4 = 2$ \\
+        $\therefore f(n) = n^{2} + nlgn = \Theta(n^{2}) = \Theta(n^{log_{b}a}) = \Theta(n^{log_{b}a}lg^{0} n)$ \\
+        By Case 2, \\
+        We have $T(n) = \Theta(n^{2}lgn) \qed$
+      \subsection{Part b}
+        We are to solve the recurrence $T(n) = 6T(\frac{n}{2}) + n^{2}lgn$ \\
+        Note that $a = 6, b = 6, f(n) = n^{2}lgn$ \\
+        $log_{b}a = log_{6}6 = 1$ \\
+        $\therefore f(n) = n^{2}lgn = \Omega(n^{2}) = \Omega(n^{1 + 1}) = \Omega(n^{log_{b}a + \epsilon})$ for some $\epsilon > 0$ \\
+        Which is Case 3, \\
+        however we must prove regularity. So for sufficiently large n \\
+        $af(\frac{n}{b}) = 6f(\frac{n}{6})$ \\
+        $= 6{(\frac{n}{6})}^{2}lg(\frac{n}{6})$ \\
+        $= 6(\frac{n^{2}}{6^{2}})(lgn - lg6)$ \\
+        $= \frac{1}{6}n^{2}lgn - \frac{1}{6}n^{2}lg6$ \\
+        $\leq cn^{2}lgn$  where $0 < c = \frac{1}{6} < 1$ \\
+        $\therefore$ by Case 3, we have $T(n) = \Theta(n^{2}lgn) \qed$
+      \subsection{Part c}
+        We are to solve the recurrence $T(n) = 3T(\frac{n}{2}) + 2n$ \\
+        Note that $a = 3, b = 2, f(n) = 2n$ \\
+        $log_{b}a = log_{2}3 > 1$ \\
+        $\therefore f(n) = 2n = O(n^{1}) = O(n^{log_{2}3 - \epsilon}) = O(n^{log_{b}a - \epsilon})$, for some $\epsilon \geq log_{2}3 - 1 > 1$\\
+        By Case 1, \\
+        We have $T(n) = \Theta(n^{log_{2}{3}}) \qed$
+    \section{Question 6}
+      We are to solve the recurrence $T(n) = T(\frac{n}{2}) + T(\frac{2}{5}n) + n$ \\
+      We guess that $T(n) = O(n lg n)$ ie $T(n) \leq cnlgn$ for some constant $c > 0$ and sufficiently large $n$. \\
+      \subsection{Inductive Step}
+        Assume $T(k) \leq ck lg k$, $\forall k < n$ \\
+        Since $\frac{n}{2} < n$, when $n \geq 2$, we have, \\
+        $T(\frac{n}{2}) \leq c\frac{n}{2}lg \frac{n}{2}$ \\
+        Likewise $\frac{2}{5}n < n$, when $n \geq 3$, we therefore have, \\
+        \\
+        $T(\frac{2}{5}n) \leq c(\frac{2}{5}n)lg\frac{2}{5}n \leq c\frac{n}{2}lg\frac{n}{2}$,  $\because \frac{2}{5}n \leq \frac{n}{2}$, $\forall n \in \mathbb{N}$ \\
+        \\
+        $\therefore T(\frac{n}{2}) + T(\frac{2}{5}n) \leq 2c\frac{n}{2}lg \frac{n}{2}$ \\
+        Now, \\
+        $T(n) = T(\frac{n}{2}) + T(\frac{2}{5}n) + n$ \\
+        $\leq 2c\frac{n}{2}lg \frac{n}{2} + n$ \\
+        $= cn(lg n - lg 2) + n$ \\
+        $= cnlg n - cnlg2 + n$ \\
+        $\leq cnlgn$   whenever $c > \frac{1}{lg2}$ \\
+      \subsection{Base Case}
+        First we note that $n = 1$, gives us $T(1) = a$, where a is a constant. \\
+        We note that $T(1) = a \not\leq c(1lg1)$, $\forall a > 0$ \\
+        However since we need only prove for sufficiently large $n$ \\
+        We note that when we interpret $\frac{n}{2}$ and $\frac{2}{5}n$ as $\lceil\frac{n}{2}\rceil$ and $\lceil\frac{2}{5}n\rceil$ respectively, \\
+        that only T(2) directly depends on T(1). We therefore use T(2) as our base case.
+        When $n = 2$ \\
+        $T(2) = T(\lceil\frac{2}{2}\rceil) + T(\lceil\frac{2*2}{5}\rceil) + 2$ \\
+        $= T(1) + T(1) + 2$ \\
+        $= 2T(1) + 2$ \\
+        $= 2a + 2$ \\
+        $2a + 2 \leq c(2lg2)$, whenever $a + 1 \leq c$ \\
+        $\therefore$ We have proved the base case, and the inductive step. \\
+        $\therefore T(n) \leq cnlgn$  for any $c \geq a + 1$ and for all $n \geq 2$\\
+        $\therefore T(n) \in O(nlgn) \qed$
+	\end{document}
+

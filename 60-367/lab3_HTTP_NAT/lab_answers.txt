@@ -1,0 +1,65 @@
+1) both are running 1.1
+
+2) The browser says it will accept text/html,application/xhtml+xml,application/xml;q=0.9,image/webp,*/*;q=0.8
+
+3) my computer is 137.207.22.39 while the server is 128.119.245.12
+
+4) 200 OK
+
+5) Wed, 29 Oct 2014 17:11:01 GMT
+
+6) 128
+
+7) I don't see any.
+
+8) no
+
+9) Yes you can inspect the text data lines
+
+10) Yes the following information is sent "If-Modified-Since: Wed, 29 Oct 2014 17:42:01 GMT"
+
+11) 304 not modified. No the server did not send the file.
+
+12) One, and it was packet 80
+
+13) 88 is the reconstructed packet number, and packet 82 contains the segment that contains the get request in its data.
+
+14) 200 OK
+
+15) 4 segments were needed.
+
+16) 4 get requests were sent from my browser, addresses were 128.119.245.12 /wireshark-labs/HTTP-wireshark-file4.html, 128.119.240.90 /~kurose/cover_5th_ed.jpg, 165.193.140.14 /assets/hip/us/hip_us_pearsonhighered/images/pearson_logo.gif, 128.119.240.90 /~kurose/cover_5th_ed.jpg
+
+17) parallel the images were both requested in a short period of time, and none of the responses for the images had yet to come back before both requests were sent.
+
+18) 401 Authorization Required
+
+19) The new field was "Authorization" with a value of "Basic d2lyZXNoYXJrLXN0dWRlbnRzOm5ldHdvcms="
+
+NAT
+
+1) The clients IP is 192.168.1.100
+
+2) Applied filter
+
+3) Source ip is 192.168.1.100 and port is 4335 while dest is 64.233.169.104 and port is 80 
+4) The response is at 7.158797 the source is 64.233.169.104 port is 80 and dest is 192.168.1.100 port is 4335
+  a) The clients SYN message is sent at 7.075657 in packet 53 source port of 4335 and dest of 80
+  b) the source of the SYN ACK message ip address is 64.233.169.104 port 80 and the dest is 192.168.1.100 port 4335
+  c) The servers ack is received at 7.108986
+
+6) source is is 71.192.34.104 port is 4335 dest is 64.233.169.104 port 80, The source ip address is different
+
+7) unchanged: version, flags, header length
+  changed: checksum is changed because the source ip address is changed and the checksum is calculated on the header values.
+
+8) The first 200 OK from google is packet 90 at time 6.117570 source is 64.233.169.104 port is 80 while dest is 71.192.34.104 port is 4335 the difference is in the destination port the rest are the same.
+
+9) the clients SYN is sent (isp trace) at packet 83 time 6.035475 source ip is 71.192.34.104 port is 4335 dest is 64.233.169.104 port is 80
+  the server's SYN ACK is set at packet 84 at 6.067775 from 64.233.169.104 port 80 to 71.192.34.104 port 4335
+  only the one ip address has been changed.
+  
+
+WAN SIDE                    | LAN Side
+S= 71.192.34.104 port 4335  | 192.168.1.100 port 4335
+D= 64.233.169.104 port 80   | 64.233.168.104 port 80
